@@ -1,0 +1,13 @@
+PODS:
+  - AFNetworking (1.3.3)
+  - ClearBlade-iOS-API (0.8.7):
+    - AFNetworking (~> 1.3.3)
+
+DEPENDENCIES:
+  - ClearBlade-iOS-API
+
+SPEC CHECKSUMS:
+  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
+  ClearBlade-iOS-API: 74c9471643a8dcf52537e81e0fe9250279a8dedf
+
+COCOAPODS: 0.27.1
