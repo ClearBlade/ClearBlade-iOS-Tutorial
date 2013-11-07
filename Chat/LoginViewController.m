@@ -9,11 +9,14 @@
 #import "LoginViewController.h"
 #import "GroupListViewController.h"
 
+
 @interface LoginViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController {
+    CBCollection *userCol;
+}
 
 @synthesize userNameField;
 @synthesize errorMessage;
@@ -30,7 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+#warning If you want to user your own version of the users collection make sure that you replace the following collectionID with your own. Also replace the appKey and appSecret in AppDelegate.m with yours.
+	userCol = [[CBCollection alloc] initWithCollectionID:@"5277bd878ab3a37ce7f6f062"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +44,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void) checkUser: (NSString *) userString {
+    CBQuery *userQuery = [[CBQuery alloc] initWithCollectionID:[userCol collectionID]];
+    [userQuery equalTo:userString for:@"username"];
+    [userQuery fetchWithSuccessCallback:^(NSMutableArray *stuff) {
+        if ([stuff count] == 0) {
+            NSMutableDictionary *newUser = [[NSMutableDictionary alloc] init];
+            [newUser setObject:userString forKey:@"username"];
+            [userCol createWithData:newUser WithSuccessCallback:^(CBItem *newUser) {
+                NSLog(@"new user created");
+            } ErrorCallback:^(NSError *err, id ret) {
+                NSLog(@"ERROR: %@: %@", err, ret);
+            }];
+        } else {
+            errorMessage.text = @"Welcome Back!";
+        }
+    } ErrorCallback:^(NSError *error, id returned) {
+        NSLog(@"ERROR: %@: %@", error, returned);
+    }];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *username = self.userNameField.text;
@@ -48,6 +71,7 @@
         self.errorMessage.text = @"No username was entered";
         return;
     } else {
+        [self checkUser:username];
         groupView.username = username;
     }
 }
