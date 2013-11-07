@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FF6AE1CF-B628-4944-9A8F-0DCC67B7E6AD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Chat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0CBC2C34-762B-475C-8BC5-C54FCB9D8B05</key>
+		<string>ssh://github.com/ClearBlade/ClearBlade-iOS-Tutorial.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Chat.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0CBC2C34-762B-475C-8BC5-C54FCB9D8B05</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ClearBlade/ClearBlade-iOS-Tutorial.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0CBC2C34-762B-475C-8BC5-C54FCB9D8B05</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0CBC2C34-762B-475C-8BC5-C54FCB9D8B05</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ClearBlade-iOS-Tutorial</string>
+		</dict>
+	</array>
+</dict>
+</plist>

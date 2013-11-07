@@ -7,12 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import <CBAPI.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+#warning Replace the following appKey and appSecret if you want to use your own account.
+    [ClearBlade initAppKey:@"5277bd628ab3a37ce7f6f061" AppSecret:@"0D2N19VB3FPYJYEBSOI4LVG6M97PKX"];
     return YES;
 }
 							
