@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CBMessageClient.h>
+#define PLATFORM_URL @"tcp://platform.clearblade.com:1883"
 
 @interface ChatViewController : UIViewController
 

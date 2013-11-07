@@ -8,11 +8,13 @@
 
 #import "ChatViewController.h"
 
-@interface ChatViewController ()
+@interface ChatViewController () <CBMessageClientDelegate, UITextViewDelegate>
 
 @end
 
-@implementation ChatViewController
+@implementation ChatViewController {
+    CBMessageClient * messageClient;
+}
 
 @synthesize group;
 @synthesize username;
@@ -37,7 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	messageClient = [[CBMessageClient alloc] init];
+    messageClient.delegate = self;
+    [messageClient connectToHost:[NSURL URLWithString:PLATFORM_URL]];
     self.messages = [[NSMutableArray alloc] initWithCapacity:50];
 }
 
@@ -74,7 +78,16 @@
 }
 
 - (IBAction)sendClicked {
-    //Handle publish logic here
+    NSString *messageText = [NSString stringWithFormat:@"%@: %@", self.username, messageField.text];
+    [messageClient publishMessage:messageText toTopic:self.group];
+    messageField.text = @"";
+}
+
+-(void)messageClient:(CBMessageClient *)client didConnect:(CBMessageClientConnectStatus)status {
+    [client subscribeToTopic:self.group];
+}
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    [self addMessage:[message payloadText]];
 }
 
 @end
