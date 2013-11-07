@@ -13,7 +13,9 @@
 
 @end
 
-@implementation GroupListViewController
+@implementation GroupListViewController {
+    CBCollection *groupCol;
+}
 
 @synthesize groups;
 @synthesize username;
@@ -27,12 +29,14 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.groups = [[NSMutableArray alloc] init];
-    //Add logic here to get all the group names and add them to the groups list
+    groupCol = [[CBCollection alloc] initWithCollectionID:@"5277bd8f8ab3a37ce7f6f063"];
+    [self getAllGroups];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +63,16 @@
     return cell;
 }
 
-
+- (void) getAllGroups {
+    [groupCol fetchWithSuccessCallback:^(NSMutableArray *returnedGroups) {
+        for (int i=0; i<[returnedGroups count]; i++) {
+            [self.groups addObject:[(CBItem *)[returnedGroups objectAtIndex:i] getValueFor:@"groupname"]];
+        }
+        [self.tableView reloadData];
+    } ErrorCallback:^(NSError *err, id ret) {
+        NSLog(@"ERROR: %@: %@", err, ret);
+    }];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

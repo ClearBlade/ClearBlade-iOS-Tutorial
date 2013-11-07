@@ -16,6 +16,7 @@
 
 @implementation LoginViewController {
     CBCollection *userCol;
+    
 }
 
 @synthesize userNameField;
@@ -35,7 +36,6 @@
     [super viewDidLoad];
 #warning If you want to user your own version of the users collection make sure that you replace the following collectionID with your own. Also replace the appKey and appSecret in AppDelegate.m with yours.
 	userCol = [[CBCollection alloc] initWithCollectionID:@"5277bd878ab3a37ce7f6f062"];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +63,8 @@
         NSLog(@"ERROR: %@: %@", error, returned);
     }];
 }
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *username = self.userNameField.text;
