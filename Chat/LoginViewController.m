@@ -49,5 +49,7 @@
         groupView.username = username;
     }
 }
+- (IBAction)loginClicked:(id)sender {
+}
 
 @end
