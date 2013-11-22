@@ -9,42 +9,61 @@
 #import "ChatViewController.h"
 
 @interface ChatViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
 
 @end
 
 @implementation ChatViewController
 
-@synthesize group;
-@synthesize username;
-@synthesize messageField;
-@synthesize scrollView;
-@synthesize bottomBar;
-@synthesize messages;
+@synthesize group = _group;
+@synthesize username = _username;
+@synthesize messageField =_messageField;
+@synthesize scrollView = _scrollView;
+@synthesize bottomBar = _bottomBar;
+@synthesize messages = _messages;
+@synthesize chatBox = _chatBox;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)keyboardWillBeShown:(NSNotification*)notification {
+    CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = size.height;
+            [self.view layoutIfNeeded];
+        }
+    }];
+    
+}
+- (void)keyboardWillBeHidden:(NSNotification*)notification {
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = 0.0f;
+            [self.view layoutIfNeeded];
+        }
+    }];
 }
 
-
-
+-(NSMutableArray *)messages {
+    if (!_messages) {
+        _messages = [NSMutableArray arrayWithCapacity:50];
+    }
+    return _messages;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.messages = [[NSMutableArray alloc] initWithCapacity:50];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -68,8 +87,10 @@
     label.text = message;
     label.scrollEnabled = NO;
     label.editable = NO;
-    [self.scrollView addSubview:label];
-    self.scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
+    
+    UIScrollView * scrollView = self.scrollView;
+    [scrollView addSubview:label];
+    scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
     [self.messages addObject:label];
 }
 

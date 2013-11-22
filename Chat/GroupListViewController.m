@@ -15,29 +15,14 @@
 
 @implementation GroupListViewController
 
-@synthesize groups;
-@synthesize username;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize groups = _groups;
+@synthesize username = _username;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.groups = [[NSMutableArray alloc] init];
     //Add logic here to get all the group names and add them to the groups list
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -47,13 +32,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.groups count];
+    return (NSInteger)[self.groups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"GroupCell";
-    NSString *group = [self.groups objectAtIndex:indexPath.row];
+    NSString *group = [self.groups objectAtIndex:(NSUInteger)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = group;
     return cell;
