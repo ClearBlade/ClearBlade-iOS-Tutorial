@@ -14,12 +14,12 @@
 
 @implementation ChatViewController
 
-@synthesize group;
-@synthesize username;
-@synthesize messageField;
-@synthesize scrollView;
-@synthesize bottomBar;
-@synthesize messages;
+@synthesize group = _group;
+@synthesize username = _username;
+@synthesize messageField =_messageField;
+@synthesize scrollView = _scrollView;
+@synthesize bottomBar = _bottomBar;
+@synthesize messages = messages;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,8 +68,10 @@
     label.text = message;
     label.scrollEnabled = NO;
     label.editable = NO;
-    [self.scrollView addSubview:label];
-    self.scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
+    
+    UIScrollView * scrollView = self.scrollView;
+    [scrollView addSubview:label];
+    scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
     [self.messages addObject:label];
 }
 

@@ -47,13 +47,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.groups count];
+    return (NSInteger)[self.groups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"GroupCell";
-    NSString *group = [self.groups objectAtIndex:indexPath.row];
+    NSString *group = [self.groups objectAtIndex:(NSUInteger)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = group;
     return cell;

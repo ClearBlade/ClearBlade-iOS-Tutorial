@@ -15,8 +15,8 @@
 
 @implementation LoginViewController
 
-@synthesize userNameField;
-@synthesize errorMessage;
+@synthesize userNameField = _userNameField;
+@synthesize errorMessage = _errorMessage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
