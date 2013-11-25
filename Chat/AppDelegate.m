@@ -7,13 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import <CBAPI.h>
 
 @implementation AppDelegate
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [ClearBlade initSettingsWithAppKey:@"5277bd628ab3a37ce7f6f061" withAppSecret:@"0D2N19VB3FPYJYEBSOI4LVG6M97PKX"];
     return YES;
 }
 							
