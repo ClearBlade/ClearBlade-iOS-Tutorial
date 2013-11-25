@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'EPL', :file => 'LICENSE' }
   s.author       = { "Charlie Andrews" => "candrews@clearblade.com" }
 
-  s.source       = { :git => "https://github.com/ClearBlade/iOS-API.git", :tag => 'API-Revision-test' }
+  s.source       = { :git => "https://github.com/ClearBlade/iOS-API.git", :tag => 'API-Revision-test-1' }
   s.header_dir = 'libmosquitto'
   s.source_files  = 'ClearBladeAPI/**/*.{h,m,c}'
   s.dependency 'AFNetworking', '~> 1.3.3'
