@@ -53,6 +53,12 @@
     [self.messageClient publishMessage:messageText toTopic:self.group];
     self.messageField.text = @"";
 }
+-(NSMutableArray *)messages {
+    if (!_messages) {
+        _messages = [NSMutableArray arrayWithCapacity:50];
+    }
+    return _messages;
+}
 
 - (void)viewDidLoad
 {
