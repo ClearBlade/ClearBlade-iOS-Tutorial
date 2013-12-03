@@ -7,9 +7,10 @@
 //
 
 #import "ChatViewController.h"
+#import <CBAPI.h>
 
-@interface ChatViewController ()
-
+@interface ChatViewController () <CBMessageClientDelegate>
+@property (strong, nonatomic) CBMessageClient * messageClient;
 @end
 
 @implementation ChatViewController
@@ -19,8 +20,16 @@
 @synthesize messageField =_messageField;
 @synthesize scrollView = _scrollView;
 @synthesize bottomBar = _bottomBar;
-@synthesize messages = messages;
+@synthesize messages = _messages;
+@synthesize messageClient = _messageClient;
 
+-(CBMessageClient *)messageClient {
+    if (!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,14 +40,24 @@
     return self;
 }
 
+-(void)messageClient:(CBMessageClient *)client didConnect:(CBMessageClientConnectStatus)status {
+    [client subscribeToTopic:self.group];
+}
 
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    [self addMessage:[message payloadText]];
+}
 
+-(IBAction)sendClicked {
+    NSString *messageText = [NSString stringWithFormat:@"%@: %@", self.username, self.messageField.text];
+    [self.messageClient publishMessage:messageText toTopic:self.group];
+    self.messageField.text = @"";
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.messages = [[NSMutableArray alloc] initWithCapacity:50];
+    [self.messageClient connectToHost:[NSURL URLWithString:PLATFORM_URL]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,10 +92,6 @@
     [scrollView addSubview:label];
     scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
     [self.messages addObject:label];
-}
-
-- (IBAction)sendClicked {
-    //Handle publish logic here
 }
 
 @end
