@@ -19,7 +19,7 @@
 @synthesize messageField =_messageField;
 @synthesize scrollView = _scrollView;
 @synthesize bottomBar = _bottomBar;
-@synthesize messages = messages;
+@synthesize messages = _messages;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,13 +32,17 @@
 }
 
 
-
+-(NSMutableArray *)messages {
+    if (!_messages) {
+        _messages = [NSMutableArray arrayWithCapacity:50];
+    }
+    return _messages;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.messages = [[NSMutableArray alloc] initWithCapacity:50];
 }
 
 - (void)didReceiveMemoryWarning
