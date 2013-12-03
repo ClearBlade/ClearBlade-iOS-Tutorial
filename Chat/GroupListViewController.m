@@ -15,8 +15,8 @@
 
 @implementation GroupListViewController
 
-@synthesize groups;
-@synthesize username;
+@synthesize groups = _groups;
+@synthesize username = _username;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
 
-    self.groups = [[NSMutableArray alloc] init];
     //Add logic here to get all the group names and add them to the groups list
 }
 
