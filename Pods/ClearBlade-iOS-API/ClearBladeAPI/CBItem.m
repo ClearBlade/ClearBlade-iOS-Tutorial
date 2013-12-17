@@ -11,7 +11,7 @@
 #import "CBItem.h"
 #import "CBQuery.h"
 #import "CBCollection.h"
-#define CBITEM_ID_KEY @"itemId"
+#define CBITEM_ID_KEY @"item_id"
 
 @implementation CBItem
 
@@ -38,7 +38,9 @@
 -(CBItem *) initWithData: (NSMutableDictionary *) inputData withCollectionID:(NSString *) colID {
     self = [super init];
     self.collectionID = colID;
-    self.data = inputData;
+    for (NSString * key in inputData.keyEnumerator) {
+        self.data[key.lowercaseString] = inputData[key];
+    }
     return self;
 }
 
@@ -47,6 +49,13 @@
 }
 -(void)setItemID:(NSString *)itemID {
     [self.data setObject:itemID forKey:CBITEM_ID_KEY];
+}
+
+-(NSMutableDictionary *)data {
+    if (!_data) {
+        _data = [NSMutableDictionary dictionary];
+    }
+    return _data;
 }
 
 
@@ -66,7 +75,6 @@
 
 -(CBQuerySuccessCallback)handleSuccessCallback:(CBItemSuccessCallback)successCallback {
     return ^(NSMutableArray *foundItems) {
-        self.data = (NSMutableDictionary *)[(CBItem *)[foundItems objectAtIndex:0] data];
         if (successCallback) {
             successCallback(self);
         }
@@ -81,7 +89,7 @@
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"Parent Collection <%@>, Payload Dictionary %@", self.collectionID, self.data];
+    return [NSString stringWithFormat:@"CBItem: Parent Collection <%@>, Payload Dictionary %@", self.collectionID, self.data];
 }
 
 -(void) refreshWithSuccessCallback:(CBItemSuccessCallback)successCallback
@@ -120,20 +128,34 @@
 }
 
 -(id)objectForKey:(NSString *)key {
-    return [self.data objectForKey:key];
+    return [self.data objectForKey:key.lowercaseString];
 }
 
 -(void)setObject:(id)value forKey:(NSString *)key {
-    [self.data setObject:value forKey:key];
+    [self.data setObject:value forKey:key.lowercaseString];
 }
 
 -(bool)isEqualToCBItem:(CBItem *)item {
-    if (item.data.count != self.data.count) {
+    bool ignoreItemID = false;
+    int selfCount = self.data.count;
+    int otherCount = item.data.count;
+    if (item.itemID == nil) {
+        otherCount += 1;
+        ignoreItemID = true;
+    }
+    if (self.itemID == nil) {
+        selfCount += 1;
+        ignoreItemID = true;
+    }
+    if (selfCount != otherCount) {
         return false;
     }
     
     for (id key in self.data) {
-        if (![[self.data objectForKey:key] isEqual:[item.data objectForKey:key]]) {
+        if (ignoreItemID && [key isEqualToString:CBITEM_ID_KEY]) {
+            //skip if it's an item id
+        }
+        else if (![[self.data objectForKey:key] isEqual:[item.data objectForKey:key]]) {
             return false;
         }
     }

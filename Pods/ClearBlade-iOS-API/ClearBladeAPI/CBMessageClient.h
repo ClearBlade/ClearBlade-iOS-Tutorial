@@ -22,6 +22,15 @@ typedef enum {
     /** The message broker cannot handle anymore connections */
     CBMessageClientConnectUnavailable,
     
+    /** The url given is malformed */
+    CBMessageClientConnectMalformedURL,
+    
+    /** A system level error happend, you can check errno to find the reason */
+    CBMessageClientConnectErrnoSet,
+    
+    /** Could not connect to the server on that port. Usually means you're using the wrong port, or the wrong server */
+    CBMessageClientConnectServerNotFound,
+    
     /** The message client connected successfully */
     CBMessageClientConnectSuccess
 } CBMessageClientConnectStatus;
@@ -80,8 +89,23 @@ Delegate selector to handle when a message client fails to connect to the server
 
 @interface CBMessageClient : NSObject
 
+/** Creates a new CBMessageClient instance. */
++(instancetype)client;
+
 /** The delegate that will handle all events from message client */
 @property (weak, atomic) id<CBMessageClientDelegate> delegate;
+
+/** Whether or not this message client is connected to a host */
+@property (atomic, readonly) bool isConnected;
+
+/** The host that this client is connected to. */
+@property (atomic, readonly) NSURL * host;
+
+/** Connects the client to the default host, specified in [ClearBlade settings] */
+-(void)connect;
+
+/** Disconnects the client from it's current server */
+-(void)disconnect;
 
 /**
 Connects the client to the host at the specified url.

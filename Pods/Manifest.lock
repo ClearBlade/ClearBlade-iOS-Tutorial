@@ -1,17 +1,10 @@
 PODS:
-  - AFNetworking (1.3.3)
-  - ClearBlade-iOS-API (0.8.7):
-    - AFNetworking (~> 1.3.3)
+  - ClearBlade-iOS-API (0.9.0)
 
 DEPENDENCIES:
-  - ClearBlade-iOS-API (from `https://gist.github.com/tyler-dodge/7605866/raw/c4ec1701b8af992d5e37b668c1c0a93ad48ff281/ClearBlade-iOS-API.podspec`)
-
-EXTERNAL SOURCES:
-  ClearBlade-iOS-API:
-    :podspec: https://gist.github.com/tyler-dodge/7605866/raw/c4ec1701b8af992d5e37b668c1c0a93ad48ff281/ClearBlade-iOS-API.podspec
+  - ClearBlade-iOS-API
 
 SPEC CHECKSUMS:
-  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
-  ClearBlade-iOS-API: 85e0b9ecb7f16b76bcfc443057401cd095280a7b
+  ClearBlade-iOS-API: e19daeddd4f068c79522df8cdc30ee1d66a61fdc
 
 COCOAPODS: 0.27.1
