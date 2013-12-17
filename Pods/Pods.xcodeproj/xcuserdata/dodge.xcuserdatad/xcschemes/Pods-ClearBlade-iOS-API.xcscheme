@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB11CC40D8D0442E9745888C"
+               BlueprintIdentifier = "6B03D90C60F143F896387A15"
                BuildableName = "libPods-ClearBlade-iOS-API.a"
                BlueprintName = "Pods-ClearBlade-iOS-API"
                ReferencedContainer = "container:Pods.xcodeproj">
