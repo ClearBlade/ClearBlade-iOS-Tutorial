@@ -30,7 +30,7 @@
     return _messageClient;
 }
 
--(void)messageClient:(CBMessageClient *)client didConnect:(CBMessageClientConnectStatus)status {
+-(void)messageClientDidConnect:(CBMessageClient *)client {
     [client subscribeToTopic:self.group];
 }
 -(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {

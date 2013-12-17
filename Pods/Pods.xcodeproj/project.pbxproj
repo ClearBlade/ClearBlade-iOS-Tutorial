@@ -10,45 +10,48 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>1035C87C32F54EA89BD2E46F</key>
+		<key>000DCE21F01444079E7D52E6</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>config.h</string>
+			<string>time_mosq.c</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/config.h</string>
+			<string>ClearBladeAPI/libmosquitto/time_mosq.c</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>11E600DE141D4EBEB9BE714B</key>
+		<key>020A9AEBEE38422385A4C9D1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9064F5E5520147299505B912</string>
+				<string>C0E7647DBE90466CAD7C4939</string>
+				<string>EA76910657CE469A86E923D5</string>
+				<string>8ECEA68D15444DF5B2138915</string>
+				<string>A6C2368BB85F46AAA49B57B1</string>
+				<string>8D4C22331DEE419C9332F19D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>03FAE5B2F210445790F3AB99</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AB4AD505E53E4B39ABCCC4CF</string>
+			<string>24D86FBDB32643E5B5E7389D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>134BCD5AE1444BE4AD297789</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>6CFFD71A7AD4473CB60AFD4A</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>37924467F895491A92CE5A53</string>
-			<key>remoteInfo</key>
-			<string>Pods-ClearBlade-iOS-API</string>
-		</dict>
-		<key>14290F9D22A04F43B396151E</key>
+		<key>0434450A677F49A6AE62F770</key>
 		<dict>
 			<key>fileRef</key>
-			<string>9622C0810D314C968D7FFAAA</string>
+			<string>04E0ED98643A4929B07C5C9C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -57,10 +60,60 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>143B3B753CFD4075B9C042D2</key>
+		<key>048420267E4749AF9EDAF012</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>read_handle.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/read_handle.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>04E0ED98643A4929B07C5C9C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>net_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/net_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>066290EEDC544CD0BC417B55</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CBMessageClient.m</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBMessageClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>07FF98D9A3C44B468C4D0801</key>
 		<dict>
 			<key>fileRef</key>
-			<string>63A7DFFC89CF48A5AD736297</string>
+			<string>EA315FD8CF4F4C43A0A68598</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>08CACCBE3DE0464394D15E06</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1248F544B24F4888B52D7077</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -69,7 +122,120 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>1440C88A480A43BDA7555266</key>
+		<key>0CD2894A018F4D069BF358EE</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8A048BE2BA7E4CF191CB22AE</string>
+				<string>846A1E0956024DB0BD4DFCBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>10C30FC0EB674EACB70440DE</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>1248F544B24F4888B52D7077</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>memory_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/memory_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>12999C2811F0449F9617322A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>send_client_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/send_client_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>136C559CE3F045F0907F7E11</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BC482356956544A8B186BBFB</string>
+				<string>495E29E0EBCC46F8AF058890</string>
+				<string>F6BB380E84C542AA9CF46D20</string>
+				<string>A1BF44F22A7149EAA56CFFA1</string>
+				<string>2067D2DBC11A4B6F9AC43FFD</string>
+				<string>A29ABD2251A145B1B7DDE197</string>
+				<string>28286CAB9132405D940595D5</string>
+				<string>C0620EAE9C794AF08952F4B7</string>
+				<string>76D59FAFD0B44764BBBC3A4A</string>
+				<string>EA315FD8CF4F4C43A0A68598</string>
+				<string>066290EEDC544CD0BC417B55</string>
+				<string>50B7C9E07E0C4C2E859DA18B</string>
+				<string>2DD9B6FC76CE4BD0BCB0870F</string>
+				<string>85B73CC0401D4127B505E84E</string>
+				<string>9ABD3CF25D1749A393320C3E</string>
+				<string>B5BB862E10034E808D5E6EE8</string>
+				<string>5A631739ACA64928812E492B</string>
+				<string>684438DCA0C94F288AE90A3D</string>
+				<string>3AD26D73346E4DAB9FB254E7</string>
+				<string>1248F544B24F4888B52D7077</string>
+				<string>24D86FBDB32643E5B5E7389D</string>
+				<string>8E3ADF45247545A5AFD6D3F0</string>
+				<string>63BC8392C3AD4413B4189DCC</string>
+				<string>AAA25B8518524F05817050FB</string>
+				<string>C5373E9667404046ACE4D535</string>
+				<string>D29FF2FEB72C4EEA839F5950</string>
+				<string>257FD205CF0D4D9EB4C40098</string>
+				<string>04E0ED98643A4929B07C5C9C</string>
+				<string>49423B50CA7B437D90F49BC9</string>
+				<string>3962C326E67E46128358BBFD</string>
+				<string>048420267E4749AF9EDAF012</string>
+				<string>1A49E25074B94A91BEB81321</string>
+				<string>19F8B7C9496C47429442D01B</string>
+				<string>12999C2811F0449F9617322A</string>
+				<string>15FB8CEFA94344DF870EA447</string>
+				<string>14D96AE81B8E4C6DAAA33BB1</string>
+				<string>76EA7577DF3441B28E1371BD</string>
+				<string>000DCE21F01444079E7D52E6</string>
+				<string>2AC5A3EEF8FB4B4D892E3172</string>
+				<string>CC6C7040147B42C3ABA4F123</string>
+				<string>A0F2CA5ECFE1460997EDED5C</string>
+				<string>18863256B7C44A34BC816B61</string>
+				<string>5BD374409ADE4F0ABF95631C</string>
+				<string>A9F3605AF3CB4E04825DE3D3</string>
+				<string>E32BC9C8973B406E9818C368</string>
+				<string>BD8122AD2BDE41959910D273</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ClearBlade-iOS-API</string>
+			<key>path</key>
+			<string>ClearBlade-iOS-API</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>14D96AE81B8E4C6DAAA33BB1</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -78,69 +244,46 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>logging_mosq.h</string>
+			<string>send_mosq.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/logging_mosq.h</string>
+			<string>ClearBladeAPI/libmosquitto/send_mosq.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1456E9A594EA44F6B0E3C0F4</key>
+		<key>15074DAED41D446E92EFB93A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C5373E9667404046ACE4D535</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>15FB8CEFA94344DF870EA447</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>mqtt3_protocol.h</string>
+			<string>send_mosq.c</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/mqtt3_protocol.h</string>
+			<string>ClearBladeAPI/libmosquitto/send_mosq.c</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>16218A5BAB554CC0860F1D87</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AAE9AAED67E14B87B4856E5D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1796D56073AF49AAA5167CE4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F6F203653FAC47D3A383DDE4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1BB08ADBBE604C2F889CCF9B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6FEDC24D51ED4C9484FF9865</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>1F6ACC1AF4A043C18CF7BFD3</key>
+		<key>18863256B7C44A34BC816B61</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>mosquitto.h</string>
+			<string>util_mosq.c</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/mosquitto.h</string>
+			<string>ClearBladeAPI/libmosquitto/util_mosq.c</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1FF5ADCD70D84650BC67F142</key>
+		<key>19F8B7C9496C47429442D01B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -153,7 +296,32 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2012CF10B4A64BEA99CA0557</key>
+		<key>1A49E25074B94A91BEB81321</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>read_handle_client.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/read_handle_client.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DC66A84B4F24EB69F1B6750</key>
+		<dict>
+			<key>fileRef</key>
+			<string>76EA7577DF3441B28E1371BD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>2067D2DBC11A4B6F9AC43FFD</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -168,173 +336,28 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>21A0E83991C34231AEC9448B</key>
+		<key>216697FB766446C1BE8B20F8</key>
 		<dict>
-			<key>fileRef</key>
-			<string>F96BFECA40E54A79A7E0F646</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>21B813B662B94EB7B3776254</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-ClearBlade-iOS-API-Private.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>22B18AF337E3455F963B154B</key>
-		<dict>
-			<key>children</key>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
 			<array>
-				<string>F47AD1507DD34934A37B417D</string>
+				<string>FCFFC3802EEC451289B417C4</string>
+				<string>5463A597A508443AAA555309</string>
 			</array>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
-		<key>24E2D38C41354AFCAF9220CE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>send_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/send_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2704234FC4DE426C80FE6A9F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>will_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/will_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2DCCD838983C498D9B2D46BB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>time_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/time_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2EA1540C9F464DDCA0EA0044</key>
+		<key>24BDA00394344B28A54DABCF</key>
 		<dict>
 			<key>fileRef</key>
-			<string>24E2D38C41354AFCAF9220CE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>3052A8859E7D42DC95A703FF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>will_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/will_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>30CC8AE481264053A34121B7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9AB4BA8E6CD54C82B1C5BE15</string>
+			<string>257FD205CF0D4D9EB4C40098</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>313832C97243485D9A9EE792</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>messages_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/messages_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3387900CEB654D21AE31F2EB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1F6ACC1AF4A043C18CF7BFD3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>350C32668A904684B42050A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>read_handle.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/read_handle.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>37924467F895491A92CE5A53</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>613AF839A49A4FA8B1BA5DE2</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D6BE2AB85A9E48939850B5A0</string>
-				<string>EFF8B24813244756BF38C511</string>
-				<string>9984750A0CB340CDBD9A23DF</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-ClearBlade-iOS-API</string>
-			<key>productName</key>
-			<string>Pods-ClearBlade-iOS-API</string>
-			<key>productReference</key>
-			<string>79D7B43D647949848770C534</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>3D36B102701147B9B1B1116D</key>
+		<key>24D86FBDB32643E5B5E7389D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -349,105 +372,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>409ECFA98FAF4E26957A7A4C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1456E9A594EA44F6B0E3C0F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4203D46747704EEB8ABEA7B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>net_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/net_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>43810CF0B1AC430582A80E1F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>564618D32813406E8139D002</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>47000A44470E481BABBC0768</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BECDE11E4927453896C8E264</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>475B05A167EF4C43A006401B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CDFE6A25063B4E72ACE5F8DB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>4763BE865ABB478AA11E6760</key>
-		<dict>
-			<key>fileRef</key>
-			<string>90523C5140E54F19819189C2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>4EB192323BBD44CF9C2CA5F0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4FD88050B68E445EB2EAD56C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>thread_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/thread_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5440BABB8A5C4D78B366968F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>7ECF0233493A46C985931998</string>
-				<string>77839F31E17D40038FABB41E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>54B2A40D2F7D4D63ACDA049F</key>
+		<key>257FD205CF0D4D9EB4C40098</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -456,62 +381,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CBHTTPRequest.h</string>
+			<string>mqtt3_protocol.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBHTTPRequest.h</string>
+			<string>ClearBladeAPI/libmosquitto/mqtt3_protocol.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>564618D32813406E8139D002</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-ClearBlade-iOS-API-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5A53ABA960A54C45A7228CC9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-ClearBlade-iOS-API.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5AD1E3DFAAF9401FADF3F7B3</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5C1C15F80A1D4035BA25959B</key>
+		<key>27775F7D786D4D4FAA9EF289</key>
 		<dict>
 			<key>fileRef</key>
-			<string>E11C5BDA6E3A4DAF9973A8B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5EFBCC7DA7654CCCA9657B34</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7A0D05F054E840B5A67B79E9</string>
+			<string>18863256B7C44A34BC816B61</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -520,137 +399,7 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>5FF7ECC5130D42CCB907F1D4</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>613AF839A49A4FA8B1BA5DE2</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>F657906C012640A5B3E23AEF</string>
-				<string>FBBB6C5323DF4946A7B8319D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>6328E018671943FDA7CC7E4C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1FF5ADCD70D84650BC67F142</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>63A7DFFC89CF48A5AD736297</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>util_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/util_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>697C0215385A4289A84AA8C5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DEB3BF4D0F2040DFA5F5E467</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C01F63222D14036A1BDF7D2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>tls_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/tls_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7A6B348DDC405A8DAFE6C9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B0BF16DCF8D6485DB92E1318</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>6CFFD71A7AD4473CB60AFD4A</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>D22E499931A645C898C051C7</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>8B7B1C294DB040C3A99A42F2</string>
-			<key>productRefGroup</key>
-			<string>A3DE0F1AE13F4A5BBAD16DA1</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>987AB71262644BAE9D4F4D84</string>
-				<string>37924467F895491A92CE5A53</string>
-			</array>
-		</dict>
-		<key>6E7B1D6FA37041A6A661CD5E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7121E2EAB52544728E00AE81</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6FEDC24D51ED4C9484FF9865</key>
+		<key>28286CAB9132405D940595D5</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -659,13 +408,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>CBCollection.m</string>
+			<string>CBItem.m</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBCollection.m</string>
+			<string>ClearBladeAPI/CBItem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7121E2EAB52544728E00AE81</key>
+		<key>2AC5A3EEF8FB4B4D892E3172</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -674,202 +423,20 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>util_mosq.h</string>
+			<string>time_mosq.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/util_mosq.h</string>
+			<string>ClearBladeAPI/libmosquitto/time_mosq.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>75096712E5824B1C937AC0BC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A3CD5D684BDE475AA48354BA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>77839F31E17D40038FABB41E</key>
+		<key>2CD0AE27C1A445E1895D8860</key>
 		<dict>
 			<key>fileRef</key>
-			<string>79D7B43D647949848770C534</string>
+			<string>10C30FC0EB674EACB70440DE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>79A75AA746984FE094374294</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>37924467F895491A92CE5A53</string>
-			<key>targetProxy</key>
-			<string>134BCD5AE1444BE4AD297789</string>
-		</dict>
-		<key>79D7B43D647949848770C534</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-ClearBlade-iOS-API.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>7A0D05F054E840B5A67B79E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>tls_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/tls_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7A5EBDA4C32242BAA6F0A69C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8B3B54A63796455FB4C6E7D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>7C14083F0D9845B9B4BAE2D4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8F310E3A5A0B45BE908F0790</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>7E6E4A7B045D4CF7862C0999</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4FD88050B68E445EB2EAD56C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>7ECF0233493A46C985931998</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5FF7ECC5130D42CCB907F1D4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8094B115E70248CD8A09EBF2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>CBAPI.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/CBAPI.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>829B4E641BD74A4EA13DA2D7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>C729C12E14204F04A1990C5A</string>
-				<string>B715F3105F984017A43FFAD0</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>866C7261856140D881D237BF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>92AC371E39C44D5B9CD21F8C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8AA5DD3AC68B40A8BDE37EA3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2012CF10B4A64BEA99CA0557</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>8B3B54A63796455FB4C6E7D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>memory_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/memory_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8B7B1C294DB040C3A99A42F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A6F3E93D40A645B1A9CF4751</string>
-				<string>22B18AF337E3455F963B154B</string>
-				<string>C44021AE78E841DFA3E60B9D</string>
-				<string>A3DE0F1AE13F4A5BBAD16DA1</string>
-				<string>AAA74E9568764290BD4AB8AD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8CFC7AE2C4BF4C7B85A1108F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>mosquitto_internal.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/mosquitto_internal.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8F310E3A5A0B45BE908F0790</key>
+		<key>2DD9B6FC76CE4BD0BCB0870F</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -884,7 +451,799 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>900732B623624FD59F382DCE</key>
+		<key>324E4D0F761D46C2B9A66052</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Security.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>366E7D9E3E434EE1BD196C0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89B84580F5834B47953EAFC9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3962C326E67E46128358BBFD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>read_handle.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/read_handle.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3AD26D73346E4DAB9FB254E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>logging_mosq.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/logging_mosq.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4501BD74A545248D711AC0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6DB7452F98DE4E4BA35A62FF</string>
+				<string>7E1F5F524AB840F18100D3C8</string>
+				<string>4323B821345C470AAE7FC068</string>
+				<string>92C7408F28214FE391D8F813</string>
+				<string>7007AAB371E24EA887FF80D6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D79023F9AA844189547843C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-ClearBlade-iOS-API-Private.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4323B821345C470AAE7FC068</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>136C559CE3F045F0907F7E11</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>49423B50CA7B437D90F49BC9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>net_mosq.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/net_mosq.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>495E29E0EBCC46F8AF058890</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CBCollection.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBCollection.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>496DF26F0E7648CAA4924907</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CC6C7040147B42C3ABA4F123</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>4C7DF285EF4A4FAD85E26B2A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-ClearBlade-iOS-API.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4EDFF098B67140679D343D6F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B5BB862E10034E808D5E6EE8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>50B7C9E07E0C4C2E859DA18B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CBQuery.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBQuery.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>511AC17D90344E3998CE0676</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0CD2894A018F4D069BF358EE</string>
+			<key>buildPhases</key>
+			<array>
+				<string>BB6073AF0CBE446AA306C319</string>
+				<string>FFB83E969EE745B1B996FF9B</string>
+				<string>7FB9D1BAC0A34B83A895C6C0</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-ClearBlade-iOS-API</string>
+			<key>productName</key>
+			<string>Pods-ClearBlade-iOS-API</string>
+			<key>productReference</key>
+			<string>4C7DF285EF4A4FAD85E26B2A</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>524930765BF04862978F5833</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9ABD3CF25D1749A393320C3E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>5463A597A508443AAA555309</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4C7DF285EF4A4FAD85E26B2A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>54AC3EAEAC8E4F7B9631B9CC</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>SystemConfiguration.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>553917129D064A3A9BA44156</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0500</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>ABB74773958E4669A71E27ED</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>3D4501BD74A545248D711AC0</string>
+			<key>productRefGroup</key>
+			<string>92C7408F28214FE391D8F813</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>DBEE907BAA754A04A2D2EE0E</string>
+				<string>511AC17D90344E3998CE0676</string>
+			</array>
+		</dict>
+		<key>56689DE20A4242C798A08A4A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A1BF44F22A7149EAA56CFFA1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>57574C3AE39A47D290BC8E8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1A49E25074B94A91BEB81321</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>57F270B5AFE946E9A94684ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C0620EAE9C794AF08952F4B7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5A631739ACA64928812E492B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>dummypthread.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/dummypthread.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5BD374409ADE4F0ABF95631C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>util_mosq.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/util_mosq.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5DE680158E814F148A62CF94</key>
+		<dict>
+			<key>fileRef</key>
+			<string>63BC8392C3AD4413B4189DCC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6288336D7A914A65811F6E22</key>
+		<dict>
+			<key>fileRef</key>
+			<string>495E29E0EBCC46F8AF058890</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>62C641FB7AD44F12A75A7E75</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D29FF2FEB72C4EEA839F5950</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>633C1BB9D3FF47B48E64FF55</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A828F262785141BB875D4797</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>63BC8392C3AD4413B4189DCC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>messages_mosq.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/messages_mosq.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>648FF5DA06E34E5186C27E7A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F6BB380E84C542AA9CF46D20</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>684438DCA0C94F288AE90A3D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>logging_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/logging_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>68931DB6B0BE416FBD1302E7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5A631739ACA64928812E492B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6ACA0FEFC4F7487B8E5C43E5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8ECEA68D15444DF5B2138915</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6DB7452F98DE4E4BA35A62FF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>7007AAB371E24EA887FF80D6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>020A9AEBEE38422385A4C9D1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>720856E684EC4C4682FB1434</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10C30FC0EB674EACB70440DE</string>
+				<string>A828F262785141BB875D4797</string>
+				<string>F711241864764A15957BADCC</string>
+				<string>324E4D0F761D46C2B9A66052</string>
+				<string>54AC3EAEAC8E4F7B9631B9CC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>76D59FAFD0B44764BBBC3A4A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>CBMessage.m</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBMessage.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>76EA7577DF3441B28E1371BD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>thread_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/thread_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7D5AE4B5D0B9492BB200C803</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3AD26D73346E4DAB9FB254E7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7D98C0439A284E9382176194</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>553917129D064A3A9BA44156</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>511AC17D90344E3998CE0676</string>
+			<key>remoteInfo</key>
+			<string>Pods-ClearBlade-iOS-API</string>
+		</dict>
+		<key>7E1F5F524AB840F18100D3C8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>720856E684EC4C4682FB1434</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7FB9D1BAC0A34B83A895C6C0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FD505DC8A0B440CD87AA8A20</string>
+				<string>6288336D7A914A65811F6E22</string>
+				<string>56689DE20A4242C798A08A4A</string>
+				<string>F6D957A5073C401A9426EEAB</string>
+				<string>57F270B5AFE946E9A94684ED</string>
+				<string>07FF98D9A3C44B468C4D0801</string>
+				<string>D5D5A2E82EE54FBFBF683A36</string>
+				<string>CB96106EF81A4BFBB77C3004</string>
+				<string>4EDFF098B67140679D343D6F</string>
+				<string>68931DB6B0BE416FBD1302E7</string>
+				<string>7D5AE4B5D0B9492BB200C803</string>
+				<string>03FAE5B2F210445790F3AB99</string>
+				<string>5DE680158E814F148A62CF94</string>
+				<string>15074DAED41D446E92EFB93A</string>
+				<string>62C641FB7AD44F12A75A7E75</string>
+				<string>24BDA00394344B28A54DABCF</string>
+				<string>E0ECFD20B46F499A8C3898E0</string>
+				<string>8C9A91875D8A40A6978D62E5</string>
+				<string>BB36D81C06864618B921CC49</string>
+				<string>82A2A29BFADE421A848165CB</string>
+				<string>9AC90D8A749244A2B132B471</string>
+				<string>D7DA1E0E109E49DA960F84E8</string>
+				<string>DB692A073EE44B55B06E806B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8258E0B7246E4E4792A05A63</key>
+		<dict>
+			<key>fileRef</key>
+			<string>12999C2811F0449F9617322A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>82A2A29BFADE421A848165CB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AC5A3EEF8FB4B4D892E3172</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>846A1E0956024DB0BD4DFCBA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3D79023F9AA844189547843C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_CFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_CPLUSPLUSFLAGS</key>
+				<array>
+					<string>-DNS_BLOCK_ASSERTIONS=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>85B73CC0401D4127B505E84E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>ClearBlade.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/ClearBlade.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89B84580F5834B47953EAFC9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-ClearBlade-iOS-API-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A048BE2BA7E4CF191CB22AE</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>3D79023F9AA844189547843C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8AF1C1EBF61047AF879AA555</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9064F5E5520147299505B912</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INSTALL_PATH</key>
+				<string>$(BUILT_PRODUCTS_DIR)</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8C9A91875D8A40A6978D62E5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>048420267E4749AF9EDAF012</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8D4C22331DEE419C9332F19D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8E3ADF45247545A5AFD6D3F0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>messages_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/messages_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8ECEA68D15444DF5B2138915</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8F2F17693B8140DF85CC43D0</key>
 		<dict>
 			<key>buildSettings</key>
 			<dict>
@@ -942,57 +1301,7 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>90523C5140E54F19819189C2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>messages_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/messages_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9134C3A0EFE144F880526A13</key>
-		<dict>
-			<key>fileRef</key>
-			<string>54B2A40D2F7D4D63ACDA049F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>91FC00BC524247AF8E551492</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>CBItem.m</string>
-			<key>path</key>
-			<string>ClearBladeAPI/CBItem.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>92AC371E39C44D5B9CD21F8C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>ClearBlade.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/ClearBlade.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>93024BF2D7D646AE8F19F3B5</key>
+		<key>9064F5E5520147299505B912</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1005,132 +1314,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>951D795721914E6F8D16F25F</key>
+		<key>92C7408F28214FE391D8F813</key>
 		<dict>
+			<key>children</key>
+			<array>
+				<string>A5DEF0B0B39648CEA76F7F8C</string>
+				<string>4C7DF285EF4A4FAD85E26B2A</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>9622C0810D314C968D7FFAAA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>send_client_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/send_client_mosq.c</string>
+			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>97DCE81894EA46DABFD17062</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A290CEAFDAFC4FBCA1967C8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>987AB71262644BAE9D4F4D84</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>829B4E641BD74A4EA13DA2D7</string>
-			<key>buildPhases</key>
-			<array>
-				<string>75096712E5824B1C937AC0BC</string>
-				<string>5440BABB8A5C4D78B366968F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>79A75AA746984FE094374294</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>productName</key>
-			<string>Pods</string>
-			<key>productReference</key>
-			<string>5AD1E3DFAAF9401FADF3F7B3</string>
-			<key>productType</key>
-			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>989840DE042A498881C169D2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3052A8859E7D42DC95A703FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>9984750A0CB340CDBD9A23DF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CCC6890265264F34A8631182</string>
-				<string>9A591B118D214C74A48251BE</string>
-				<string>9134C3A0EFE144F880526A13</string>
-				<string>47000A44470E481BABBC0768</string>
-				<string>16218A5BAB554CC0860F1D87</string>
-				<string>30CC8AE481264053A34121B7</string>
-				<string>E5ACF2E65D9F42E597C6FA07</string>
-				<string>866C7261856140D881D237BF</string>
-				<string>C577D5348A694942B39C1C32</string>
-				<string>AFB9F27C47C2424B8C2D826B</string>
-				<string>F14ED34F3EC8464780318831</string>
-				<string>AE8E098346A546158EB03A74</string>
-				<string>9F5CD3F7C8EC4450BE53FB81</string>
-				<string>3387900CEB654D21AE31F2EB</string>
-				<string>A168368FB4C84F349320661D</string>
-				<string>409ECFA98FAF4E26957A7A4C</string>
-				<string>1796D56073AF49AAA5167CE4</string>
-				<string>21A0E83991C34231AEC9448B</string>
-				<string>5C1C15F80A1D4035BA25959B</string>
-				<string>D1E89EFDEE9348F2A4CE3162</string>
-				<string>A16CE1D8DA624D0DB74A4139</string>
-				<string>6E7B1D6FA37041A6A661CD5E</string>
-				<string>F579A19186AD457086CCA06D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>9A53B69657414CE1B0768BD1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>951D795721914E6F8D16F25F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A591B118D214C74A48251BE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B7458FBC78724552964B639E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9A5AAE19BB5041DCB0C73A8A</key>
+		<key>9ABD3CF25D1749A393320C3E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1145,7 +1343,14 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9AB4BA8E6CD54C82B1C5BE15</key>
+		<key>9AC90D8A749244A2B132B471</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A0F2CA5ECFE1460997EDED5C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A0F2CA5ECFE1460997EDED5C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1154,122 +1359,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CBMessageClient.h</string>
+			<string>tls_mosq.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBMessageClient.h</string>
+			<string>ClearBladeAPI/libmosquitto/tls_mosq.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9CD9096858EF48109D27C147</key>
-		<dict>
-			<key>fileRef</key>
-			<string>350C32668A904684B42050A3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>9F5CD3F7C8EC4450BE53FB81</key>
-		<dict>
-			<key>fileRef</key>
-			<string>313832C97243485D9A9EE792</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A168368FB4C84F349320661D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8CFC7AE2C4BF4C7B85A1108F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A16CE1D8DA624D0DB74A4139</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6C01F63222D14036A1BDF7D2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A290CEAFDAFC4FBCA1967C8E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>logging_mosq.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/logging_mosq.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A3901B37A65A402A8928D5B3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D0318DBD89474DB5BE7E73C6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>A3CD5D684BDE475AA48354BA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AB98F0ECE1F146038290884E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A3DE0F1AE13F4A5BBAD16DA1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5AD1E3DFAAF9401FADF3F7B3</string>
-				<string>79D7B43D647949848770C534</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A6F3E93D40A645B1A9CF4751</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>AAA74E9568764290BD4AB8AD</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DC85AEBA9A824698BA3A3B56</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AAE9AAED67E14B87B4856E5D</key>
+		<key>A1BF44F22A7149EAA56CFFA1</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1278,89 +1374,70 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CBMessage.h</string>
+			<string>CBHTTPRequest.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBMessage.h</string>
+			<string>ClearBladeAPI/CBHTTPRequest.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AB4AD505E53E4B39ABCCC4CF</key>
+		<key>A29ABD2251A145B1B7DDE197</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CBItem.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBItem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A5DEF0B0B39648CEA76F7F8C</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A6C2368BB85F46AAA49B57B1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-environment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A828F262785141BB875D4797</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>wrapper.framework</string>
 			<key>name</key>
-			<string>MobileCoreServices.framework</string>
+			<string>Foundation.framework</string>
 			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework</string>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework</string>
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>AB98F0ECE1F146038290884E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AE8E098346A546158EB03A74</key>
+		<key>A8FD28504BC44B1A8533405C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3D36B102701147B9B1B1116D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>AFB9F27C47C2424B8C2D826B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F380FD9B950E49B29AF1723D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B0BF16DCF8D6485DB92E1318</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>read_handle_client.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/read_handle_client.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B21D81AE451A4E49A42DE01D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C18C1AA46FD347788F7F03ED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B49739D4A6844DFA83D679B5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B6BC08E2DCD24C6B9AB1130A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4203D46747704EEB8ABEA7B7</string>
+			<string>15FB8CEFA94344DF870EA447</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1369,10 +1446,193 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>B715F3105F984017A43FFAD0</key>
+		<key>A9F3605AF3CB4E04825DE3D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>will_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/will_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAA25B8518524F05817050FB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>mosquitto.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/mosquitto.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ABB74773958E4669A71E27ED</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>DF433DFB8E51406AA447B262</string>
+				<string>8F2F17693B8140DF85CC43D0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B14674800178491D8D579206</key>
+		<dict>
+			<key>fileRef</key>
+			<string>76D59FAFD0B44764BBBC3A4A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>B1C46F91AABF47048B2F8D65</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>511AC17D90344E3998CE0676</string>
+			<key>targetProxy</key>
+			<string>7D98C0439A284E9382176194</string>
+		</dict>
+		<key>B31AA88E4B6040ED8A8A1B0C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3962C326E67E46128358BBFD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>B5BB862E10034E808D5E6EE8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>config.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/config.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B6FEDB09CDCF48F894384084</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-ClearBlade-iOS-API.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B8C37D052C614DA399F5E379</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6ACA0FEFC4F7487B8E5C43E5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B9CB1E7165B2485AA55B94F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2067D2DBC11A4B6F9AC43FFD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>BB36D81C06864618B921CC49</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14D96AE81B8E4C6DAAA33BB1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB6073AF0CBE446AA306C319</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>648FF5DA06E34E5186C27E7A</string>
+				<string>B9CB1E7165B2485AA55B94F0</string>
+				<string>E1B5E4088CAB4F698804A36E</string>
+				<string>B14674800178491D8D579206</string>
+				<string>D36FED4198C340E2A951A48B</string>
+				<string>E5B553F85C6E4138B4145F6D</string>
+				<string>524930765BF04862978F5833</string>
+				<string>366E7D9E3E434EE1BD196C0E</string>
+				<string>CC4E03204C48474CBC388E2E</string>
+				<string>08CACCBE3DE0464394D15E06</string>
+				<string>EFD7E652F2E54B3E9E2CA517</string>
+				<string>CABA2B8C296745E992A073CD</string>
+				<string>0434450A677F49A6AE62F770</string>
+				<string>B31AA88E4B6040ED8A8A1B0C</string>
+				<string>57574C3AE39A47D290BC8E8D</string>
+				<string>E67F4AB7DB4C4F25BDF9CAFE</string>
+				<string>8258E0B7246E4E4792A05A63</string>
+				<string>A8FD28504BC44B1A8533405C</string>
+				<string>1DC66A84B4F24EB69F1B6750</string>
+				<string>C00F81753912496286DD41F8</string>
+				<string>496DF26F0E7648CAA4924907</string>
+				<string>27775F7D786D4D4FAA9EF289</string>
+				<string>F1E485604BC440498098541C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BC482356956544A8B186BBFB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CBAPI.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBAPI.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BC804463B2D24951B51321A4</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>93024BF2D7D646AE8F19F3B5</string>
+			<string>9064F5E5520147299505B912</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
@@ -1421,7 +1681,35 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>B7458FBC78724552964B639E</key>
+		<key>BD8122AD2BDE41959910D273</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B6FEDB09CDCF48F894384084</string>
+				<string>3D79023F9AA844189547843C</string>
+				<string>89B84580F5834B47953EAFC9</string>
+				<string>D5EE0B331FC04D1981524F2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>C00F81753912496286DD41F8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>000DCE21F01444079E7D52E6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>C0620EAE9C794AF08952F4B7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1430,97 +1718,26 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CBCollection.h</string>
+			<string>CBMessage.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBCollection.h</string>
+			<string>ClearBladeAPI/CBMessage.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BAD7142C886941A48358D512</key>
+		<key>C0E7647DBE90466CAD7C4939</key>
 		<dict>
-			<key>fileRef</key>
-			<string>2DCCD838983C498D9B2D46BB</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>BB099B98CD9544ECB2005135</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8094B115E70248CD8A09EBF2</string>
-				<string>B7458FBC78724552964B639E</string>
-				<string>6FEDC24D51ED4C9484FF9865</string>
-				<string>54B2A40D2F7D4D63ACDA049F</string>
-				<string>2012CF10B4A64BEA99CA0557</string>
-				<string>BECDE11E4927453896C8E264</string>
-				<string>91FC00BC524247AF8E551492</string>
-				<string>AAE9AAED67E14B87B4856E5D</string>
-				<string>CDFE6A25063B4E72ACE5F8DB</string>
-				<string>9AB4BA8E6CD54C82B1C5BE15</string>
-				<string>F83F3C01F9394B9F8A5F13FF</string>
-				<string>D930C0EE9DFA4EFABFFCF20E</string>
-				<string>8F310E3A5A0B45BE908F0790</string>
-				<string>92AC371E39C44D5B9CD21F8C</string>
-				<string>9A5AAE19BB5041DCB0C73A8A</string>
-				<string>1035C87C32F54EA89BD2E46F</string>
-				<string>F380FD9B950E49B29AF1723D</string>
-				<string>A290CEAFDAFC4FBCA1967C8E</string>
-				<string>1440C88A480A43BDA7555266</string>
-				<string>8B3B54A63796455FB4C6E7D3</string>
-				<string>3D36B102701147B9B1B1116D</string>
-				<string>90523C5140E54F19819189C2</string>
-				<string>313832C97243485D9A9EE792</string>
-				<string>D0318DBD89474DB5BE7E73C6</string>
-				<string>1F6ACC1AF4A043C18CF7BFD3</string>
-				<string>8CFC7AE2C4BF4C7B85A1108F</string>
-				<string>1456E9A594EA44F6B0E3C0F4</string>
-				<string>4203D46747704EEB8ABEA7B7</string>
-				<string>F6F203653FAC47D3A383DDE4</string>
-				<string>350C32668A904684B42050A3</string>
-				<string>F96BFECA40E54A79A7E0F646</string>
-				<string>B0BF16DCF8D6485DB92E1318</string>
-				<string>1FF5ADCD70D84650BC67F142</string>
-				<string>9622C0810D314C968D7FFAAA</string>
-				<string>24E2D38C41354AFCAF9220CE</string>
-				<string>E11C5BDA6E3A4DAF9973A8B0</string>
-				<string>4FD88050B68E445EB2EAD56C</string>
-				<string>2DCCD838983C498D9B2D46BB</string>
-				<string>CD9D89E9FB19442DB87F44D7</string>
-				<string>7A0D05F054E840B5A67B79E9</string>
-				<string>6C01F63222D14036A1BDF7D2</string>
-				<string>63A7DFFC89CF48A5AD736297</string>
-				<string>7121E2EAB52544728E00AE81</string>
-				<string>3052A8859E7D42DC95A703FF</string>
-				<string>2704234FC4DE426C80FE6A9F</string>
-				<string>FBB94889675C46D88CD1AC57</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ClearBlade-iOS-API</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
 			<key>path</key>
-			<string>ClearBlade-iOS-API</string>
+			<string>Pods-acknowledgements.markdown</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BCA7F8F8615148C7A5A44440</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9A5AAE19BB5041DCB0C73A8A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fobjc-arc</string>
-			</dict>
-		</dict>
-		<key>BECDE11E4927453896C8E264</key>
+		<key>C5373E9667404046ACE4D535</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1529,29 +1746,30 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>CBItem.h</string>
+			<string>mosquitto.h</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBItem.h</string>
+			<string>ClearBladeAPI/libmosquitto/mosquitto.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C18C1AA46FD347788F7F03ED</key>
+		<key>CA0D2CEF6CAE4DA287375AE7</key>
 		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8AF1C1EBF61047AF879AA555</string>
+				<string>BC804463B2D24951B51321A4</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
+			<string>XCConfigurationList</string>
 		</dict>
-		<key>C2AA3DEDDA934263BF728EA3</key>
+		<key>CABA2B8C296745E992A073CD</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F83F3C01F9394B9F8A5F13FF</string>
+			<string>AAA25B8518524F05817050FB</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1560,128 +1778,133 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>C44021AE78E841DFA3E60B9D</key>
+		<key>CB96106EF81A4BFBB77C3004</key>
 		<dict>
-			<key>children</key>
+			<key>fileRef</key>
+			<string>85B73CC0401D4127B505E84E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CC4E03204C48474CBC388E2E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>684438DCA0C94F288AE90A3D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>CC6C7040147B42C3ABA4F123</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>tls_mosq.c</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/tls_mosq.c</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D29FF2FEB72C4EEA839F5950</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>mosquitto_internal.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/mosquitto_internal.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D36FED4198C340E2A951A48B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>066290EEDC544CD0BC417B55</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>D5D5A2E82EE54FBFBF683A36</key>
+		<dict>
+			<key>fileRef</key>
+			<string>50B7C9E07E0C4C2E859DA18B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D5EE0B331FC04D1981524F2F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D7DA1E0E109E49DA960F84E8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5BD374409ADE4F0ABF95631C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DB692A073EE44B55B06E806B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E32BC9C8973B406E9818C368</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DBEE907BAA754A04A2D2EE0E</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>CA0D2CEF6CAE4DA287375AE7</string>
+			<key>buildPhases</key>
 			<array>
-				<string>BB099B98CD9544ECB2005135</string>
+				<string>B8C37D052C614DA399F5E379</string>
+				<string>216697FB766446C1BE8B20F8</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>B1C46F91AABF47048B2F8D65</string>
 			</array>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXNativeTarget</string>
 			<key>name</key>
 			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<key>productName</key>
+			<string>Pods</string>
+			<key>productReference</key>
+			<string>A5DEF0B0B39648CEA76F7F8C</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>C577D5348A694942B39C1C32</key>
+		<key>DC51464773134A18A70DDE77</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1035C87C32F54EA89BD2E46F</string>
+			<string>324E4D0F761D46C2B9A66052</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>C729C12E14204F04A1990C5A</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>93024BF2D7D646AE8F19F3B5</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>CCC6890265264F34A8631182</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8094B115E70248CD8A09EBF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CD9D89E9FB19442DB87F44D7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>time_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/time_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CDFE6A25063B4E72ACE5F8DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>CBMessage.m</string>
-			<key>path</key>
-			<string>ClearBladeAPI/CBMessage.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D0318DBD89474DB5BE7E73C6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>mosquitto.c</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/mosquitto.c</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D1076FC46C8042BDAB71DB17</key>
+		<key>DF433DFB8E51406AA447B262</key>
 		<dict>
 			<key>buildSettings</key>
 			<dict>
@@ -1748,140 +1971,17 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>D1E89EFDEE9348F2A4CE3162</key>
+		<key>E0ECFD20B46F499A8C3898E0</key>
 		<dict>
 			<key>fileRef</key>
-			<string>CD9D89E9FB19442DB87F44D7</string>
+			<string>49423B50CA7B437D90F49BC9</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>D22E499931A645C898C051C7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D1076FC46C8042BDAB71DB17</string>
-				<string>900732B623624FD59F382DCE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D6BE2AB85A9E48939850B5A0</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>1BB08ADBBE604C2F889CCF9B</string>
-				<string>8AA5DD3AC68B40A8BDE37EA3</string>
-				<string>E52D9E4CBA3B45BDBC3D9C34</string>
-				<string>475B05A167EF4C43A006401B</string>
-				<string>C2AA3DEDDA934263BF728EA3</string>
-				<string>7C14083F0D9845B9B4BAE2D4</string>
-				<string>BCA7F8F8615148C7A5A44440</string>
-				<string>43810CF0B1AC430582A80E1F</string>
-				<string>97DCE81894EA46DABFD17062</string>
-				<string>7A5EBDA4C32242BAA6F0A69C</string>
-				<string>4763BE865ABB478AA11E6760</string>
-				<string>A3901B37A65A402A8928D5B3</string>
-				<string>B6BC08E2DCD24C6B9AB1130A</string>
-				<string>9CD9096858EF48109D27C147</string>
-				<string>6C7A6B348DDC405A8DAFE6C9</string>
-				<string>6328E018671943FDA7CC7E4C</string>
-				<string>14290F9D22A04F43B396151E</string>
-				<string>2EA1540C9F464DDCA0EA0044</string>
-				<string>7E6E4A7B045D4CF7862C0999</string>
-				<string>BAD7142C886941A48358D512</string>
-				<string>5EFBCC7DA7654CCCA9657B34</string>
-				<string>143B3B753CFD4075B9C042D2</string>
-				<string>989840DE042A498881C169D2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D930C0EE9DFA4EFABFFCF20E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>CBQuery.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/CBQuery.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D985CF714ABC48AB8F584F1F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-environment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DC85AEBA9A824698BA3A3B56</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>93024BF2D7D646AE8F19F3B5</string>
-				<string>4EB192323BBD44CF9C2CA5F0</string>
-				<string>EA84E6F33711419AA3381EE2</string>
-				<string>AB98F0ECE1F146038290884E</string>
-				<string>D985CF714ABC48AB8F584F1F</string>
-				<string>B49739D4A6844DFA83D679B5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DEB3BF4D0F2040DFA5F5E467</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>E11C5BDA6E3A4DAF9973A8B0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>send_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/send_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E52D9E4CBA3B45BDBC3D9C34</key>
+		<key>E1B5E4088CAB4F698804A36E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>91FC00BC524247AF8E551492</string>
+			<string>28286CAB9132405D940595D5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1890,14 +1990,68 @@
 				<string>-fobjc-arc</string>
 			</dict>
 		</dict>
-		<key>E5ACF2E65D9F42E597C6FA07</key>
+		<key>E32BC9C8973B406E9818C368</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>will_mosq.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/libmosquitto/will_mosq.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E5B553F85C6E4138B4145F6D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D930C0EE9DFA4EFABFFCF20E</string>
+			<string>2DD9B6FC76CE4BD0BCB0870F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>E67F4AB7DB4C4F25BDF9CAFE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>19F8B7C9496C47429442D01B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
+		</dict>
+		<key>E953DE363397497B896A64C3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F711241864764A15957BADCC</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>EA84E6F33711419AA3381EE2</key>
+		<key>EA315FD8CF4F4C43A0A68598</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>CBMessageClient.h</string>
+			<key>path</key>
+			<string>ClearBladeAPI/CBMessageClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EA76910657CE469A86E923D5</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1910,151 +2064,31 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>EB76534BE665413290EA3CCE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>EFF8B24813244756BF38C511</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>9A53B69657414CE1B0768BD1</string>
-				<string>F8FB9FBA8B5643F1BA4499EC</string>
-				<string>11E600DE141D4EBEB9BE714B</string>
-				<string>B21D81AE451A4E49A42DE01D</string>
-				<string>697C0215385A4289A84AA8C5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>F14ED34F3EC8464780318831</key>
+		<key>EFD7E652F2E54B3E9E2CA517</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1440C88A480A43BDA7555266</string>
+			<string>8E3ADF45247545A5AFD6D3F0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>F380FD9B950E49B29AF1723D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>dummypthread.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/dummypthread.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F47AD1507DD34934A37B417D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>951D795721914E6F8D16F25F</string>
-				<string>5FF7ECC5130D42CCB907F1D4</string>
-				<string>AB4AD505E53E4B39ABCCC4CF</string>
-				<string>C18C1AA46FD347788F7F03ED</string>
-				<string>DEB3BF4D0F2040DFA5F5E467</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F579A19186AD457086CCA06D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2704234FC4DE426C80FE6A9F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F657906C012640A5B3E23AEF</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>21B813B662B94EB7B3776254</string>
-			<key>buildSettings</key>
+			<key>settings</key>
 			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
 			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
 		</dict>
-		<key>F6F203653FAC47D3A383DDE4</key>
+		<key>F1E485604BC440498098541C</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>A9F3605AF3CB4E04825DE3D3</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>net_mosq.h</string>
-			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/net_mosq.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-fobjc-arc</string>
+			</dict>
 		</dict>
-		<key>F83F3C01F9394B9F8A5F13FF</key>
+		<key>F6BB380E84C542AA9CF46D20</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2063,106 +2097,72 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>CBMessageClient.m</string>
+			<string>CBCollection.m</string>
 			<key>path</key>
-			<string>ClearBladeAPI/CBMessageClient.m</string>
+			<string>ClearBladeAPI/CBCollection.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F8FB9FBA8B5643F1BA4499EC</key>
+		<key>F6D957A5073C401A9426EEAB</key>
 		<dict>
 			<key>fileRef</key>
-			<string>5FF7ECC5130D42CCB907F1D4</string>
+			<string>A29ABD2251A145B1B7DDE197</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>F96BFECA40E54A79A7E0F646</key>
+		<key>F711241864764A15957BADCC</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>wrapper.framework</string>
 			<key>name</key>
-			<string>read_handle.h</string>
+			<string>MobileCoreServices.framework</string>
 			<key>path</key>
-			<string>ClearBladeAPI/libmosquitto/read_handle.h</string>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework</string>
 			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>FBB94889675C46D88CD1AC57</key>
+		<key>FBD0DB14B5F04986AE29242C</key>
 		<dict>
-			<key>children</key>
+			<key>fileRef</key>
+			<string>54AC3EAEAC8E4F7B9631B9CC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FCFFC3802EEC451289B417C4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A828F262785141BB875D4797</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FD505DC8A0B440CD87AA8A20</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BC482356956544A8B186BBFB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>FFB83E969EE745B1B996FF9B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
 			<array>
-				<string>5A53ABA960A54C45A7228CC9</string>
-				<string>21B813B662B94EB7B3776254</string>
-				<string>564618D32813406E8139D002</string>
-				<string>EB76534BE665413290EA3CCE</string>
+				<string>2CD0AE27C1A445E1895D8860</string>
+				<string>633C1BB9D3FF47B48E64FF55</string>
+				<string>E953DE363397497B896A64C3</string>
+				<string>DC51464773134A18A70DDE77</string>
+				<string>FBD0DB14B5F04986AE29242C</string>
 			</array>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>FBBB6C5323DF4946A7B8319D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>21B813B662B94EB7B3776254</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DSTROOT</key>
-				<string>/tmp/xcodeproj.dst</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Pods-ClearBlade-iOS-API-prefix.pch</string>
-				<key>GCC_VERSION</key>
-				<string>com.apple.compilers.llvm.clang.1_0</string>
-				<key>INSTALL_PATH</key>
-				<string>$(BUILT_PRODUCTS_DIR)</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_CPLUSPLUSFLAGS</key>
-				<array>
-					<string>-DNS_BLOCK_ASSERTIONS=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
-	<string>6CFFD71A7AD4473CB60AFD4A</string>
+	<string>553917129D064A3A9BA44156</string>
 </dict>
 </plist>
