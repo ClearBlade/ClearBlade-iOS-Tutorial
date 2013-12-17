@@ -1,0 +1,10 @@
+PODS:
+  - ClearBlade-iOS-API (0.9.0)
+
+DEPENDENCIES:
+  - ClearBlade-iOS-API
+
+SPEC CHECKSUMS:
+  ClearBlade-iOS-API: e19daeddd4f068c79522df8cdc30ee1d66a61fdc
+
+COCOAPODS: 0.27.1
