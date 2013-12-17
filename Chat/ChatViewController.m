@@ -7,9 +7,10 @@
 //
 
 #import "ChatViewController.h"
+#import <CBAPI.h>
 
-@interface ChatViewController ()
-
+@interface ChatViewController () <CBMessageClientDelegate>
+@property (strong, nonatomic) CBMessageClient * messageClient;
 @end
 
 @implementation ChatViewController
@@ -20,6 +21,27 @@
 @synthesize scrollView = _scrollView;
 @synthesize bottomBar = _bottomBar;
 @synthesize messages = _messages;
+
+-(CBMessageClient *)messageClient {
+    if (!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
+}
+
+-(void)messageClient:(CBMessageClient *)client didConnect:(CBMessageClientConnectStatus)status {
+    [client subscribeToTopic:self.group];
+}
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    [self addMessage:[message payloadText]];
+}
+-(void)messageClient:(CBMessageClient *)client didPublishToTopic:(NSString *)topic withMessage:(CBMessage *)message {
+    [self addMessage:[message payloadText]];
+}
+-(void)messageClient:(CBMessageClient *)client didFailToConnect:(CBMessageClientConnectStatus)reason {
+    
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,7 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.messageClient connect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +102,9 @@
 }
 
 - (IBAction)sendClicked {
-    //Handle publish logic here
+    NSString *messageText = [NSString stringWithFormat:@"%@: %@", self.username, self.messageField.text];
+    [self.messageClient publishMessage:messageText toTopic:self.group];
+    self.messageField.text = @"";
 }
 
 @end
