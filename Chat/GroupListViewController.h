@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CBAPI.h>
 
 @interface GroupListViewController : UITableViewController
 

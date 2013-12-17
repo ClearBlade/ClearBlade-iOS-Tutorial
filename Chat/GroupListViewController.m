@@ -10,13 +10,38 @@
 #import "ChatViewController.h"
 
 @interface GroupListViewController ()
-
+@property (strong, nonatomic) CBCollection *groupCol;
 @end
 
 @implementation GroupListViewController
 
 @synthesize groups = _groups;
 @synthesize username = _username;
+@synthesize groupCol = _groupCol;
+
+-(void) getAllGroups {
+    [self.groupCol fetchWithSuccessCallback:^(NSMutableArray *returnedGroups) {
+        for (CBItem * group in returnedGroups) {
+            [self.groups addObject:[group objectForKey:@"groupname"]];
+        }
+        [self.tableView reloadData];
+    } withErrorCallback:^(NSError *err, id ret) {
+        NSLog(@"ERROR: %@: %@", err, ret);
+    }];
+}
+-(CBCollection *)groupCol {
+    if (!_groupCol) {
+#warning Replace with your own collection id for groups
+        _groupCol = [CBCollection collectionWithID:@"98cad0aa0ae8f3e4f888bcdeb29701"];
+    }
+    return _groupCol;
+}
+-(NSMutableArray *)groups {
+    if (!_groups) {
+        _groups = [NSMutableArray array];
+    }
+    return _groups;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,8 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //Add logic here to get all the group names and add them to the groups list
+    [self getAllGroups];
 }
 
 - (void)didReceiveMemoryWarning

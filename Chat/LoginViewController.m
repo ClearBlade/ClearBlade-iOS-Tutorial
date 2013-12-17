@@ -22,6 +22,7 @@
 
 -(CBCollection *)userCol {
     if (!_userCol) {
+#warning Replace with your own user collection
         _userCol = [CBCollection collectionWithID:@"90cad0aa0ac8d8bf89ff8afea432"];
     }
     return _userCol;
