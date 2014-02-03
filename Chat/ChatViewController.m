@@ -11,6 +11,7 @@
 
 @interface ChatViewController () <CBMessageClientDelegate>
 @property (strong, nonatomic) CBMessageClient * messageClient;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
 @end
 
 @implementation ChatViewController
@@ -21,6 +22,8 @@
 @synthesize scrollView = _scrollView;
 @synthesize bottomBar = _bottomBar;
 @synthesize messages = _messages;
+@synthesize chatBox = _chatBox;
+@synthesize messageClient = _messageClient;
 
 -(CBMessageClient *)messageClient {
     if (!_messageClient) {
@@ -33,24 +36,32 @@
 -(void)messageClientDidConnect:(CBMessageClient *)client {
     [client subscribeToTopic:self.group];
 }
+
 -(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
     [self addMessage:[message payloadText]];
 }
--(void)messageClient:(CBMessageClient *)client didPublishToTopic:(NSString *)topic withMessage:(CBMessage *)message {
-    [self addMessage:[message payloadText]];
-}
--(void)messageClient:(CBMessageClient *)client didFailToConnect:(CBMessageClientConnectStatus)reason {
+
+- (void)keyboardWillBeShown:(NSNotification*)notification {
+    CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = size.height;
+            [self.view layoutIfNeeded];
+        }
+    }];
     
 }
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)keyboardWillBeHidden:(NSNotification*)notification {
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = 0.0f;
+            [self.view layoutIfNeeded];
+        }
+    }];
 }
 
 
@@ -64,13 +75,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
     [self.messageClient connect];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
