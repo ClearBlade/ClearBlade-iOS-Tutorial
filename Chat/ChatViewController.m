@@ -9,6 +9,7 @@
 #import "ChatViewController.h"
 
 @interface ChatViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
 
 @end
 
@@ -31,6 +32,31 @@
     return self;
 }
 
+- (void)keyboardWillBeShown:(NSNotification*)notification {
+    CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = size.height;
+            [self.view layoutIfNeeded];
+        }
+    }];
+    
+}
+- (void)keyboardWillBeHidden:(NSNotification*)notification {
+    float duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        NSLayoutConstraint * constraint = self.chatBox;
+        if (constraint) {
+            constraint.constant = 0.0f;
+            [self.view layoutIfNeeded];
+        }
+    }];
+}
+
+
+
 
 -(NSMutableArray *)messages {
     if (!_messages) {
@@ -43,6 +69,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning

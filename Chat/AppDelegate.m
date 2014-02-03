@@ -14,7 +14,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [ClearBlade initSettingsWithAppKey:@"5277bd628ab3a37ce7f6f061" withAppSecret:@"0D2N19VB3FPYJYEBSOI4LVG6M97PKX"];
+    NSError * error;
+#warning Replace with your own app key and app secret
+    [ClearBlade initSettingsSyncWithSystemKey:@"eac9d0aa0ae0dcd7b1e496f4ddde01"
+                             withSystemSecret:@"EAC9D0AA0AAAA886B5B4BBAFC6E701"
+                                  withOptions:@{}
+                                    withError:&error];
+    if (error) {
+        NSLog(@"Failed to connect with error %@", error);
+        return NO;
+    }
     return YES;
 }
 							
