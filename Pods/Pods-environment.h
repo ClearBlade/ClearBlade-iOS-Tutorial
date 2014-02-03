@@ -8,7 +8,8 @@
 
 // ClearBlade-iOS-API
 #define COCOAPODS_POD_AVAILABLE_ClearBlade_iOS_API
-#define COCOAPODS_VERSION_MAJOR_ClearBlade_iOS_API 0
-#define COCOAPODS_VERSION_MINOR_ClearBlade_iOS_API 9
-#define COCOAPODS_VERSION_PATCH_ClearBlade_iOS_API 0
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 0.9.2.2.
 
