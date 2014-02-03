@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CBItem.h"
+#import "CBUser.h"
 
 #define CBQUERY_NON_OK_ERROR @"Received Non 200 status from server"
 
@@ -34,6 +35,11 @@ Class representing a query that can be used in operations on Platform
 The string that represent the ID of the collection that will be queried
 */
 @property (strong, nonatomic) NSString *collectionID;
+
+/**
+ The user that is making the query. It defaults to [Clearblade settings].mainUser.
+ */
+@property (strong, nonatomic) CBUser *user;
 
 /**
 Creates a query object that will operate on the collection with the collectionID
@@ -71,10 +77,12 @@ Updates on the platform all the items that match the query sent
 /**
 Inserts the object into the collection. Ignores any query parameters
 @param item The item to be inserted into the collection
+@param collectionID The ID of the collection to insert the item into
 @param successCallback A callback block that handles the return data
 @param errorCallback A callback block that handles the errors returned
 */
 -(void) insertItem:(CBItem *)item
+intoCollectionWithID:(NSString *)collectionID
 withSuccessCallback:(CBQuerySuccessCallback)successCallback
  withErrorCallback:(CBQueryErrorCallback)errorCallback;
 

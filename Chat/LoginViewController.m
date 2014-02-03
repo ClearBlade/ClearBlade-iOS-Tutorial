@@ -27,28 +27,12 @@
     return _userCol;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+-(void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void) checkUser: (NSString *) userString {
+-(void)checkUser: (NSString *) userString {
     //Sets up the query to be on the same collection as userCol
     CBQuery *userQuery = [CBQuery queryWithCollectionID:[self.userCol collectionID]];
     [userQuery equalTo:userString for:@"username"]; //Adds the query parameter that username must be equal to the userString
@@ -76,6 +60,7 @@
     GroupListViewController *groupView = (GroupListViewController *)segue.destinationViewController;
     groupView.username = username;
 }
+
 - (IBAction)loginClicked:(id)sender {
     if ([self.userNameField.text length] == 0) {
         self.errorMessage.text = @"No username was entered";
