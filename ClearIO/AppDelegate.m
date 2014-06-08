@@ -7,15 +7,18 @@
 //
 
 #import "AppDelegate.h"
+#import "CBChatConstants.h"
 
 @implementation AppDelegate
 
+- (void)initClearBladePlatformWithUser:(NSString *) username withPassword:(NSString *) password withNewUser:(bool) newUser
+{
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

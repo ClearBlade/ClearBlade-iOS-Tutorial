@@ -23,6 +23,7 @@
 		D344A80A19452B6800FDC2E3 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80519452B6800FDC2E3 /* ChatViewController.m */; };
 		D344A80B19452B6800FDC2E3 /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80719452B6800FDC2E3 /* GroupListViewController.m */; };
 		D344A80C19452B6800FDC2E3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80919452B6800FDC2E3 /* LoginViewController.m */; };
+		D344A80E19452E2F00FDC2E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D344A80D19452E2F00FDC2E3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D344A80719452B6800FDC2E3 /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListViewController.m; sourceTree = "<group>"; };
 		D344A80819452B6800FDC2E3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D344A80919452B6800FDC2E3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D344A80D19452E2F00FDC2E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				D344A7E4194528EF00FDC2E3 /* AppDelegate.m */,
 				D344A7E6194528EF00FDC2E3 /* Images.xcassets */,
 				D344A7DB194528EF00FDC2E3 /* Supporting Files */,
+				D344A80D19452E2F00FDC2E3 /* Main.storyboard */,
 			);
 			path = ClearIO;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D344A80E19452E2F00FDC2E3 /* Main.storyboard in Resources */,
 				D344A7DF194528EF00FDC2E3 /* InfoPlist.strings in Resources */,
 				D344A7E7194528EF00FDC2E3 /* Images.xcassets in Resources */,
 			);
