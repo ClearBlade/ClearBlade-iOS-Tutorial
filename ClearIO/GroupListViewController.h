@@ -11,6 +11,6 @@
 @interface GroupListViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *groups;
-@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSDictionary *userInfo;
 
 @end

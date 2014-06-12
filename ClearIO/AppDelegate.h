@@ -11,5 +11,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+- (void)initClearBladePlatformWithUser:(NSString *)username withPassword:(NSString *)password withNewUser:(bool)newUser withError:(NSError **)error;
+- (void)logoutClearBladePlatformWithError:(NSError **)error;
 @end

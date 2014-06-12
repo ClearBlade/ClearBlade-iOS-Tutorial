@@ -7,13 +7,25 @@
 //
 
 #import "AppDelegate.h"
-#import "CBChatConstants.h"
+#import "ClearIOConstants.h"
+#import "CBAPI.h"
 
 @implementation AppDelegate
 
-- (void)initClearBladePlatformWithUser:(NSString *) username withPassword:(NSString *) password withNewUser:(bool) newUser
+- (void)initClearBladePlatformWithUser:(NSString *)username withPassword:(NSString *)password withNewUser:(bool)newUser withError:(NSError **)error
 {
-    
+   // [options setValue:@"http://localhost:8080" forKey:CBSettingsOptionServerAddress];
+   // [options setValue:@"tcp://localhost:1883" forKey:CBSettingsOptionMessagingAddress];
+   // [options setValue:username forKey:CBSettingsOptionEmail];
+   // [options setValue:password forKey:CBSettingsOptionPassword];
+   // [options setValue:[NSNumber numberWithBool:newUser] forKey:CBSettingsOptionRegisterUser];
+   // [options setValue:[NSNumber numberWithInt:CB_LOG_EXTRA] forKey:CBSettingsOptionLoggingLevel];
+    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),CBSettingsOptionServerAddress:@"http://localhost:8080",CBSettingsOptionMessagingAddress:@"tcp://localhost:1883",CBSettingsOptionEmail:username,CBSettingsOptionPassword:password,CBSettingsOptionRegisterUser:@(newUser)}  withError:error];
+}
+
+- (void)logoutClearBladePlatformWithError:(NSError **)error
+{
+    [[[ClearBlade settings] mainUser] logOutWithError:error];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

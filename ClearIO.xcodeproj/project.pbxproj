@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ACDD6A2A8A0145CAB35F79EB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E68B8637824181BE10A53F /* libPods.a */; };
+		D3304058194A27E300376DAD /* GroupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3304057194A27E300376DAD /* GroupInfoViewController.m */; };
 		D344A7D5194528EF00FDC2E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344A7D4194528EF00FDC2E3 /* Foundation.framework */; };
 		D344A7D7194528EF00FDC2E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344A7D6194528EF00FDC2E3 /* CoreGraphics.framework */; };
 		D344A7D9194528EF00FDC2E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344A7D8194528EF00FDC2E3 /* UIKit.framework */; };
@@ -24,6 +25,7 @@
 		D344A80B19452B6800FDC2E3 /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80719452B6800FDC2E3 /* GroupListViewController.m */; };
 		D344A80C19452B6800FDC2E3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80919452B6800FDC2E3 /* LoginViewController.m */; };
 		D344A80E19452E2F00FDC2E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D344A80D19452E2F00FDC2E3 /* Main.storyboard */; };
+		D344A8111945330300FDC2E3 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A8101945330300FDC2E3 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		80E68B8637824181BE10A53F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B5966134954C47AE670875 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D3304056194A27E300376DAD /* GroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfoViewController.h; sourceTree = "<group>"; };
+		D3304057194A27E300376DAD /* GroupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfoViewController.m; sourceTree = "<group>"; };
 		D344A7D1194528EF00FDC2E3 /* ClearIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D344A7D4194528EF00FDC2E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D344A7D6194528EF00FDC2E3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +59,7 @@
 		D344A7F5194528EF00FDC2E3 /* ClearIOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClearIOTests-Info.plist"; sourceTree = "<group>"; };
 		D344A7F7194528EF00FDC2E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D344A7F9194528EF00FDC2E3 /* ClearIOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClearIOTests.m; sourceTree = "<group>"; };
-		D344A80319452B6800FDC2E3 /* CBChatConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBChatConstants.h; sourceTree = "<group>"; };
+		D344A80319452B6800FDC2E3 /* ClearIOConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearIOConstants.h; sourceTree = "<group>"; };
 		D344A80419452B6800FDC2E3 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		D344A80519452B6800FDC2E3 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		D344A80619452B6800FDC2E3 /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListViewController.h; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		D344A80819452B6800FDC2E3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D344A80919452B6800FDC2E3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D344A80D19452E2F00FDC2E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D344A80F1945330300FDC2E3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		D344A8101945330300FDC2E3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +131,7 @@
 		D344A7DA194528EF00FDC2E3 /* ClearIO */ = {
 			isa = PBXGroup;
 			children = (
-				D344A80319452B6800FDC2E3 /* CBChatConstants.h */,
+				D344A80319452B6800FDC2E3 /* ClearIOConstants.h */,
 				D344A80419452B6800FDC2E3 /* ChatViewController.h */,
 				D344A80519452B6800FDC2E3 /* ChatViewController.m */,
 				D344A80619452B6800FDC2E3 /* GroupListViewController.h */,
@@ -137,6 +143,10 @@
 				D344A7E6194528EF00FDC2E3 /* Images.xcassets */,
 				D344A7DB194528EF00FDC2E3 /* Supporting Files */,
 				D344A80D19452E2F00FDC2E3 /* Main.storyboard */,
+				D344A80F1945330300FDC2E3 /* RegisterViewController.h */,
+				D344A8101945330300FDC2E3 /* RegisterViewController.m */,
+				D3304056194A27E300376DAD /* GroupInfoViewController.h */,
+				D3304057194A27E300376DAD /* GroupInfoViewController.m */,
 			);
 			path = ClearIO;
 			sourceTree = "<group>";
@@ -302,8 +312,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D344A80B19452B6800FDC2E3 /* GroupListViewController.m in Sources */,
+				D344A8111945330300FDC2E3 /* RegisterViewController.m in Sources */,
 				D344A7E5194528EF00FDC2E3 /* AppDelegate.m in Sources */,
 				D344A7E1194528EF00FDC2E3 /* main.m in Sources */,
+				D3304058194A27E300376DAD /* GroupInfoViewController.m in Sources */,
 				D344A80A19452B6800FDC2E3 /* ChatViewController.m in Sources */,
 				D344A80C19452B6800FDC2E3 /* LoginViewController.m in Sources */,
 			);

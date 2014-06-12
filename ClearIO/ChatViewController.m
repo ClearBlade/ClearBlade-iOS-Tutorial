@@ -17,7 +17,7 @@
 @implementation ChatViewController
 
 @synthesize group = _group;
-@synthesize username = _username;
+@synthesize userInfo = _userInfo;
 @synthesize messageField =_messageField;
 @synthesize scrollView = _scrollView;
 @synthesize bottomBar = _bottomBar;
@@ -123,7 +123,7 @@
 }
 
 - (IBAction)sendClicked {
-    NSString *messageText = [NSString stringWithFormat:@"%@: %@", self.username, self.messageField.text];
+    NSString *messageText = [NSString stringWithFormat:@"%@: %@", [self.userInfo objectForKey:@"first_name"], self.messageField.text];
     [self.messageClient publishMessage:messageText toTopic:self.group];
     self.messageField.text = @"";
 }
