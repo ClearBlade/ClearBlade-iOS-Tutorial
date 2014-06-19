@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ClearIOConstants.h"
 #import "CBAPI.h"
+#import "ClearIO.h"
 
 @implementation AppDelegate
 
@@ -20,7 +21,7 @@
    // [options setValue:password forKey:CBSettingsOptionPassword];
    // [options setValue:[NSNumber numberWithBool:newUser] forKey:CBSettingsOptionRegisterUser];
    // [options setValue:[NSNumber numberWithInt:CB_LOG_EXTRA] forKey:CBSettingsOptionLoggingLevel];
-    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),CBSettingsOptionServerAddress:@"http://localhost:8080",CBSettingsOptionMessagingAddress:@"tcp://localhost:1883",CBSettingsOptionEmail:username,CBSettingsOptionPassword:password,CBSettingsOptionRegisterUser:@(newUser)}  withError:error];
+    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),CBSettingsOptionServerAddress:@"https://rtp.clearblade.com",CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",CBSettingsOptionEmail:username,CBSettingsOptionPassword:password,CBSettingsOptionRegisterUser:@(newUser)}  withError:error];
 }
 
 - (void)logoutClearBladePlatformWithError:(NSError **)error
@@ -30,7 +31,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    [ClearIO initWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withGroupCollectionID:CHAT_GROUPS_COLLECTION withUserGroupsCollectionID:CHAT_USERGROUPS_COLLECTION withUserCollectionID:CHAT_USER_COLLECTION];
     return YES;
 }
 
@@ -59,6 +60,16 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+@end
+
+//temp way to accept unsigned certs
+@implementation NSURLRequest (NSURLRequestWithIgnoreSSL)
+
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
 }
 
 @end

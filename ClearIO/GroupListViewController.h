@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *groups;
 @property (nonatomic, strong) NSDictionary *userInfo;
+@property (nonatomic, strong) NSDictionary *groupInfo;
 
 @end

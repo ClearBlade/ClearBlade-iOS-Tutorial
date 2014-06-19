@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "CBAPI.h"
 #import "ClearIOConstants.h"
+#import "ClearIO.h"
 
 @interface RegisterViewController ()
 @property UITextField *activeField;
@@ -64,7 +65,7 @@
 
 -(CBCollection *)userCol {
     if(!_userCol) {
-        _userCol = [CBCollection collectionWithID:CHAT_USERS_COLLECTION];
+        _userCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
     }
     return _userCol;
 }
@@ -85,16 +86,24 @@
         self.errorMessage.text = @"The passwords did not match";
         return;
     }
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSError * error;
-    [appDelegate initClearBladePlatformWithUser:email withPassword:password withNewUser:true withError:&error];
+    //[appDelegate initClearBladePlatformWithUser:email withPassword:password withNewUser:true withError:&error];
+    [[ClearIO settings] ioRegisterUser:email
+                          withPassword:password
+                         withFirstName:firstName
+                          withLastName:lastName
+                             withError:&error];
     if(!error){
+        /*
         //user successfully registered, let's update user collection with their info
         [self.userCol createWithData:@{CHAT_USER_FIELD:email, @"first_name":firstName, @"last_name":lastName, @"groups":@"{}"} withSuccessCallback:^(CBItem *newUser) {
             [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
         }withErrorCallback:^(CBItem *item, NSError *error, id JSON) {
             self.errorMessage.text = [error localizedDescription];
         }];
+         */
+        [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
     }else {
         self.errorMessage.text = [error localizedDescription];
         return;

@@ -26,6 +26,7 @@
 		D344A80C19452B6800FDC2E3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A80919452B6800FDC2E3 /* LoginViewController.m */; };
 		D344A80E19452E2F00FDC2E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D344A80D19452E2F00FDC2E3 /* Main.storyboard */; };
 		D344A8111945330300FDC2E3 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D344A8101945330300FDC2E3 /* RegisterViewController.m */; };
+		D3580023194F711600763CCC /* ClearIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D3580022194F711600763CCC /* ClearIO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		D344A80D19452E2F00FDC2E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D344A80F1945330300FDC2E3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D344A8101945330300FDC2E3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		D3580021194F711600763CCC /* ClearIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearIO.h; sourceTree = "<group>"; };
+		D3580022194F711600763CCC /* ClearIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearIO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				D344A8101945330300FDC2E3 /* RegisterViewController.m */,
 				D3304056194A27E300376DAD /* GroupInfoViewController.h */,
 				D3304057194A27E300376DAD /* GroupInfoViewController.m */,
+				D3580021194F711600763CCC /* ClearIO.h */,
+				D3580022194F711600763CCC /* ClearIO.m */,
 			);
 			path = ClearIO;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				D344A80B19452B6800FDC2E3 /* GroupListViewController.m in Sources */,
 				D344A8111945330300FDC2E3 /* RegisterViewController.m in Sources */,
 				D344A7E5194528EF00FDC2E3 /* AppDelegate.m in Sources */,
+				D3580023194F711600763CCC /* ClearIO.m in Sources */,
 				D344A7E1194528EF00FDC2E3 /* main.m in Sources */,
 				D3304058194A27E300376DAD /* GroupInfoViewController.m in Sources */,
 				D344A80A19452B6800FDC2E3 /* ChatViewController.m in Sources */,

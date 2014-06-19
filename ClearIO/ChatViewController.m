@@ -8,6 +8,7 @@
 
 #import "ChatViewController.h"
 #import "CBAPI.h"
+#import "GroupInfoViewController.h"
 
 @interface ChatViewController () <CBMessageClientDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
@@ -16,7 +17,7 @@
 
 @implementation ChatViewController
 
-@synthesize group = _group;
+@synthesize groupInfo = _groupInfo;
 @synthesize userInfo = _userInfo;
 @synthesize messageField =_messageField;
 @synthesize scrollView = _scrollView;
@@ -34,7 +35,7 @@
 
 -(void)messageClientDidConnect:(CBMessageClient *)client {
     CBLogDebug(@"client did connect called in app..");
-    [client subscribeToTopic:self.group];
+    [client subscribeToTopic:[self.groupInfo valueForKey:@"item_id"]];
 }
 
 -(void)messageClientDidDisconnect:(CBMessageClient *)client {
@@ -124,8 +125,25 @@
 
 - (IBAction)sendClicked {
     NSString *messageText = [NSString stringWithFormat:@"%@: %@", [self.userInfo objectForKey:@"first_name"], self.messageField.text];
-    [self.messageClient publishMessage:messageText toTopic:self.group];
+    [self.messageClient publishMessage:messageText toTopic:[self.groupInfo valueForKey:@"item_id"]];
     self.messageField.text = @"";
+}
+- (IBAction)infoClicked:(id)sender {
+    [self performSegueWithIdentifier:@"groupInfoSegue" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"groupInfoSegue"]){
+        GroupInfoViewController *groupInfoController = (GroupInfoViewController *)segue.destinationViewController;
+        if(![groupInfoController isKindOfClass:[GroupInfoViewController class]]){
+            NSLog(@"Unexpected type of view controller");
+            return;
+        } else {
+            groupInfoController.userInfo = self.userInfo;
+            groupInfoController.isNewGroup = false;
+            groupInfoController.groupInfo = self.groupInfo;
+        }
+    }
 }
 
 @end

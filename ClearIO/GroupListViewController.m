@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "GroupInfoViewController.h"
+#import "ClearIO.h"
 
 @interface GroupListViewController ()
 @property (strong, nonatomic) CBCollection *groupCol;
@@ -23,6 +24,7 @@
 
 @synthesize groups = _groups;
 @synthesize userInfo = _userInfo;
+@synthesize groupInfo = _groupInfo;
 
 - (void)viewDidLoad
 {
@@ -30,57 +32,28 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroupPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
     [self getPublicGroups];
+    
 }
 
 -(void) getPublicGroups {
-    
-    CBQuery *publicGroupsQuery = [CBQuery queryWithCollectionID:[self.groupCol collectionID]];
-    [publicGroupsQuery equalTo:@"true" for:@"public"];
-    [publicGroupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
-        NSMutableArray *returnedGroups = successfulResponse.dataItems;
-        if ([returnedGroups count] > 0){
-            NSDictionary *dict = [NSDictionary dictionaryWithObject:returnedGroups forKey:@"data"];
-            [self.groups addObject:dict];
-            [self getPrivateGroups];
-        }
-    } withErrorCallback:^(NSError *error, id JSON) {
-        
-    }];
-    //temp removed until code handles getting user info of who called function
-     /*
-    CBCode *code = [[CBCode alloc] init];
-    [code executeFunction:@"getPublicGroups" withParams:nil withSuccessCallback:^(NSString *result) {
-        NSError *jsonError;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&jsonError];
-        NSArray *jsonArray = [json objectForKey:@"results"];
-        
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:jsonArray forKey:@"data"];
-        if(jsonError){
-          return;
-        }
+    [[ClearIO settings] ioGetPublicGroupsWithSuccessCallback:^(NSArray *groups) {
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
         [self.groups addObject:dict];
-        [self getPrivateGroups];
+       // [self getPrivateGroups];
+        [self.tableView reloadData];
     } withErrorCallback:^(NSError *error) {
-        
+        NSLog(@"error getting public groups");
     }];
-      */
 }
 
 -(void) getPrivateGroups {
-    
-    CBQuery *privateGroupsQuery = [CBQuery queryWithCollectionID:[self.groupCol collectionID]];
-    [privateGroupsQuery equalTo:@"false" for:@"public"];
-    [privateGroupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
-        NSMutableArray *returnedGroups = successfulResponse.dataItems;
-        if ([returnedGroups count] > 0){
-            NSDictionary *dict = [NSDictionary dictionaryWithObject:returnedGroups forKey:@"data"];
-            [self.groups addObject:dict];
-            [[self tableView] reloadData];
-        }
-    } withErrorCallback:^(NSError *error, id JSON) {
-        
+    [[ClearIO settings] ioGetPrivateGroupsWithSuccessCallback:^(NSArray *groups) {
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
+        [self.groups addObject:dict];
+        [self.tableView reloadData];
+    } withErrorCallback:^(NSError *error) {
+        NSLog(@"error getting private groups");
     }];
-    
 }
 
 -(CBCollection *)groupCol {
@@ -130,8 +103,7 @@
     }
     NSDictionary *dictionary = [self.groups objectAtIndex:indexPath.section];
     NSArray *array = [dictionary objectForKey:@"data"];
-    //NSString *cellValue = [[array objectAtIndex:indexPath.row] valueForKey:@"name"];
-    NSString *cellValue = [[[array objectAtIndex:indexPath.row] data] valueForKey:@"groupname"];
+    NSString *cellValue = [[array objectAtIndex:indexPath.row]  valueForKey:@"group_name"];
     cell.textLabel.text = cellValue;
     
     return cell;
@@ -159,12 +131,18 @@
         ChatViewController *chatController = (ChatViewController *)segue.destinationViewController;
         NSDictionary *dictionary = [self.groups objectAtIndex:[self.selectedIndexPath indexAtPosition:0]];
         NSArray *array = [dictionary objectForKey:@"data"];
-        NSString *group_id = [[[array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]] data]valueForKey:@"item_id"];
+        NSMutableDictionary *grpInfo = [(NSDictionary*)[array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]] mutableCopy];
+        if ([self.selectedIndexPath indexAtPosition:0] == 0){
+            [grpInfo setObject:[NSNumber numberWithBool:true] forKey:@"is_public"];
+        }else{
+            [grpInfo setObject:[NSNumber numberWithBool:false] forKey:@"is_public"];
+        }
+        self.groupInfo = [grpInfo copy];
         if (![chatController isKindOfClass:[ChatViewController class]]){
             NSLog(@"Unexpected type of view controller");
             return;
         } else {
-            chatController.group = (NSString *)group_id;
+            chatController.groupInfo = self.groupInfo;
             chatController.userInfo = self.userInfo;
         }
     }else if ([segue.identifier isEqualToString:@"newGroupSegue"]){

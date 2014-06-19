@@ -12,6 +12,7 @@
 #import "RegisterViewController.h"
 #import "CBAPI.h"
 #import "ClearIOConstants.h"
+#import "ClearIO.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -48,41 +49,34 @@
 
 -(CBCollection *)userCol {
     if(!_userCol) {
-        _userCol = [CBCollection collectionWithID:CHAT_USERS_COLLECTION];
+        _userCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
     }
     return _userCol;
 }
 
 -(void) loginWithUser:(NSString *) userString withPassword:(NSString *) passwordString{
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSError * error;
-    [appDelegate initClearBladePlatformWithUser:userString withPassword:passwordString withNewUser:false withError:&error];
+    [[ClearIO settings] ioLoginWithUser:userString withPassword:passwordString withError:&error];
     if(!error){
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
+    }else{
+        NSLog(@"login error");
     }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"loginSegue"]) {
-        __block NSString *username = self.userNameField.text;
-        CBQuery *userInfoQuery = [CBQuery queryWithCollectionID:[self.userCol collectionID]];
-        [userInfoQuery equalTo:username for:@"email"];
-        [userInfoQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
-            if ([[successfulResponse dataItems] count] > 0){
-                NSString *firstName = [[[[successfulResponse dataItems] objectAtIndex:0] data] valueForKey:@"first_name"];
-                NSString *lastName = [[[[successfulResponse dataItems] objectAtIndex:0] data] valueForKey:@"last_name"];
-                GroupListViewController *groupView = (GroupListViewController *)segue.destinationViewController;
-                 NSDictionary *userInfo = @{@"username":username,@"first_name":firstName,@"last_name":lastName};
-                groupView.userInfo = userInfo;
-            }else{
-                self.errorMessage.text = @"Error getting user's info";
-            }
-        } withErrorCallback:^(NSError *error, id JSON) {
-            self.errorMessage.text = @"Error getting user's info";
-        }];
+        NSError *error;
+        NSDictionary *userInfo = [[ClearIO settings] ioGetUserInfoWithError:&error];
+        if (!error){
+            GroupListViewController *groupView = (GroupListViewController *)segue.destinationViewController;
+        groupView.userInfo = userInfo;
+        }else{
+            NSLog(@"getting user info error");
+        }
     }
-    
 }
+
 - (IBAction)loginClicked:(id)sender {
     [self dismissKeyboard];
     self.errorMessage.text = @"";

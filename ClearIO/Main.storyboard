@@ -177,14 +177,14 @@
                         <viewControllerLayoutGuide type="bottom" id="rno-zE-6IQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Iek-49-qB5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-Mn-quZ">
-                                <rect key="frame" x="0.0" y="217" width="320" height="351"/>
+                                <rect key="frame" x="0.0" y="217" width="320" height="287"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="rZK-BC-0ST">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search users" id="rZK-BC-0ST">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -205,8 +205,8 @@
                                     <outlet property="delegate" destination="Taz-rU-tgP" id="H0v-2y-eo7"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xkc-Qr-1rj">
-                                <rect key="frame" x="0.0" y="38" width="320" height="242"/>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xkc-Qr-1rj">
+                                <rect key="frame" x="0.0" y="38" width="320" height="178"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -225,19 +225,24 @@
                                     <outlet property="delegate" destination="Taz-rU-tgP" id="agD-7B-vpP"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Public" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owq-hd-EJZ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Public" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owq-hd-EJZ">
                                 <rect key="frame" x="54" y="9" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-hL-ode">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-hL-ode">
                                 <rect key="frame" x="165" y="4" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="owq-hd-EJZ" firstAttribute="top" secondItem="o0c-aR-66H" secondAttribute="bottom" constant="9" id="EXJ-bX-zFr"/>
+                            <constraint firstItem="q1P-hL-ode" firstAttribute="top" secondItem="o0c-aR-66H" secondAttribute="bottom" constant="4" id="Svp-nm-aWd"/>
+                            <constraint firstItem="xkc-Qr-1rj" firstAttribute="top" secondItem="owq-hd-EJZ" secondAttribute="bottom" constant="8" id="Xuv-z2-zSr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EpM-TP-G3D">
                         <nil key="title"/>
@@ -246,7 +251,7 @@
                                 <action selector="cancelClicked:" destination="Taz-rU-tgP" id="oef-ag-u4E"/>
                             </connections>
                         </barButtonItem>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="q4U-sn-pff">
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group name" minimumFontSize="17" id="q4U-sn-pff">
                             <rect key="frame" x="68" y="7" width="197" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -258,6 +263,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="allUsersTableView" destination="Rz3-Mn-quZ" id="MHH-vw-Nl5"/>
                         <outlet property="groupName" destination="q4U-sn-pff" id="95o-ZC-Kk6"/>
@@ -329,15 +335,15 @@
                         <viewControllerLayoutGuide type="bottom" id="9Qi-hi-JDx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u2m-ia-T8h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdv-dp-zhs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="490"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKo-Ze-js3">
-                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="434" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-gL-NZe">
@@ -377,7 +383,13 @@
                             <constraint firstItem="hdv-dp-zhs" firstAttribute="top" secondItem="u2m-ia-T8h" secondAttribute="top" id="phF-27-stH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6Nd-ax-ug4"/>
+                    <navigationItem key="navigationItem" id="6Nd-ax-ug4">
+                        <barButtonItem key="rightBarButtonItem" title="Group info" id="anQ-qN-voY">
+                            <connections>
+                                <action selector="infoClicked:" destination="ezm-3A-86m" id="Zdr-6d-6jw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomBar" destination="gKo-Ze-js3" id="yvR-50-NCd"/>
                         <outlet property="chatBox" destination="lk0-wV-Lpu" id="1WC-Qt-FzZ"/>

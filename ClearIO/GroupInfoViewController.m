@@ -10,6 +10,7 @@
 #import "CBAPI.h"
 #import "ClearIOConstants.h"
 #import "ChatViewController.h"
+#import "ClearIO.h"
 
 @interface GroupInfoViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *usersInGroupTableView;
@@ -45,14 +46,20 @@
     self.usersInGroupTableView.delegate = self;
     self.usersInGroupTableView.dataSource = self;
     if(!self.isNewGroup){
-        //get users in group and group name
-        [self getUsersInGroup];
-        self.groupName.text = [self.userInfo valueForKey:@"name"];
-        if ([self.userInfo valueForKey:@"public"]) {
+        self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
+        if ([[self.groupInfo valueForKey:@"is_public"] boolValue]) {
             [self.publicSwitch setOn:YES animated:NO];
+            [self.publicSwitch setEnabled:false];
+            self.allUsersTableView.hidden = true;
+            self.usersInGroupTableView.hidden = true;
+        }else{
+            [self.publicSwitch setOn:NO animated:NO];
+            [self.publicSwitch setEnabled:true];
+            [self getAllUsers];
         }
+    }else{
+        [self getAllUsers];
     }
-    [self getAllUsers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,12 +83,15 @@
 }
 
 - (void)getAllUsers {
-    CBCollection *allUsersCol = [CBCollection collectionWithID:CHAT_USERS_COLLECTION];
+    CBCollection *allUsersCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
     [allUsersCol fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
         NSMutableArray *returnedGroups = successfulResponse.dataItems;
         if ([returnedGroups count] > 0){
             [self.allUsers addObjectsFromArray:successfulResponse.dataItems];
             [self.allUsersTableView reloadData];
+            if (![[self.groupInfo valueForKey:@"is_public"] boolValue]){
+               //[self getUsersInGroup];
+            }
         }
     } withErrorCallback:^(NSError *error, id JSON) {
         
@@ -89,41 +99,92 @@
 }
 
 - (void)getUsersInGroup {
+    //pull users from self.groupInfo
+    NSError *error;
+    NSData *userData = [[self.groupInfo valueForKey:@"users"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *userEmails = [NSJSONSerialization JSONObjectWithData:userData options:kNilOptions error:&error];
     
+    //has to be a better way to do this.. but for now we need to populate self.usersInGroup with email/fname/lname using the array of emails in usersEmails
+    //nested loop first loop through userEMails, then allUsers, and if emails match, push a NSDictionary with email/fname/lname to usersInGroup
+    
+    //[self.usersInGroup addObjectsFromArray:userEmails];
+    [self.allUsersTableView reloadData];
 }
 
 - (IBAction)doneClicked:(id)sender {
     if (self.isNewGroup) {
-        CBQuery *addNewGroupQuery = [CBQuery queryWithCollectionID:CHAT_GROUPS_COLLECTION];
-        NSString *public;
-        if ([self.publicSwitch isOn]) {
-            public = @"true";
-        }else{
-            public = @"false";
-        }
-        NSString *users = @"filler";
-        CBItem *newItem = [CBItem itemWithData:@{@"groupname":self.groupName.text,@"public":public,@"users":users} withCollectionID:CHAT_GROUPS_COLLECTION];
-        /*
-        [addNewGroupQuery insertItem:newItem intoCollectionWithID:CHAT_GROUPS_COLLECTION withSuccessCallback:^(NSMutableArray *items) {
-            NSDictionary *newGroupInfo = @{@"group_id":[[items objectAtIndex:0] itemID]};
-            self.groupInfo = newGroupInfo;
-            [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
-        } withErrorCallback:^(NSError *error, id JSON) {
-            
-        }];
-        */
-        [newItem saveWithSuccessCallback:^(CBItem *item) {
-            NSDictionary *newGroupInfo = @{@"group_id":item.itemID};
-            self.groupInfo = newGroupInfo;
-            [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
-        } withErrorCallback:^(CBItem *item, NSError *error, id JSON) {
-            
-        }];
-         
-        
+        [self createNewGroup];
     } else {
-        
+        [self updateGroup];
     }
+}
+
+- (void)createNewGroup {
+    
+    bool public;
+    NSString *users;
+    NSMutableArray *validUsers = [[NSMutableArray alloc] init];
+    if ([self.publicSwitch isOn]) {
+        public = true;
+        users = @"";
+    }else{
+        public = false;
+        NSInteger count = 0;
+        for (UITableViewCell *cell in [self.allUsersTableView visibleCells]){
+            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+                [validUsers addObject:[[[self.allUsers objectAtIndex:count] data] valueForKey:@"email"]];
+            }
+            count++;
+        }
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:validUsers options:NSJSONWritingPrettyPrinted error:&error];
+        if(!error) {
+            users = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+    }
+   
+    [[ClearIO settings] ioCreateGroup:self.groupName.text withIsPublic:public withUsers:[NSArray arrayWithArray:validUsers] withSuccessCallback:^(NSString *item_id) {
+        NSDictionary *newGroupInfo = @{@"item_id":item_id,@"group_name":self.groupName.text,@"users":validUsers,@"is_public":[NSNumber numberWithBool:public]};
+        self.groupInfo = newGroupInfo;
+        [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
+    } withErrorCallback:^(NSError *error) {
+        NSLog(@"Error creating new group: <%@>", error);
+    }];
+    
+}
+
+- (void)updateGroup {
+    bool newPublic;
+    NSMutableArray *usersToAdd = [[NSMutableArray alloc] init];
+    NSMutableArray *usersToRemove = [[NSMutableArray alloc] init];
+    if ([self.publicSwitch isOn]) {
+        newPublic = true;
+        usersToAdd = nil;
+        usersToRemove = nil;
+    }else {
+        newPublic = false;
+        NSInteger count = 0;
+        for (UITableViewCell *cell in [self.allUsersTableView visibleCells]){
+            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+                [usersToAdd addObject:[[[self.allUsers objectAtIndex:count] data] valueForKey:@"email"]];
+            }
+            count++;
+        }
+        count = 0;
+        for (UITableViewCell *cell in [self.usersInGroupTableView visibleCells]){
+            if (cell.accessoryType == UITableViewCellAccessoryNone) {
+                [usersToAdd addObject:[[[self.usersInGroup objectAtIndex:count] data] valueForKey:@"email"]];
+            }
+            count++;
+        }
+    }
+    [[ClearIO settings] ioUpdateGroup:[self.groupInfo valueForKey:@"item_id"] withNewName:self.groupName.text withOldIsPublic:[self.groupInfo valueForKey:@"is_public"] withNewIsPublic:newPublic withAddedUsers:usersToAdd withRemovedUsers:usersToRemove withSuccessCallback:^(NSString *item_id) {
+        //NSDictionary *newGroupInfo = @{@"item_id":item_id,@"group_name":self.groupName.text,@"users":validUsers,@"is_public":[NSNumber numberWithBool:newPublic]};
+        //self.groupInfo = newGroupInfo;
+        [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
+    } withErrorCallback:^(NSError *error) {
+        NSLog(@"Error updating group: <%@>", error);
+    }];
 }
 
 - (IBAction)cancelClicked:(id)sender {
@@ -143,6 +204,16 @@
     }else {
         return 0;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if([tableView isEqual:self.usersInGroupTableView]){
+        return @"Users in group";
+    }else{
+        return @"All users";
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -195,12 +266,11 @@
 {
     if([segue.identifier isEqualToString:@"newGroupAddedSegue"]){
         ChatViewController *chatController = (ChatViewController *)segue.destinationViewController;
-        NSString *group_id = [self.groupInfo valueForKey:@"group_id"];
         if (![chatController isKindOfClass:[ChatViewController class]]){
             NSLog(@"Unexpected type of view controller");
             return;
         } else {
-            chatController.group = (NSString *)group_id;
+            chatController.groupInfo = self.groupInfo;
             chatController.userInfo = self.userInfo;
         }
     }

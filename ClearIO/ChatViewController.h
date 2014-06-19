@@ -10,7 +10,7 @@
 
 @interface ChatViewController : UIViewController
 
-@property (nonatomic, strong) NSString *group;
+@property (nonatomic, strong) NSDictionary *groupInfo;
 @property (nonatomic, strong) NSDictionary *userInfo;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIView *bottomBar;
