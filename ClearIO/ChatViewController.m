@@ -43,7 +43,18 @@
 }
 
 -(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
-    [self addMessage:[message payloadText]];
+    //this should be pulled out into ClearIO lib
+    NSString *decodedMessage;
+    NSError *error;
+    NSDictionary *messageJson =
+    [NSJSONSerialization JSONObjectWithData: [message payloadData]
+                                    options: kNilOptions
+                                      error: &error];
+    if(!error){
+        decodedMessage = [NSString stringWithFormat:@"%@: %@", [messageJson valueForKey:@"name"], [messageJson valueForKey:@"payload"]];
+    }
+    //all the way to here
+    [self addMessage:decodedMessage];
 }
 
 - (void)keyboardWillBeShown:(NSNotification*)notification {
@@ -124,8 +135,16 @@
 }
 
 - (IBAction)sendClicked {
-    NSString *messageText = [NSString stringWithFormat:@"%@: %@", [self.userInfo objectForKey:@"first_name"], self.messageField.text];
-    [self.messageClient publishMessage:messageText toTopic:[self.groupInfo valueForKey:@"item_id"]];
+    //should be in cleario lib (maybe a send image, send message methods?)
+    //{"topic":currentGroup, "name":firstName, "type":"text", "payload":textVal};
+    NSDictionary *messageObject = @{@"topic":[self.groupInfo valueForKey:@"item_id"],
+                                    @"name":[self.userInfo valueForKey:@"firstname"],
+                                    @"type":@"text",
+                                    @"payload":self.messageField.text};
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+    NSString* jsonString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+   // NSString *messageText = [NSString stringWithFormat:@"%@: %@", [self.userInfo objectForKey:@"firstname"], self.messageField.text];
+    [self.messageClient publishMessage:jsonString toTopic:[self.groupInfo valueForKey:@"item_id"]];
     self.messageField.text = @"";
 }
 - (IBAction)infoClicked:(id)sender {

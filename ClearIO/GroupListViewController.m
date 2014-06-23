@@ -39,7 +39,7 @@
     [[ClearIO settings] ioGetPublicGroupsWithSuccessCallback:^(NSArray *groups) {
         NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
         [self.groups addObject:dict];
-       // [self getPrivateGroups];
+        [self getPrivateGroups];
         [self.tableView reloadData];
     } withErrorCallback:^(NSError *error) {
         NSLog(@"error getting public groups");

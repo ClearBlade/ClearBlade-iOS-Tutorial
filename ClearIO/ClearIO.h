@@ -17,7 +17,7 @@
 @property (strong, atomic) NSString * userColID;
 
 typedef void (^ClearIOSuccessCallback)(NSArray *);
-typedef void (^ClearIOEditGroupSuccessCallback)(NSString * item_id);
+typedef void (^ClearIOEditGroupSuccessCallback)(NSDictionary * newGroupInfo);
 
 typedef void (^ClearIOErrorCallback)(NSError * error);
 

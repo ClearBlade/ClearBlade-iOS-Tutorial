@@ -90,7 +90,7 @@
             [self.allUsers addObjectsFromArray:successfulResponse.dataItems];
             [self.allUsersTableView reloadData];
             if (![[self.groupInfo valueForKey:@"is_public"] boolValue]){
-               //[self getUsersInGroup];
+               [self getUsersInGroup];
             }
         }
     } withErrorCallback:^(NSError *error, id JSON) {
@@ -100,15 +100,20 @@
 
 - (void)getUsersInGroup {
     //pull users from self.groupInfo
-    NSError *error;
-    NSData *userData = [[self.groupInfo valueForKey:@"users"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *userEmails = [NSJSONSerialization JSONObjectWithData:userData options:kNilOptions error:&error];
-    
+    NSArray *userEmails = [self.groupInfo valueForKey:@"users"];
+    NSMutableArray *usersInGroup = [[NSMutableArray alloc] init];
     //has to be a better way to do this.. but for now we need to populate self.usersInGroup with email/fname/lname using the array of emails in usersEmails
     //nested loop first loop through userEMails, then allUsers, and if emails match, push a NSDictionary with email/fname/lname to usersInGroup
+    for (id email in userEmails){
+        for(id user in self.allUsers){
+            if ([email isEqualToString:[[user data] valueForKey:@"email"]]){
+                [usersInGroup addObject:user];
+            }
+        }
+    }
     
-    //[self.usersInGroup addObjectsFromArray:userEmails];
-    [self.allUsersTableView reloadData];
+    [self.usersInGroup addObjectsFromArray:usersInGroup];
+    [self.usersInGroupTableView reloadData];
 }
 
 - (IBAction)doneClicked:(id)sender {
@@ -143,9 +148,9 @@
         }
     }
    
-    [[ClearIO settings] ioCreateGroup:self.groupName.text withIsPublic:public withUsers:[NSArray arrayWithArray:validUsers] withSuccessCallback:^(NSString *item_id) {
-        NSDictionary *newGroupInfo = @{@"item_id":item_id,@"group_name":self.groupName.text,@"users":validUsers,@"is_public":[NSNumber numberWithBool:public]};
+    [[ClearIO settings] ioCreateGroup:self.groupName.text withIsPublic:public withUsers:[NSArray arrayWithArray:validUsers] withSuccessCallback:^(NSDictionary *newGroupInfo) {
         self.groupInfo = newGroupInfo;
+        self.isNewGroup = false;
         [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
     } withErrorCallback:^(NSError *error) {
         NSLog(@"Error creating new group: <%@>", error);
@@ -173,14 +178,13 @@
         count = 0;
         for (UITableViewCell *cell in [self.usersInGroupTableView visibleCells]){
             if (cell.accessoryType == UITableViewCellAccessoryNone) {
-                [usersToAdd addObject:[[[self.usersInGroup objectAtIndex:count] data] valueForKey:@"email"]];
+                [usersToRemove addObject:[[[self.usersInGroup objectAtIndex:count] data] valueForKey:@"email"]];
             }
             count++;
         }
     }
-    [[ClearIO settings] ioUpdateGroup:[self.groupInfo valueForKey:@"item_id"] withNewName:self.groupName.text withOldIsPublic:[self.groupInfo valueForKey:@"is_public"] withNewIsPublic:newPublic withAddedUsers:usersToAdd withRemovedUsers:usersToRemove withSuccessCallback:^(NSString *item_id) {
-        //NSDictionary *newGroupInfo = @{@"item_id":item_id,@"group_name":self.groupName.text,@"users":validUsers,@"is_public":[NSNumber numberWithBool:newPublic]};
-        //self.groupInfo = newGroupInfo;
+    [[ClearIO settings] ioUpdateGroup:[self.groupInfo valueForKey:@"item_id"] withNewName:self.groupName.text withOldIsPublic:[self.groupInfo valueForKey:@"is_public"] withNewIsPublic:newPublic withAddedUsers:usersToAdd withRemovedUsers:usersToRemove withSuccessCallback:^(NSDictionary *newGroupInfo) {
+        self.groupInfo = newGroupInfo;
         [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
     } withErrorCallback:^(NSError *error) {
         NSLog(@"Error updating group: <%@>", error);

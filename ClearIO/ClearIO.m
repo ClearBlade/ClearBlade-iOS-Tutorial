@@ -182,7 +182,10 @@ static ClearIO * _settings = nil;
 -(void)parseGroupCreateOrEditResponse:(NSString *)resp withSuccessCallback:(ClearIOEditGroupSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
     NSError *jsonError;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[resp dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&jsonError];
-    NSString *item_id = [[json objectForKey:@"results"] valueForKey:@"item_id"];
+    
+    //instead of returning a string, let's return a dictrionary representing the new group info
+    //include item_id, group_name, is_public, and array of users
+    NSDictionary *newGroupInfo = [json objectForKey:@"results"];
     if(jsonError){
         CBLogError(@"error parsing create/edits group response json: <%@>", jsonError);
         if(ioErrorCallback){
@@ -190,7 +193,7 @@ static ClearIO * _settings = nil;
         }
     }else{
         if (ioSuccessCallback) {
-            ioSuccessCallback(item_id);
+            ioSuccessCallback(newGroupInfo);
         }
     }
 }
