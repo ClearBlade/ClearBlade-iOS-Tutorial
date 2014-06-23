@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CBAPI.h"
 
-@interface ClearIO : NSObject
+@interface ClearIO : NSObject <CBMessageClientDelegate>
 
 @property (strong, atomic) NSString * systemKey;
 @property (strong, atomic) NSString * systemSecret;
@@ -16,8 +17,12 @@
 @property (strong, atomic) NSString * userGroupsColID;
 @property (strong, atomic) NSString * userColID;
 
+@property (strong, nonatomic) CBMessageClient * messageClient;
+
 typedef void (^ClearIOSuccessCallback)(NSArray *);
 typedef void (^ClearIOEditGroupSuccessCallback)(NSDictionary * newGroupInfo);
+typedef void (^ClearIOMessagingConnectCallback)(void);
+typedef void (^ClearIOMessageArriveCallback)(NSDictionary * message);
 
 typedef void (^ClearIOErrorCallback)(NSError * error);
 
@@ -38,4 +43,9 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 //editing group stuff
 -(void)ioCreateGroup:(NSString *)groupName withIsPublic:(bool)isPublic withUsers:(NSArray *)users withSuccessCallback:(ClearIOEditGroupSuccessCallback)ioCreateGroupSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
 -(void)ioUpdateGroup:(NSString *)groupID withNewName:(NSString *)newGroupName withOldIsPublic:(bool)oldIsPublic withNewIsPublic:(bool)newIsPublic withAddedUsers:(NSArray *)addedUsers withRemovedUsers:(NSArray *)removedUsers withSuccessCallback:(ClearIOEditGroupSuccessCallback)ioEditGroupSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
+
+//messaging stuff
+-(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
+-(void)ioSendWithTopic:(NSString *)topic WithMessageString:(NSString *)messageString;
+
 @end

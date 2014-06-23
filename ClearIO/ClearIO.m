@@ -28,6 +28,18 @@ static ClearIO * _settings = nil;
 @synthesize userGroupsColID = _userGroupsColID;
 @synthesize userColID = _UserColID;
 
+-(CBMessageClient *)messageClient {
+    if(!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
+}
+
+void(^messageArrivedCallback)(NSDictionary *message);
+void(^messagingConnectCallback)(void);
+void(^messagingErrorCallback)(NSError *error);
+
 +(void)initWithSystemKey:(NSString *)systemKey withSystemSecret:(NSString *)systemSecret withGroupCollectionID:(NSString *)groupColID withUserGroupsCollectionID:(NSString *)userGroupsColID withUserCollectionID:(NSString *)userColID{
     ClearIO * settings = [[ClearIO alloc] init];
     settings.systemKey = systemKey;
@@ -47,6 +59,9 @@ static ClearIO * _settings = nil;
                                                 CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",
                                                 CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA)}
                                     withError:error];
+    if(!*error){
+        [[[ClearIO settings] messageClient] connect];
+    }
 }
 
 -(NSDictionary*)ioGetUserInfoWithError:(NSError **)error{
@@ -83,7 +98,7 @@ static ClearIO * _settings = nil;
                                              @"last_name":lastName,
                                              @"email":username}
                        withSuccessCallback:^(CBItem *item) {
-                           
+                           [[[ClearIO settings] messageClient] connect];
                        } withErrorCallback:^(CBItem *item, NSError *error, id JSON) {
                            CBLogError(@"Error adding user to users collection: <%@>", error);
                            return;
@@ -198,5 +213,51 @@ static ClearIO * _settings = nil;
     }
 }
 
+-(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
+    //set our callback methods
+    messageArrivedCallback = ioMessageArriveCallback;
+    messagingErrorCallback = ioErrorCallback;
+    
+    [[[ClearIO settings] messageClient] subscribeToTopic:topic];
+}
+
+-(void)ioSendWithTopic:(NSString *)topic WithMessageString:(NSString *)messageString{
+    NSError *error;
+    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+    //[self.messageClient publishMessage:jsonString toTopic:[self.groupInfo valueForKey:@"item_id"]];
+    if(!error){
+        NSDictionary *messageObject = @{@"topic":topic,
+                                        @"name":[tempUserInfo valueForKey:@"firstname"],
+                                        @"type":@"text",
+                                        @"payload":messageString,
+                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:topic];
+    }
+}
+
+//CBMessageClient delegate methods
+-(void)messageClientDidConnect:(CBMessageClient *)client {
+    CBLogDebug(@"client did connect called in cleario..");
+    //[client subscribeToTopic:[self.groupInfo valueForKey:@"item_id"]];
+}
+
+-(void)messageClientDidDisconnect:(CBMessageClient *)client {
+    CBLogDebug(@"client disconnected called in cleario..");
+    messagingErrorCallback([NSError errorWithDomain:@"Messaging Client Disconnected" code:1 userInfo:nil]);
+}
+
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    NSError *error;
+    NSDictionary *messageJson =
+    [NSJSONSerialization JSONObjectWithData: [message payloadData]
+                                    options: kNilOptions
+                                      error: &error];
+    if(!error){
+        messageArrivedCallback(messageJson);
+    }
+}
+//end CBMessageClient delegate methods
 
 @end
