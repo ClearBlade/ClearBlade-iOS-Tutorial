@@ -35,6 +35,7 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 -(NSDictionary*)ioGetUserInfoWithError:(NSError **)error;
 -(void)ioRegisterUser:(NSString *)username withPassword:(NSString *)password withFirstName:(NSString *)firstName withLastName: (NSString *)lastName withError:(NSError **)error;
 -(void)ioGetAllUsers:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
+-(void)ioLogoutWithError:(NSError **)error;
 
 //group list stuff
 -(void)ioGetPublicGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;

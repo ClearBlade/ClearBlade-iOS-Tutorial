@@ -110,6 +110,17 @@ void(^messagingErrorCallback)(NSError *error);
     }
 }
 
+-(void)ioLogoutWithError:(NSError **)error {
+    [[[ClearBlade settings] mainUser] logOutWithError:error];
+    
+    if(*error){
+        CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
+        return;
+    }else {
+        [[[ClearIO settings] messageClient] disconnect];
+    }
+}
+
 -(void)ioGetAllUsers:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback {
     
 }
@@ -240,12 +251,10 @@ void(^messagingErrorCallback)(NSError *error);
 //CBMessageClient delegate methods
 -(void)messageClientDidConnect:(CBMessageClient *)client {
     CBLogDebug(@"client did connect called in cleario..");
-    //[client subscribeToTopic:[self.groupInfo valueForKey:@"item_id"]];
 }
 
 -(void)messageClientDidDisconnect:(CBMessageClient *)client {
     CBLogDebug(@"client disconnected called in cleario..");
-    messagingErrorCallback([NSError errorWithDomain:@"Messaging Client Disconnected" code:1 userInfo:nil]);
 }
 
 -(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {

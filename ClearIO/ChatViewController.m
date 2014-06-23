@@ -9,6 +9,7 @@
 #import "ChatViewController.h"
 #import "CBAPI.h"
 #import "GroupInfoViewController.h"
+#import "GroupListViewController.h"
 #import "ClearIO.h"
 
 @interface ChatViewController ()
@@ -59,6 +60,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+
     [[ClearIO settings] ioListenWithTopic:[self.groupInfo valueForKey:@"item_id"] withMessageArriveCallback:^(NSDictionary *message) {
         //and your message parsing logic for your view here
         [self addMessage:[NSString stringWithFormat:@"%@: %@",[message valueForKey:@"name"],[message valueForKey:@"payload"]]];
@@ -115,6 +120,19 @@
 
 - (IBAction)infoClicked:(id)sender {
     [self performSegueWithIdentifier:@"groupInfoSegue" sender:self];
+}
+
+- (void) handleBack:(id)sender{
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        
+        //Do not forget to import AnOldViewController.h
+        if ([controller isKindOfClass:[GroupListViewController class]]) {
+            [controller loadView];
+            [self.navigationController popToViewController:controller
+                                                  animated:YES];
+            break;
+        }
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

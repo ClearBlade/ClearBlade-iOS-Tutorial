@@ -31,8 +31,14 @@
     [super viewDidLoad];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroupPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    [self getPublicGroups];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if (sizeof self.groups != 0){
+        [self.groups removeAllObjects];
+    }
+    [self getPublicGroups];
 }
 
 -(void) getPublicGroups {
@@ -110,9 +116,8 @@
 }
 
 - (IBAction)logoutClicked:(id)sender {
-    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSError * error;
-    [appDelegate logoutClearBladePlatformWithError:&error];
+    [[ClearIO settings] ioLogoutWithError:&error];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
