@@ -47,6 +47,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 
 //messaging stuff
 -(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
--(void)ioSendWithTopic:(NSString *)topic WithMessageString:(NSString *)messageString;
+-(void)ioSendTextToTopic:(NSString *)topic WithMessageString:(NSString *)messageString;
 
 @end

@@ -65,7 +65,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
 
     [[ClearIO settings] ioListenWithTopic:[self.groupInfo valueForKey:@"item_id"] withMessageArriveCallback:^(NSDictionary *message) {
-        //and your message parsing logic for your view here
+        //add your message parsing logic for your view here
         [self addMessage:[NSString stringWithFormat:@"%@: %@",[message valueForKey:@"name"],[message valueForKey:@"payload"]]];
     } withErrorCallback:^(NSError *error) {
         NSLog(@"error callback in chat view controller");
@@ -114,7 +114,7 @@
 }
 
 - (IBAction)sendClicked {
-    [[ClearIO settings] ioSendWithTopic:[self.groupInfo valueForKey:@"item_id"] WithMessageString:self.messageField.text];
+    [[ClearIO settings] ioSendTextToTopic:[self.groupInfo valueForKey:@"item_id"] WithMessageString:self.messageField.text];
     self.messageField.text = @"";
 }
 
@@ -124,8 +124,6 @@
 
 - (void) handleBack:(id)sender{
     for (UIViewController *controller in self.navigationController.viewControllers) {
-        
-        //Do not forget to import AnOldViewController.h
         if ([controller isKindOfClass:[GroupListViewController class]]) {
             [controller loadView];
             [self.navigationController popToViewController:controller

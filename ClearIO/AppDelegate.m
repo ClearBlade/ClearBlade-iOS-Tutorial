@@ -13,22 +13,6 @@
 
 @implementation AppDelegate
 
-- (void)initClearBladePlatformWithUser:(NSString *)username withPassword:(NSString *)password withNewUser:(bool)newUser withError:(NSError **)error
-{
-   // [options setValue:@"http://localhost:8080" forKey:CBSettingsOptionServerAddress];
-   // [options setValue:@"tcp://localhost:1883" forKey:CBSettingsOptionMessagingAddress];
-   // [options setValue:username forKey:CBSettingsOptionEmail];
-   // [options setValue:password forKey:CBSettingsOptionPassword];
-   // [options setValue:[NSNumber numberWithBool:newUser] forKey:CBSettingsOptionRegisterUser];
-   // [options setValue:[NSNumber numberWithInt:CB_LOG_EXTRA] forKey:CBSettingsOptionLoggingLevel];
-    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),CBSettingsOptionServerAddress:@"https://rtp.clearblade.com",CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",CBSettingsOptionEmail:username,CBSettingsOptionPassword:password,CBSettingsOptionRegisterUser:@(newUser)}  withError:error];
-}
-
-- (void)logoutClearBladePlatformWithError:(NSError **)error
-{
-    [[[ClearBlade settings] mainUser] logOutWithError:error];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [ClearIO initWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withGroupCollectionID:CHAT_GROUPS_COLLECTION withUserGroupsCollectionID:CHAT_USERGROUPS_COLLECTION withUserCollectionID:CHAT_USER_COLLECTION];

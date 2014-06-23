@@ -112,7 +112,6 @@ void(^messagingErrorCallback)(NSError *error);
 
 -(void)ioLogoutWithError:(NSError **)error {
     [[[ClearBlade settings] mainUser] logOutWithError:error];
-    
     if(*error){
         CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
         return;
@@ -164,6 +163,10 @@ void(^messagingErrorCallback)(NSError *error);
 }
 
 -(void)ioCreateGroup:(NSString *)groupName withIsPublic:(bool)isPublic withUsers:(NSArray *)users withSuccessCallback:(ClearIOEditGroupSuccessCallback)ioCreateGroupSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback {
+    
+    //should add some param checks here soon
+    //mainly users array should be nil if ispublic is true
+    
     [CBCode executeFunction:@"ioCreateGroup" withParams:@{@"isPublic":[NSNumber numberWithBool:isPublic],@"users":users,@"name":groupName} withSuccessCallback:^(NSString *result) {
         [self parseGroupCreateOrEditResponse:result withSuccessCallback:ioCreateGroupSuccessCallback withErrorCallback:ioErrorCallback];
         } withErrorCallback:^(NSError *error) {
@@ -232,10 +235,9 @@ void(^messagingErrorCallback)(NSError *error);
     [[[ClearIO settings] messageClient] subscribeToTopic:topic];
 }
 
--(void)ioSendWithTopic:(NSString *)topic WithMessageString:(NSString *)messageString{
+-(void)ioSendTextToTopic:(NSString *)topic WithMessageString:(NSString *)messageString{
     NSError *error;
     NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
-    //[self.messageClient publishMessage:jsonString toTopic:[self.groupInfo valueForKey:@"item_id"]];
     if(!error){
         NSDictionary *messageObject = @{@"topic":topic,
                                         @"name":[tempUserInfo valueForKey:@"firstname"],
