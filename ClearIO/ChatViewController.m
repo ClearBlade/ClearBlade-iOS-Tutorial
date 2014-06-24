@@ -66,8 +66,15 @@
 
     [[ClearIO settings] ioListenWithTopic:[self.groupInfo valueForKey:@"item_id"] withMessageArriveCallback:^(NSDictionary *message) {
         //add your message parsing logic for your view here
-        [self addMessage:[NSString stringWithFormat:@"%@: %@",[message valueForKey:@"name"],[message valueForKey:@"payload"]]];
-    } withErrorCallback:^(NSError *error) {
+        if ([[message valueForKey:@"type"] isEqualToString:@"text"]){
+            [self addMessage:[NSString stringWithFormat:@"%@: %@",[message valueForKey:@"name"],[message valueForKey:@"payload"]]];
+        } else if ([[message valueForKey:@"type"] isEqualToString:@"img"]){
+            NSString *imageString = [message valueForKey:@"payload"];
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
+            UIImage *image = [UIImage imageWithData:imageData];
+            [self addImage:image fromUser:[message valueForKey:@"name"]];
+        }
+            } withErrorCallback:^(NSError *error) {
         NSLog(@"error callback in chat view controller");
     }];
 
@@ -113,8 +120,97 @@
     [self.messages addObject:label];
 }
 
+-(void)addImage:(UIImage *)image fromUser:(NSString *)name{
+    UITextView *label = [[UITextView alloc] init];
+    label.text = name;
+    label.scrollEnabled = NO;
+    label.editable = NO;
+    label.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    
+    CGRect labelRect = self.view.frame;
+    labelRect.origin.y = 0;
+    labelRect.origin.x = 0;
+    labelRect.size.height = [name boundingRectWithSize:(CGSize){labelRect.size.width,CGFLOAT_MAX}
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:@{NSFontAttributeName: self.messageField.font}
+                                             context:nil].size.height + 10;
+    labelRect.size.width -= (10 * 2);
+    
+    label.frame = labelRect;
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:image];
+    
+    CGRect imgViewRect = self.view.frame;
+    
+    imgViewRect.origin.x = 10;
+    imgViewRect.origin.y = labelRect.size.height;
+    imgViewRect.size.width = imgView.image.size.width;
+    imgViewRect.size.height = imgView.image.size.height;
+    
+    imgView.frame = imgViewRect;
+    
+
+    UIView *view = [[UIView alloc] init];
+    
+    [view addSubview:label];
+    [view addSubview:imgView];
+    
+    CGRect rect = self.view.frame;
+    CGRect lastMessageRect = [[self.messages lastObject] frame];
+    rect.origin.y = lastMessageRect.origin.y + lastMessageRect.size.height + 10;
+    rect.size.width -= (10 * 2);
+    rect.origin.x += 10;
+    rect.size.height = imgView.image.size.height + 30;
+    
+    view.frame = rect;
+    view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    
+    UIScrollView *scrollView = self.scrollView;
+    [scrollView addSubview:view];
+    scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
+    CGPoint bottomOffset = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height);
+    if(scrollView.contentSize.height > scrollView.bounds.size.height - 40){
+        [scrollView setContentOffset:bottomOffset animated:YES];
+    }
+    [self.messages addObject:view];
+    
+    
+    
+    /*
+    CGRect rect = self.view.frame;
+    CGRect lastMessageRect = [[self.messages lastObject] frame];
+    rect.origin.y = lastMessageRect.origin.y + lastMessageRect.size.height + 10;
+    UIView *view = [[UIView alloc] init];
+    UIImageView * imgView = [[UIImageView alloc] initWithImage:image];
+    //rect.size.width -= (10 * 2);
+    rect.origin.x += 10;
+    
+    rect.size.height = imgView.image.size.height;
+    rect.size.width = imgView.image.size.width;
+    imgView.frame = rect;
+    imgView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+    
+    UITextView * label = [[UITextView alloc] init];
+    label.text = name;
+    label.scrollEnabled = NO;
+    label.editable = NO;
+    
+    [view addSubview:label];
+    [view addSubview:imgView];
+    
+    UIScrollView * scrollView = self.scrollView;
+    [scrollView addSubview:view];
+    scrollView.contentSize = CGSizeMake(rect.size.width, rect.origin.y + rect.size.height);
+    CGPoint bottomOffset = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height);
+    if(scrollView.contentSize.height > scrollView.bounds.size.height - 40){
+        [scrollView setContentOffset:bottomOffset animated:YES];
+    }
+    [self.messages addObject:imgView];
+     */
+}
+
 - (IBAction)sendClicked {
-    [[ClearIO settings] ioSendTextToTopic:[self.groupInfo valueForKey:@"item_id"] WithMessageString:self.messageField.text];
+    [[ClearIO settings] ioSendText:self.messageField.text toTopic:[self.groupInfo valueForKey:@"item_id"]];
     self.messageField.text = @"";
 }
 

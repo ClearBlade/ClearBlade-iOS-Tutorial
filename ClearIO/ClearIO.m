@@ -235,7 +235,7 @@ void(^messagingErrorCallback)(NSError *error);
     [[[ClearIO settings] messageClient] subscribeToTopic:topic];
 }
 
--(void)ioSendTextToTopic:(NSString *)topic WithMessageString:(NSString *)messageString{
+-(void)ioSendText:(NSString *)messageString toTopic:(NSString *)topic{
     NSError *error;
     NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
     if(!error){
@@ -248,6 +248,23 @@ void(^messagingErrorCallback)(NSError *error);
         NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
         [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:topic];
     }
+}
+
+-(void)ioSendImage:(UIImage *)image toTopic:(NSString *)topic{
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSError *error;
+    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+    if(!error){
+        NSDictionary *messageObject = @{@"topic":topic,
+                                        @"name":[tempUserInfo valueForKey:@"firstname"],
+                                        @"type":@"img",
+                                        @"payload":imageData,
+                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:topic];
+    }
+
 }
 
 //CBMessageClient delegate methods
