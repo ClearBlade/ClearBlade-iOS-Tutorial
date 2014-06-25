@@ -8,8 +8,6 @@
 
 #import "RegisterViewController.h"
 #import "GroupListViewController.h"
-#import "AppDelegate.h"
-#import "CBAPI.h"
 #import "ClearIOConstants.h"
 #import "ClearIO.h"
 

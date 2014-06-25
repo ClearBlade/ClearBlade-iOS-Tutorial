@@ -7,13 +7,14 @@
 //
 
 #import "ChatViewController.h"
-#import "CBAPI.h"
 #import "GroupInfoViewController.h"
 #import "GroupListViewController.h"
 #import "ClearIO.h"
 
-@interface ChatViewController ()
+@interface ChatViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
+@property (nonatomic) NSMutableArray *capturedImages;
+@property (nonatomic) UIImagePickerController *imagePickerController;
 @end
 
 @implementation ChatViewController
@@ -214,6 +215,21 @@
     self.messageField.text = @"";
 }
 
+- (IBAction)imgClicked:(id)sender {
+    if (self.capturedImages.count > 0)
+    {
+        [self.capturedImages removeAllObjects];
+    }
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    
+    self.imagePickerController = imagePickerController;
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
 - (IBAction)infoClicked:(id)sender {
     [self performSegueWithIdentifier:@"groupInfoSegue" sender:self];
 }
@@ -229,6 +245,15 @@
     }
 }
 
+-(void)sendImg:(UIImage *)image {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    self.imagePickerController = nil;
+    
+    [[ClearIO settings] ioSendImage:image toTopic:[self.groupInfo valueForKey:@"item_id"]];
+    
+    NSLog(@"here we are michae");
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"groupInfoSegue"]){
         GroupInfoViewController *groupInfoController = (GroupInfoViewController *)segue.destinationViewController;
@@ -242,5 +267,28 @@
         }
     }
 }
+
+//imagepicker delegate methods
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+// This method is called when an image has been chosen from the library or taken from the camera.
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    [self.capturedImages addObject:image];
+    
+    [self sendImg:image];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+//end del methods
 
 @end

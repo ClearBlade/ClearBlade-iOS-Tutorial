@@ -57,7 +57,8 @@ void(^messagingErrorCallback)(NSError *error);
                                                 CBSettingsOptionPassword:password,
                                                 CBSettingsOptionServerAddress:@"https://rtp.clearblade.com",
                                                 CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",
-                                                CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA)}
+                                                CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
+                                                CBSettingsOptionMessagingDefaultQOS:@0}
                                     withError:error];
     if(!*error){
         [[[ClearIO settings] messageClient] connect];
@@ -252,17 +253,19 @@ void(^messagingErrorCallback)(NSError *error);
 
 -(void)ioSendImage:(UIImage *)image toTopic:(NSString *)topic{
     NSData *imageData = UIImagePNGRepresentation(image);
+    NSString *imageString = [NSString stringWithFormat:@"data:image/png;base64,%@",[imageData base64EncodedStringWithOptions:kNilOptions]];
     NSError *error;
     NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
     if(!error){
         NSDictionary *messageObject = @{@"topic":topic,
                                         @"name":[tempUserInfo valueForKey:@"firstname"],
                                         @"type":@"img",
-                                        @"payload":imageData,
+                                        @"payload":imageString,
                                         @"user_id":[tempUserInfo valueForKey:@"email"]};
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
         NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:topic];
+        NSString *tempMsgString = [messageString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+        [[[ClearIO settings] messageClient] publishMessage:tempMsgString toTopic:topic];
     }
 
 }
@@ -285,6 +288,10 @@ void(^messagingErrorCallback)(NSError *error);
     if(!error){
         messageArrivedCallback(messageJson);
     }
+}
+
+-(void)messageClient:(CBMessageClient *)client didUnsubscribe:(NSString *)topic {
+    
 }
 //end CBMessageClient delegate methods
 

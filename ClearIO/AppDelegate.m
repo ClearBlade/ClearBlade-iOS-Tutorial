@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ClearIOConstants.h"
-#import "CBAPI.h"
 #import "ClearIO.h"
 
 @implementation AppDelegate

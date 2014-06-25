@@ -7,16 +7,12 @@
 //
 
 #import "LoginViewController.h"
-#import "AppDelegate.h"
 #import "GroupListViewController.h"
-#import "RegisterViewController.h"
-#import "CBAPI.h"
 #import "ClearIOConstants.h"
 #import "ClearIO.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) CBCollection *userCol;
 @property UITextField *activeField;
 @end
 
@@ -45,13 +41,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-}
-
--(CBCollection *)userCol {
-    if(!_userCol) {
-        _userCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
-    }
-    return _userCol;
 }
 
 -(void) loginWithUser:(NSString *) userString withPassword:(NSString *) passwordString{
