@@ -35,27 +35,18 @@
     if (sizeof self.groups != 0){
         [self.groups removeAllObjects];
     }
-    [self getPublicGroups];
+    [self getGroups];
 }
 
--(void) getPublicGroups {
-    [[ClearIO settings] ioGetPublicGroupsWithSuccessCallback:^(NSArray *groups) {
+-(void) getGroups {
+    [[ClearIO settings] ioGetGroupsWithSuccessCallback:^(NSArray *groups) {
         NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
         [self.groups addObject:dict];
-        [self getPrivateGroups];
+        NSLog(@"groups");
+        NSLog(@"%@", self.groups);
         [self.tableView reloadData];
     } withErrorCallback:^(NSError *error) {
         NSLog(@"error getting public groups");
-    }];
-}
-
--(void) getPrivateGroups {
-    [[ClearIO settings] ioGetPrivateGroupsWithSuccessCallback:^(NSArray *groups) {
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
-        [self.groups addObject:dict];
-        [self.tableView reloadData];
-    } withErrorCallback:^(NSError *error) {
-        NSLog(@"error getting private groups");
     }];
 }
 
@@ -73,16 +64,18 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    if(section == 0){
-        return @"Public Groups";
-    }
-    if(section == 1){
-        return @"Private Groups";
-    }
-    else {
-        return @"Other Groups";
-    }
+    NSLog(@"section");
+    NSLog(@"%i", section);
+    return @"Groups";
+//    if(section == 0){
+//        return @"Public Groups";
+//    }
+//    if(section == 1){
+//        return @"Private Groups";
+//    }
+//    else {
+//        return @"Other Groups";
+//    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,8 +98,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     NSDictionary *dictionary = [self.groups objectAtIndex:indexPath.section];
+
     NSArray *array = [dictionary objectForKey:@"data"];
-    NSString *cellValue = [[array objectAtIndex:indexPath.row]  valueForKey:@"group_name"];
+    CBItem *group = [array objectAtIndex:indexPath.row];
+    NSLog(@"%@", group.data);
+    NSString *cellValue = [group.data  valueForKey:@"name"];
+
     cell.textLabel.text = cellValue;
     
     return cell;

@@ -101,7 +101,7 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
  @param ioSuccessCallback Callback used when public groups are successfully received.
  @param ioErrorCallback Callback used when an error occured.
  */
--(void)ioGetPublicGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
+-(void)ioGetGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
 
 /**
  Get a list of all private groups the currently authenticated user has access to

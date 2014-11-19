@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>696F9554-F10D-41CB-BFB2-FFF58D1F0E87</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ClearIO</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2616E991F6E50FA64C2A23582AF357438E011D90</key>
+		<string>54.221.215.165:clearblade-platform/cleario-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ClearIO.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2616E991F6E50FA64C2A23582AF357438E011D90</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>54.221.215.165:clearblade-platform/cleario-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2616E991F6E50FA64C2A23582AF357438E011D90</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2616E991F6E50FA64C2A23582AF357438E011D90</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cleario-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

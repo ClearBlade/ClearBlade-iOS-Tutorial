@@ -7,6 +7,7 @@
 //
 
 #import "ClearIO.h"
+#import "ClearIOConstants.h"
 #import "CBAPI.h"
 
 static ClearIO * _settings = nil;
@@ -55,8 +56,6 @@ void(^messagingErrorCallback)(NSError *error);
                              withSystemSecret:self.systemSecret
                                   withOptions:@{CBSettingsOptionEmail:username,
                                                 CBSettingsOptionPassword:password,
-                                                CBSettingsOptionServerAddress:@"https://rtp.clearblade.com",
-                                                CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",
                                                 CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
                                                 CBSettingsOptionMessagingDefaultQOS:@0}
                                     withError:error];
@@ -77,8 +76,6 @@ void(^messagingErrorCallback)(NSError *error);
     [ClearBlade initSettingsSyncWithSystemKey:self.systemKey
                              withSystemSecret:self.systemSecret
                                   withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
-                                      CBSettingsOptionServerAddress:@"https://rtp.clearblade.com",
-                                      CBSettingsOptionMessagingAddress:@"tcp://rtp.clearblade.com:1883",
                                       CBSettingsOptionEmail:username,
                                       CBSettingsOptionPassword:password,
                                       CBSettingsOptionRegisterUser:@true}
@@ -125,16 +122,30 @@ void(^messagingErrorCallback)(NSError *error);
     
 }
 
--(void)ioGetPublicGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback {
-    [CBCode executeFunction:@"ioGetPublicGroups" withParams:nil withSuccessCallback:^(NSString *result) {
-        [self parseGroupListResponse:result withSuccessCallback:ioSuccessCallback withErrorCallback:ioErrorCallback];
-    } withErrorCallback:^(NSError *error) {
-        CBLogError(@"Error getting public groups: <%@>", error);
+-(void)ioGetGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback {
+    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: CHAT_GROUPS_COLLECTION ];
+    [groupsQuery setPageNum: [NSNumber numberWithInt:0]];
+    [groupsQuery setPageSize: [NSNumber numberWithInt:0]];
+    [groupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
+        ioSuccessCallback(successfulResponse.dataItems);
+//        [self parseGroupListResponse:successfulResponse.dataItems withSuccessCallback:ioSuccessCallback withErrorCallback:ioErrorCallback];
+    } withErrorCallback:^(NSError *error, id JSON) {
+        CBLogError(@"Error retrieving groups: <%@>", error);
         if(ioErrorCallback) {
             ioErrorCallback(error);
         }
     }];
 }
+//    [CBCode executeFunction:@"ioGetPublicGroups" withParams:nil withSuccessCallback:^(NSString *result) {
+//        [self parseGroupListResponse:result withSuccessCallback:ioSuccessCallback withErrorCallback:ioErrorCallback];
+//    } withErrorCallback:^(NSError *error) {
+//        CBLogError(@"Error getting public groups: <%@>", error);
+//        if(ioErrorCallback) {
+//            ioErrorCallback(error);
+//        }
+//    }];
+    
+     
 
 -(void)ioGetPrivateGroupsWithSuccessCallback:(ClearIOSuccessCallback)ioSuccessCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback {
     [CBCode executeFunction:@"ioGetPrivateGroups" withParams:nil withSuccessCallback:^(NSString *result) {
