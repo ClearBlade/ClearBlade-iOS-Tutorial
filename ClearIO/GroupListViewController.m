@@ -64,18 +64,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSLog(@"section");
-    NSLog(@"%i", section);
     return @"Groups";
-//    if(section == 0){
-//        return @"Public Groups";
-//    }
-//    if(section == 1){
-//        return @"Private Groups";
-//    }
-//    else {
-//        return @"Other Groups";
-//    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -101,7 +90,7 @@
 
     NSArray *array = [dictionary objectForKey:@"data"];
     CBItem *group = [array objectAtIndex:indexPath.row];
-    NSLog(@"%@", group.data);
+
     NSString *cellValue = [group.data  valueForKey:@"name"];
 
     cell.textLabel.text = cellValue;
@@ -129,8 +118,11 @@
     if([segue.identifier isEqualToString:@"chatSegue"]) {
         ChatViewController *chatController = (ChatViewController *)segue.destinationViewController;
         NSDictionary *dictionary = [self.groups objectAtIndex:[self.selectedIndexPath indexAtPosition:0]];
+
         NSArray *array = [dictionary objectForKey:@"data"];
-        NSMutableDictionary *grpInfo = [(NSDictionary*)[array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]] mutableCopy];
+        CBItem *group = [array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]];
+        NSMutableDictionary *grpInfo = group.data;
+
         if ([self.selectedIndexPath indexAtPosition:0] == 0){
             [grpInfo setObject:[NSNumber numberWithBool:true] forKey:@"is_public"];
         }else{
