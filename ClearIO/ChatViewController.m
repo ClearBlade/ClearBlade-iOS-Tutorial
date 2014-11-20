@@ -61,9 +61,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"oh haayyyy");
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
     self.navigationItem.leftBarButtonItem = backButton;
+
+    NSArray *history = [CBMessageClient getMessageHistoryOfTopic:[self.groupInfo valueForKey:@"item_id"] fromTime:NSDateFormatterNoStyle withCount:@25 withError:nil];
+    //loop through message history and add messages to view
+    for(int i = [history count] - 1; i > -1; i--) {
+        NSData *thing = [[history[i] valueForKey:@"message"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *parsedMessage = [NSJSONSerialization JSONObjectWithData:thing options:0 error:nil];
+        [self addMessage:[NSString stringWithFormat:@"%@: %@",[parsedMessage valueForKey:@"name"],[parsedMessage valueForKey:@"payload"]]];
+    }
 
     [[ClearIO settings] ioListenWithTopic:[self.groupInfo valueForKey:@"item_id"] withMessageArriveCallback:^(NSDictionary *message) {
         //add your message parsing logic for your view here

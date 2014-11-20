@@ -44,21 +44,29 @@
     self.allUsersTableView.dataSource = self;
     self.usersInGroupTableView.delegate = self;
     self.usersInGroupTableView.dataSource = self;
-    if(!self.isNewGroup){
-        self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
-        if ([[self.groupInfo valueForKey:@"is_public"] boolValue]) {
-            [self.publicSwitch setOn:YES animated:NO];
-            [self.publicSwitch setEnabled:false];
-            self.allUsersTableView.hidden = true;
-            self.usersInGroupTableView.hidden = true;
-        }else{
-            [self.publicSwitch setOn:NO animated:NO];
-            [self.publicSwitch setEnabled:true];
-            [self getAllUsers];
-        }
-    }else{
-        [self getAllUsers];
-    }
+    NSLog(@"hayooo");
+    NSLog(@"%@", self);
+//    NSLog(@"%@", self.isNewGroup);
+    NSLog(@"%@", self.groupInfo);
+    self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
+//    if(!self.isNewGroup){
+//        self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
+//
+//        if ([[self.groupInfo valueForKey:@"is_public"] boolValue]) {
+//            [self.publicSwitch setOn:YES animated:NO];
+//            [self.publicSwitch setEnabled:false];
+//            self.allUsersTableView.hidden = true;
+//            self.usersInGroupTableView.hidden = true;
+//        }else{
+//            [self.publicSwitch setOn:NO animated:NO];
+//            [self.publicSwitch setEnabled:true];
+//            [self getAllUsers];
+//        }
+//    }else{
+//        NSLog(@"else");
+//        [self getAllUsers];
+//    }
+    NSLog(@"dafuck");
 }
 
 - (void)didReceiveMemoryWarning
