@@ -45,7 +45,7 @@
     self.usersInGroupTableView.delegate = self;
     self.usersInGroupTableView.dataSource = self;
 
-    self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
+    self.groupName.text = [self.groupInfo valueForKey:@"name"];
 
 }
 
