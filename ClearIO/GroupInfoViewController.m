@@ -44,29 +44,9 @@
     self.allUsersTableView.dataSource = self;
     self.usersInGroupTableView.delegate = self;
     self.usersInGroupTableView.dataSource = self;
-    NSLog(@"hayooo");
-    NSLog(@"%@", self);
-//    NSLog(@"%@", self.isNewGroup);
-    NSLog(@"%@", self.groupInfo);
+
     self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
-//    if(!self.isNewGroup){
-//        self.groupName.text = [self.groupInfo valueForKey:@"group_name"];
-//
-//        if ([[self.groupInfo valueForKey:@"is_public"] boolValue]) {
-//            [self.publicSwitch setOn:YES animated:NO];
-//            [self.publicSwitch setEnabled:false];
-//            self.allUsersTableView.hidden = true;
-//            self.usersInGroupTableView.hidden = true;
-//        }else{
-//            [self.publicSwitch setOn:NO animated:NO];
-//            [self.publicSwitch setEnabled:true];
-//            [self getAllUsers];
-//        }
-//    }else{
-//        NSLog(@"else");
-//        [self getAllUsers];
-//    }
-    NSLog(@"dafuck");
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -132,35 +112,33 @@
 }
 
 - (void)createNewGroup {
-    
-    bool public;
-    NSString *users;
-    NSMutableArray *validUsers = [[NSMutableArray alloc] init];
-    if ([self.publicSwitch isOn]) {
-        public = true;
-        users = @"";
-    }else{
-        public = false;
-        NSInteger count = 0;
-        for (UITableViewCell *cell in [self.allUsersTableView visibleCells]){
-            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-                [validUsers addObject:[[[self.allUsers objectAtIndex:count] data] valueForKey:@"email"]];
+
+    NSMutableDictionary *newGroupInfo = [[NSMutableDictionary alloc] init];
+    newGroupInfo[@"name"] = self.groupName.text;
+    newGroupInfo[@"topic"] = @"defaultTopic";
+    newGroupInfo[@"collectionID"] = CHAT_GROUPS_COLLECTION;
+    [CBCode executeFunction:@"ioCreateGroup" withParams:@{@"group":newGroupInfo} withSuccessCallback:^(NSString *result) {
+
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        NSDictionary *serverResponse = [json objectForKey: @"results"];
+        
+        if (![serverResponse[@"code"] isEqual:@200]) {
+            if([serverResponse[@"code"] isEqual:@409]) {
+                // open an alert that lets users know that the group already exists
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
+                                                                message:@"Group already exists" delegate:self cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"OK", nil];
+                [alert show];
+            } else {
+                CBLogError(@"Error creating group: <%@>", serverResponse[@"message"]);
             }
-            count++;
+        } else {
+            self.groupInfo = serverResponse[@"message"];
+            [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
         }
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:validUsers options:NSJSONWritingPrettyPrinted error:&error];
-        if(!error) {
-            users = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        }
-    }
-   
-    [[ClearIO settings] ioCreateGroup:self.groupName.text withIsPublic:public withUsers:[NSArray arrayWithArray:validUsers] withSuccessCallback:^(NSDictionary *newGroupInfo) {
-        self.groupInfo = newGroupInfo;
-        self.isNewGroup = false;
-        [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
+
     } withErrorCallback:^(NSError *error) {
-        NSLog(@"Error creating new group: <%@>", error);
+        CBLogError(@"Error creating group: <%@>", error);
     }];
     
 }
