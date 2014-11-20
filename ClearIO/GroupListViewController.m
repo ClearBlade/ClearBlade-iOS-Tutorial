@@ -121,11 +121,6 @@
         CBItem *group = [array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]];
         NSMutableDictionary *grpInfo = group.data;
 
-        if ([self.selectedIndexPath indexAtPosition:0] == 0){
-            [grpInfo setObject:[NSNumber numberWithBool:true] forKey:@"is_public"];
-        }else{
-            [grpInfo setObject:[NSNumber numberWithBool:false] forKey:@"is_public"];
-        }
         self.groupInfo = [grpInfo copy];
         if (![chatController isKindOfClass:[ChatViewController class]]){
             NSLog(@"Unexpected type of view controller");

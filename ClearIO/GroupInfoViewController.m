@@ -144,36 +144,16 @@
 }
 
 - (void)updateGroup {
-    bool newPublic;
-    NSMutableArray *usersToAdd = [[NSMutableArray alloc] init];
-    NSMutableArray *usersToRemove = [[NSMutableArray alloc] init];
-    if ([self.publicSwitch isOn]) {
-        newPublic = true;
-        usersToAdd = nil;
-        usersToRemove = nil;
-    }else {
-        newPublic = false;
-        NSInteger count = 0;
-        for (UITableViewCell *cell in [self.allUsersTableView visibleCells]){
-            if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-                [usersToAdd addObject:[[[self.allUsers objectAtIndex:count] data] valueForKey:@"email"]];
-            }
-            count++;
-        }
-        count = 0;
-        for (UITableViewCell *cell in [self.usersInGroupTableView visibleCells]){
-            if (cell.accessoryType == UITableViewCellAccessoryNone) {
-                [usersToRemove addObject:[[[self.usersInGroup objectAtIndex:count] data] valueForKey:@"email"]];
-            }
-            count++;
-        }
-    }
-    [[ClearIO settings] ioUpdateGroup:[self.groupInfo valueForKey:@"item_id"] withNewName:self.groupName.text withOldIsPublic:[self.groupInfo valueForKey:@"is_public"] withNewIsPublic:newPublic withAddedUsers:usersToAdd withRemovedUsers:usersToRemove withSuccessCallback:^(NSDictionary *newGroupInfo) {
-        self.groupInfo = newGroupInfo;
+
+    CBItem *group = [[[CBItem alloc] init] initWithData:self.groupInfo withCollectionID:CHAT_GROUPS_COLLECTION];
+    group.data[@"name"] = self.groupName.text;
+
+    [group saveWithSuccessCallback:^(CBItem *item) {
         [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
-    } withErrorCallback:^(NSError *error) {
+    }withErrorCallback:^(CBItem *item, NSError *error, id JSON){
         NSLog(@"Error updating group: <%@>", error);
     }];
+
 }
 
 - (IBAction)cancelClicked:(id)sender {
