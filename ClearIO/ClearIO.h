@@ -75,12 +75,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 -(void)ioRegisterUser:(NSString *)username withPassword:(NSString *)password withFirstName:(NSString *)firstName withLastName: (NSString *)lastName withError:(NSError **)error;
 
 /**
- Logout current user form the ClearBlade platform.
- @param error Is set if an error occured during logout.
- */
--(void)ioLogoutWithError:(NSError **)error;
-
-/**
  Subscribe to a given topic
  @param topic item_id of the group you are subscribing to.
  @param ioMessageArriveCallback Callback used anytime a message is received on this topic.

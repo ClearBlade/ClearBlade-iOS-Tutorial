@@ -111,8 +111,16 @@
 
 - (IBAction)logoutClicked:(id)sender {
     NSError * error;
-    [[ClearIO settings] ioLogoutWithError:&error];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [[ClearIO settings] ioLogoutWithError:&error];
+    [[[ClearBlade settings] mainUser] logOutWithError:&error];
+    if(error){
+        CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
+        return;
+    }else {
+        [[[ClearIO settings] messageClient] disconnect];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

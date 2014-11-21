@@ -95,16 +95,6 @@ void(^messagingErrorCallback)(NSError *error);
     }
 }
 
--(void)ioLogoutWithError:(NSError **)error {
-    [[[ClearBlade settings] mainUser] logOutWithError:error];
-    if(*error){
-        CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
-        return;
-    }else {
-        [[[ClearIO settings] messageClient] disconnect];
-    }
-}
-
 -(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
     //set our callback methods
     messageArrivedCallback = ioMessageArriveCallback;
