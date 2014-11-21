@@ -59,42 +59,6 @@ void(^messagingErrorCallback)(NSError *error);
     return userInfo;
 }
 
--(void)ioRegisterUser:(NSString *)username withPassword:(NSString *)password withFirstName:(NSString *)firstName withLastName:(NSString *)lastName withError:(NSError **)error {
-    [ClearBlade initSettingsSyncWithSystemKey:self.systemKey
-                             withSystemSecret:self.systemSecret
-                                  withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
-                                      CBSettingsOptionEmail:username,
-                                      CBSettingsOptionPassword:password,
-                                      CBSettingsOptionRegisterUser:@true}
-                                    withError:error];
-    if(!*error){
-        //reg successful, now add fname/lname to user data
-        [[[ClearBlade settings] mainUser] setCurrentUserInfoWithDict:@{@"firstname":firstName,
-                                                                       @"lastname":lastName}
-                                                           withError:error];
-        if(*error){
-            CBLogError(@"Error setting user info: <%@>", error);
-            return;
-        }else{
-            //remove this else once we have a way to get all users
-            //temp need to add user info to users collection..
-            CBCollection *userCollection = [CBCollection collectionWithID:self.userColID];
-            [userCollection createWithData:@{@"first_name":firstName,
-                                             @"last_name":lastName,
-                                             @"email":username}
-                       withSuccessCallback:^(CBItem *item) {
-                           [[[ClearIO settings] messageClient] connect];
-                       } withErrorCallback:^(CBItem *item, NSError *error, id JSON) {
-                           CBLogError(@"Error adding user to users collection: <%@>", error);
-                           return;
-                       }];
-        }
-    }else{
-        CBLogError(@"Error registering user: <%@>", error);
-        return;
-    }
-}
-
 -(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
     //set our callback methods
     messageArrivedCallback = ioMessageArriveCallback;

@@ -64,17 +64,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 -(NSDictionary*)ioGetUserInfoWithError:(NSError **)error;
 
 /**
- Synchronously register given user, and input user data into Auth table
- Also initializes ClearBlade platform with given user
- @param username Username (email) of the user to register.
- @param password Password to set for this new user.
- @param firstName First name of user.
- @param lastName Last name of user.
- @param error IS set if an error occured during user registration process.
- */
--(void)ioRegisterUser:(NSString *)username withPassword:(NSString *)password withFirstName:(NSString *)firstName withLastName: (NSString *)lastName withError:(NSError **)error;
-
-/**
  Subscribe to a given topic
  @param topic item_id of the group you are subscribing to.
  @param ioMessageArriveCallback Callback used anytime a message is received on this topic.

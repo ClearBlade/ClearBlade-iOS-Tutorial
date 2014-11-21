@@ -85,15 +85,27 @@
         return;
     }
     NSError * error;
-    [[ClearIO settings] ioRegisterUser:email
-                          withPassword:password
-                         withFirstName:firstName
-                          withLastName:lastName
-                             withError:&error];
+    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY
+                             withSystemSecret:CHAT_SYSTEM_SECRET
+                                  withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
+                                                CBSettingsOptionEmail:email,
+                                                CBSettingsOptionPassword:password,
+                                                CBSettingsOptionRegisterUser:@true}
+                                    withError:&error];
     if(!error){
-        [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
-    }else {
-        self.errorMessage.text = [error localizedDescription];
+        //reg successful, now add fname/lname to user data
+        [[[ClearBlade settings] mainUser] setCurrentUserInfoWithDict:@{@"firstname":firstName,
+                                                                       @"lastname":lastName}
+                                                           withError:&error];
+        if(error){
+            CBLogError(@"Error setting user info: <%@>", error);
+            self.errorMessage.text = [error localizedDescription];
+            return;
+        }else{
+            [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
+        }
+    }else{
+        CBLogError(@"Error registering user: <%@>", error);
         return;
     }
     
