@@ -16,5 +16,4 @@
 @property (nonatomic, strong) IBOutlet UIView *bottomBar;
 @property (nonatomic, strong) IBOutlet UITextField *messageField;
 @property (strong, nonatomic) NSMutableArray * messages;
-
 @end

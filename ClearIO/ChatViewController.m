@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
 @property (nonatomic) NSMutableArray *capturedImages;
 @property (nonatomic) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UINavigationItem *groupName;
 @end
 
 @implementation ChatViewController
@@ -63,6 +64,7 @@
     [super viewDidLoad];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
     self.navigationItem.leftBarButtonItem = backButton;
+    self.groupName.title = [self.groupInfo valueForKey:@"name"];
 
     NSArray *history = [CBMessageClient getMessageHistoryOfTopic:[self.groupInfo valueForKey:@"item_id"] fromTime:NSDateFormatterNoStyle withCount:@25 withError:nil];
     //loop through message history and add messages to view
