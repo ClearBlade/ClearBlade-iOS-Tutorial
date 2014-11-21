@@ -220,8 +220,19 @@
 }
 
 - (IBAction)sendClicked {
-    [[ClearIO settings] ioSendText:self.messageField.text toTopic:[self.groupInfo valueForKey:@"item_id"]];
-    self.messageField.text = @"";
+    NSError *error;
+    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+    if(!error){
+        NSDictionary *messageObject = @{@"topic":[self.groupInfo valueForKey:@"item_id"],
+                                        @"name":[tempUserInfo valueForKey:@"firstname"],
+                                        @"type":@"text",
+                                        @"payload":self.messageField.text,
+                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:[self.groupInfo valueForKey:@"item_id"]];
+        self.messageField.text = @"";
+    }
 }
 
 - (IBAction)imgClicked:(id)sender {

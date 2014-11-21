@@ -59,21 +59,6 @@ void(^messagingErrorCallback)(NSError *error);
     [[[ClearIO settings] messageClient] subscribeToTopic:topic];
 }
 
--(void)ioSendText:(NSString *)messageString toTopic:(NSString *)topic{
-    NSError *error;
-    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
-    if(!error){
-        NSDictionary *messageObject = @{@"topic":topic,
-                                        @"name":[tempUserInfo valueForKey:@"firstname"],
-                                        @"type":@"text",
-                                        @"payload":messageString,
-                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
-        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:topic];
-    }
-}
-
 -(void)ioSendImage:(UIImage *)image toTopic:(NSString *)topic{
     NSData *imageData = UIImagePNGRepresentation(image);
     NSString *imageString = [NSString stringWithFormat:@"data:image/png;base64,%@",[imageData base64EncodedStringWithOptions:kNilOptions]];

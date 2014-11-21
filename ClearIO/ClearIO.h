@@ -64,14 +64,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
  */
 -(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
 
-//-(void)ioMessageHistory:(NSString *)topic withHistoryArriveCallback:(ClearIOSuccessCallback)ioMessageHistoryCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
-
-/**
- Send a text message to a specific topic
- @param messageString Message text to send to topic.
- @param topic Topic to send message to.
- */
--(void)ioSendText:(NSString *)messageString toTopic:(NSString *)topic;
 
 /**
  Send an image to a specific topic
