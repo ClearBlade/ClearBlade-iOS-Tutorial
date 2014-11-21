@@ -39,12 +39,25 @@
 }
 
 -(void) getGroups {
-    [[ClearIO settings] ioGetGroupsWithSuccessCallback:^(NSArray *groups) {
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:groups forKey:@"data"];
+//    [[ClearIO settings] ioGetGroupsWithSuccessCallback:^(NSArray *groups) {
+//
+//    } withErrorCallback:^(NSError *error) {
+//        NSLog(@"error getting public groups");
+//    }];
+    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: CHAT_GROUPS_COLLECTION ];
+    [groupsQuery setPageNum: [NSNumber numberWithInt:0]];
+    [groupsQuery setPageSize: [NSNumber numberWithInt:0]];
+    [groupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:successfulResponse.dataItems forKey:@"data"];
         [self.groups addObject:dict];
         [self.tableView reloadData];
-    } withErrorCallback:^(NSError *error) {
-        NSLog(@"error getting public groups");
+//        ioSuccessCallback(successfulResponse.dataItems);
+        //        [self parseGroupListResponse:successfulResponse.dataItems withSuccessCallback:ioSuccessCallback withErrorCallback:ioErrorCallback];
+    } withErrorCallback:^(NSError *error, id JSON) {
+        CBLogError(@"Error retrieving groups: <%@>", error);
+//        if(ioErrorCallback) {
+//            ioErrorCallback(error);
+//        }
     }];
 }
 

@@ -44,12 +44,19 @@
 }
 
 -(void) loginWithUser:(NSString *) userString withPassword:(NSString *) passwordString{
-    NSError * error;
-    [[ClearIO settings] ioLoginWithUser:userString withPassword:passwordString withError:&error];
+    NSError *error;
+    [ClearBlade initSettingsSyncWithSystemKey: CHAT_SYSTEM_KEY
+                             withSystemSecret: CHAT_SYSTEM_SECRET
+                                  withOptions:@{CBSettingsOptionEmail:userString,
+                                                CBSettingsOptionPassword:passwordString,
+                                                CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
+                                                CBSettingsOptionMessagingDefaultQOS:@0}
+                                    withError:&error];
     if(!error){
+        [[[ClearIO settings] messageClient] connect];
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
-    }else{
-        NSLog(@"login error");
+    } {
+        NSLog(@"Unable to login: %@", error);
     }
 }
 
