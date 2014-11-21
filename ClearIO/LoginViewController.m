@@ -63,12 +63,12 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"loginSegue"]) {
         NSError *error;
-        NSDictionary *userInfo = [[ClearIO settings] ioGetUserInfoWithError:&error];
-        if (!error){
+        NSDictionary * userInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+        if (error) {
+            CBLogError(@"error getting user info: <%@>", error);
+        } else {
             GroupListViewController *groupView = (GroupListViewController *)segue.destinationViewController;
-        groupView.userInfo = userInfo;
-        }else{
-            NSLog(@"getting user info error");
+            groupView.userInfo = userInfo;
         }
     }
 }

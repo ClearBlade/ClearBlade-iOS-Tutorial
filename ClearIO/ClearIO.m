@@ -51,14 +51,6 @@ void(^messagingErrorCallback)(NSError *error);
     _settings = settings;
 }
 
--(NSDictionary*)ioGetUserInfoWithError:(NSError **)error{
-    NSDictionary * userInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:error];
-    if (*error) {
-        CBLogError(@"error getting user info: <%@>", error);
-    }
-    return userInfo;
-}
-
 -(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
     //set our callback methods
     messageArrivedCallback = ioMessageArriveCallback;

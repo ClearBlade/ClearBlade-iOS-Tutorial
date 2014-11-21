@@ -57,13 +57,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
 +(void)initWithSystemKey:(NSString *)systemKey withSystemSecret:(NSString *)systemSecret withGroupCollectionID:(NSString *)groupColID withUserGroupsCollectionID:(NSString *)userGroupsColID withUserCollectionID:(NSString *)userColID;
 
 /**
- Synchronously get current users info from the ClearBlade Auth table
- @param error Is set if an error occured getting info.
- @return NSDictionary containing key/value paisrs of all columns in the auth table for current user
- */
--(NSDictionary*)ioGetUserInfoWithError:(NSError **)error;
-
-/**
  Subscribe to a given topic
  @param topic item_id of the group you are subscribing to.
  @param ioMessageArriveCallback Callback used anytime a message is received on this topic.
