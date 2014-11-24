@@ -9,7 +9,7 @@
 #import "RegisterViewController.h"
 #import "GroupListViewController.h"
 #import "ClearIOConstants.h"
-#import "ClearIO.h"
+#import "CBAPI.h"
 
 @interface RegisterViewController ()
 @property UITextField *activeField;

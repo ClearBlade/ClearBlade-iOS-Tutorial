@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "GroupListViewController.h"
 #import "ClearIOConstants.h"
-#import "ClearIO.h"
+#import "CBAPI.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -53,7 +53,6 @@
                                                 CBSettingsOptionMessagingDefaultQOS:@0}
                                     withError:&error];
     if(!error){
-        [[[ClearIO settings] messageClient] connect];
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
     } {
         NSLog(@"Unable to login: %@", error);

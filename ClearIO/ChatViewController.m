@@ -9,7 +9,7 @@
 #import "ChatViewController.h"
 #import "GroupInfoViewController.h"
 #import "GroupListViewController.h"
-#import "ClearIO.h"
+#import "CBAPI.h"
 
 @interface ChatViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
@@ -244,7 +244,7 @@
                                         @"user_id":[tempUserInfo valueForKey:@"email"]};
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
         NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        [[[ClearIO settings] messageClient] publishMessage:messageString toTopic:[self.groupInfo valueForKey:@"item_id"]];
+        [self.messageClient publishMessage:messageString toTopic:[self.groupInfo valueForKey:@"item_id"]];
         self.messageField.text = @"";
     }
 }
@@ -283,7 +283,22 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     self.imagePickerController = nil;
     
-    [[ClearIO settings] ioSendImage:image toTopic:[self.groupInfo valueForKey:@"item_id"]];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSString *imageString = [NSString stringWithFormat:@"data:image/png;base64,%@",[imageData base64EncodedStringWithOptions:kNilOptions]];
+    NSError *error;
+    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+    if(!error){
+        NSDictionary *messageObject = @{@"topic":[self.groupInfo valueForKey:@"item_id"],
+                                        @"name":[tempUserInfo valueForKey:@"firstname"],
+                                        @"type":@"img",
+                                        @"payload":imageString,
+                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        NSString *tempMsgString = [messageString stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+
+        [self.messageClient publishMessage:tempMsgString toTopic:[self.groupInfo valueForKey:@"item_id"]];
+    }
     
 }
 

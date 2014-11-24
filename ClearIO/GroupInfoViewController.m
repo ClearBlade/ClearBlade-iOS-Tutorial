@@ -9,7 +9,7 @@
 #import "GroupInfoViewController.h"
 #import "ClearIOConstants.h"
 #import "ChatViewController.h"
-#import "ClearIO.h"
+#import "CBAPI.h"
 
 @interface GroupInfoViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *usersInGroupTableView;

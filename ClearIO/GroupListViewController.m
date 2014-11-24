@@ -10,11 +10,12 @@
 #import "ChatViewController.h"
 #import "ClearIOConstants.h"
 #import "GroupInfoViewController.h"
-#import "ClearIO.h"
+#import "CBAPI.h"
 
 @interface GroupListViewController ()
 @property (strong, nonatomic) CBCollection *groupCol;
 @property NSIndexPath *selectedIndexPath;
+@property (strong, nonatomic) CBMessageClient *messageClient;
 @end
 
 @implementation GroupListViewController
@@ -36,6 +37,14 @@
         [self.groups removeAllObjects];
     }
     [self getGroups];
+}
+
+-(CBMessageClient *)messageClient {
+    if (!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
 }
 
 -(void) getGroups {
@@ -117,7 +126,8 @@
         CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
         return;
     }else {
-        [[[ClearIO settings] messageClient] disconnect];
+//        [[[ClearIO settings] messageClient] disconnect];
+        [self.messageClient disconnect];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 
