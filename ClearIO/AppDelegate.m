@@ -8,11 +8,21 @@
 
 #import "AppDelegate.h"
 #import "ClearIOConstants.h"
+#import "CBAPI.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSError * error;
+    [ClearBlade initSettingsSyncWithSystemKey:YOUR_SYSTEM_KEY
+                             withSystemSecret:YOUR_SYSTEM_SECRET
+                                  withOptions:@{}
+                                    withError:&error];
+    if (error) {
+        NSLog(@"Failed to connect with error %@", error);
+        return NO;
+    }
     return YES;
 }
 
