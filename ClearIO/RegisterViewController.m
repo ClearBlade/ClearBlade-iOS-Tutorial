@@ -75,31 +75,6 @@
         self.errorMessage.text = @"The passwords did not match";
         return;
     }
-    NSError * error;
-    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY
-                             withSystemSecret:CHAT_SYSTEM_SECRET
-                                  withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
-                                                CBSettingsOptionEmail:email,
-                                                CBSettingsOptionPassword:password,
-                                                CBSettingsOptionRegisterUser:@true}
-                                    withError:&error];
-    if(!error){
-        //reg successful, now add fname/lname to user data
-        [[[ClearBlade settings] mainUser] setCurrentUserInfoWithDict:@{@"firstname":firstName,
-                                                                       @"lastname":lastName}
-                                                           withError:&error];
-        if(error){
-            CBLogError(@"Error setting user info: <%@>", error);
-            self.errorMessage.text = [error localizedDescription];
-            return;
-        }else{
-            [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
-        }
-    }else{
-        CBLogError(@"Error registering user: <%@>", error);
-        return;
-    }
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
