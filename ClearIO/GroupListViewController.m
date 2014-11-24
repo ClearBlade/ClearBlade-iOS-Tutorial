@@ -10,9 +10,12 @@
 #import "ChatViewController.h"
 #import "ClearIOConstants.h"
 #import "GroupInfoViewController.h"
+#import "CBAPI.h"
 
 @interface GroupListViewController ()
 @property NSIndexPath *selectedIndexPath;
+@property (strong, nonatomic) CBCollection *groupCol;
+@property (strong, nonatomic) CBMessageClient *messageClient;
 @end
 
 @implementation GroupListViewController
@@ -37,7 +40,16 @@
 }
 
 -(void) getGroups {
-    
+    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: YOUR_GROUPS_COLLECTION ];
+    [groupsQuery setPageNum: [NSNumber numberWithInt:0]];
+    [groupsQuery setPageSize: [NSNumber numberWithInt:0]];
+    [groupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:successfulResponse.dataItems forKey:@"data"];
+        [self.groups addObject:dict];
+        [self.tableView reloadData];
+    } withErrorCallback:^(NSError *error, id JSON) {
+        CBLogError(@"Error retrieving groups: <%@>", error);
+    }];
 }
 
 -(NSMutableArray *)groups {
