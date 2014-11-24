@@ -8,12 +8,21 @@
 
 #import "AppDelegate.h"
 #import "ClearIOConstants.h"
+#import "CBAPI.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [ClearIO initWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withGroupCollectionID:CHAT_GROUPS_COLLECTION withUserGroupsCollectionID:CHAT_USERGROUPS_COLLECTION withUserCollectionID:CHAT_USER_COLLECTION];
+    NSError * error;
+    [ClearBlade initSettingsSyncWithSystemKey:YOUR_SYSTEM_KEY
+                             withSystemSecret:YOUR_SYSTEM_SECRET
+                                  withOptions:@{}
+                                    withError:&error];
+    if (error) {
+        NSLog(@"Failed to connect with error %@", error);
+        return NO;
+    }
     return YES;
 }
 
