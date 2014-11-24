@@ -1,10 +1,1 @@
-This is the first pass at the ClearIO library. Currently the library itself, and app using it are all in this repo. In the future ClearIO should be built as a library, and included in a demo app.
-
-Anyways, this app should work out of the box. It currently points to a system on RTP in the demo@clearblade.com dev account.
-
-If you would like to customize the system that the app is connecting to, you will need to do two things. First update System key/secret, and collection id's in ClearIOConstants.h. Next in ClearIO.m update the initOptions of the ClearBlade SDK in ioLoginWithUser and ioRegisterUser methods to connect to whatever platform instance you want/need.
-
-Other than that, contact Michael msprague@clearblade.com if you have questions/issues.
-
-Also, the docs on data return structure from the services can be found here:
-https://docs.google.com/document/d/1SUOsK_Y0bIA9nF4V-dXHeAhJoEnzE3zhojwRgCKYhbA/edit?usp=drive_web
+A tutorial on how to use the ClearBlade Platform in iOS
