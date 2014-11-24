@@ -13,7 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [ClearIO initWithSystemKey:CHAT_SYSTEM_KEY withSystemSecret:CHAT_SYSTEM_SECRET withGroupCollectionID:CHAT_GROUPS_COLLECTION withUserGroupsCollectionID:CHAT_USERGROUPS_COLLECTION withUserCollectionID:CHAT_USER_COLLECTION];
     return YES;
 }
 
