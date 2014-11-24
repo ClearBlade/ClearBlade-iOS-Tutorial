@@ -20,24 +20,6 @@
 @property (strong, nonatomic) CBMessageClient * messageClient;
 
 /**
- Callback for handling successful get all users and get public/private groups.
- @param result NSArray object holding NSDictionaries containing user/group info respectively
- */
-typedef void (^ClearIOSuccessCallback)(NSArray * result);
-
-/**
- Callback for handling successful group creation or edit
- @param newGroupInfo NSDictionary containing the group's new info
- */
-typedef void (^ClearIOEditGroupSuccessCallback)(NSDictionary * newGroupInfo);
-
-/**
- Callback for handling successful receipt of a message
- @param message NSDictionary containing key/value pairs received in message
- */
-typedef void (^ClearIOMessageArriveCallback)(NSDictionary * message);
-
-/**
  Callback used for handling any errors in async requests in ClearIO library
  @param error NSError with the appropriate error message
  */
@@ -55,14 +37,6 @@ typedef void (^ClearIOErrorCallback)(NSError * error);
  @returns a newly initialized object
  */
 +(void)initWithSystemKey:(NSString *)systemKey withSystemSecret:(NSString *)systemSecret withGroupCollectionID:(NSString *)groupColID withUserGroupsCollectionID:(NSString *)userGroupsColID withUserCollectionID:(NSString *)userColID;
-
-/**
- Subscribe to a given topic
- @param topic item_id of the group you are subscribing to.
- @param ioMessageArriveCallback Callback used anytime a message is received on this topic.
- @param ioErrorCallback Callback used when an error occured.
- */
--(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback;
 
 
 /**

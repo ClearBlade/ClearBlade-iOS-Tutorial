@@ -16,6 +16,7 @@
 @property (nonatomic) NSMutableArray *capturedImages;
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UINavigationItem *groupName;
+@property (strong, nonatomic) CBMessageClient *messageClient;
 @end
 
 @implementation ChatViewController
@@ -27,6 +28,14 @@
 @synthesize bottomBar = _bottomBar;
 @synthesize messages = _messages;
 @synthesize chatBox = _chatBox;
+
+-(CBMessageClient *)messageClient {
+    if (!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
+}
 
 - (void)keyboardWillBeShown:(NSNotification*)notification {
     CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -59,6 +68,23 @@
     return _messages;
 }
 
+-(void)messageClientDidConnect:(CBMessageClient *)client {
+    [client subscribeToTopic:[self.groupInfo valueForKey:@"item_id"]];
+}
+
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    NSDictionary *parsedMessage = [NSJSONSerialization JSONObjectWithData:message.payloadData options:0 error:nil];
+
+    if ([[parsedMessage valueForKey:@"type"] isEqualToString:@"text"]){
+        [self addMessage:[NSString stringWithFormat:@"%@: %@",[parsedMessage valueForKey:@"name"],[parsedMessage valueForKey:@"payload"]]];
+    } else if ([[parsedMessage valueForKey:@"type"] isEqualToString:@"img"]){
+        NSString *imageString = [parsedMessage valueForKey:@"payload"];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
+        UIImage *image = [UIImage imageWithData:imageData];
+        [self addImage:image fromUser:[parsedMessage valueForKey:@"name"]];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -73,20 +99,8 @@
         NSDictionary *parsedMessage = [NSJSONSerialization JSONObjectWithData:messageInfo options:0 error:nil];
         [self addMessage:[NSString stringWithFormat:@"%@: %@",[parsedMessage valueForKey:@"name"],[parsedMessage valueForKey:@"payload"]]];
     }
-
-    [[ClearIO settings] ioListenWithTopic:[self.groupInfo valueForKey:@"item_id"] withMessageArriveCallback:^(NSDictionary *message) {
-        //add your message parsing logic for your view here
-        if ([[message valueForKey:@"type"] isEqualToString:@"text"]){
-            [self addMessage:[NSString stringWithFormat:@"%@: %@",[message valueForKey:@"name"],[message valueForKey:@"payload"]]];
-        } else if ([[message valueForKey:@"type"] isEqualToString:@"img"]){
-            NSString *imageString = [message valueForKey:@"payload"];
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
-            UIImage *image = [UIImage imageWithData:imageData];
-            [self addImage:image fromUser:[message valueForKey:@"name"]];
-        }
-            } withErrorCallback:^(NSError *error) {
-        NSLog(@"error callback in chat view controller");
-    }];
+    
+    [self.messageClient connect];
 
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -271,7 +285,6 @@
     
     [[ClearIO settings] ioSendImage:image toTopic:[self.groupInfo valueForKey:@"item_id"]];
     
-    NSLog(@"here we are michae");
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

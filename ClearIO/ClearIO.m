@@ -51,14 +51,6 @@ void(^messagingErrorCallback)(NSError *error);
     _settings = settings;
 }
 
--(void)ioListenWithTopic:(NSString *)topic withMessageArriveCallback:(ClearIOMessageArriveCallback)ioMessageArriveCallback withErrorCallback:(ClearIOErrorCallback)ioErrorCallback{
-    //set our callback methods
-    messageArrivedCallback = ioMessageArriveCallback;
-    messagingErrorCallback = ioErrorCallback;
-    
-    [[[ClearIO settings] messageClient] subscribeToTopic:topic];
-}
-
 -(void)ioSendImage:(UIImage *)image toTopic:(NSString *)topic{
     NSData *imageData = UIImagePNGRepresentation(image);
     NSString *imageString = [NSString stringWithFormat:@"data:image/png;base64,%@",[imageData base64EncodedStringWithOptions:kNilOptions]];
