@@ -8,8 +8,6 @@
 
 #import "LoginViewController.h"
 #import "GroupListViewController.h"
-#import "ClearIOConstants.h"
-#import "CBAPI.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -44,32 +42,12 @@
 }
 
 -(void) loginWithUser:(NSString *) userString withPassword:(NSString *) passwordString{
-    NSError *error;
-    [ClearBlade initSettingsSyncWithSystemKey: CHAT_SYSTEM_KEY
-                             withSystemSecret: CHAT_SYSTEM_SECRET
-                                  withOptions:@{CBSettingsOptionEmail:userString,
-                                                CBSettingsOptionPassword:passwordString,
-                                                CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
-                                                CBSettingsOptionMessagingDefaultQOS:@0}
-                                    withError:&error];
-    if(!error){
-        [self performSegueWithIdentifier:@"loginSegue" sender:self];
-    } else {
-        NSLog(@"Unable to login: %@", error);
-    }
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"loginSegue"]) {
-        NSError *error;
-        NSDictionary * userInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
-        if (error) {
-            CBLogError(@"error getting user info: <%@>", error);
-        } else {
-            GroupListViewController *groupView = (GroupListViewController *)segue.destinationViewController;
-            groupView.userInfo = userInfo;
-        }
-    }
+            }
 }
 
 - (IBAction)loginClicked:(id)sender {
