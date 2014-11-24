@@ -8,14 +8,11 @@
 
 #import "RegisterViewController.h"
 #import "GroupListViewController.h"
-#import "ClearIOConstants.h"
-#import "CBAPI.h"
 
 @interface RegisterViewController ()
 @property UITextField *activeField;
 @property CGSize kbSize;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) CBCollection *userCol;
 @end
 
 @implementation RegisterViewController
@@ -61,13 +58,6 @@
     
 }
 
--(CBCollection *)userCol {
-    if(!_userCol) {
-        _userCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
-    }
-    return _userCol;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -82,30 +72,6 @@
     NSString *confirmPass = self.confirmPassField.text;
     if ( ![password isEqualToString:confirmPass] ){
         self.errorMessage.text = @"The passwords did not match";
-        return;
-    }
-    NSError * error;
-    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY
-                             withSystemSecret:CHAT_SYSTEM_SECRET
-                                  withOptions:@{CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
-                                                CBSettingsOptionEmail:email,
-                                                CBSettingsOptionPassword:password,
-                                                CBSettingsOptionRegisterUser:@true}
-                                    withError:&error];
-    if(!error){
-        //reg successful, now add fname/lname to user data
-        [[[ClearBlade settings] mainUser] setCurrentUserInfoWithDict:@{@"firstname":firstName,
-                                                                       @"lastname":lastName}
-                                                           withError:&error];
-        if(error){
-            CBLogError(@"Error setting user info: <%@>", error);
-            self.errorMessage.text = [error localizedDescription];
-            return;
-        }else{
-            [self performSegueWithIdentifier:@"successRegisterSegue" sender:self];
-        }
-    }else{
-        CBLogError(@"Error registering user: <%@>", error);
         return;
     }
     

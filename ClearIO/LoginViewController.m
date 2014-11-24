@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "GroupListViewController.h"
-#import "ClearIOConstants.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
