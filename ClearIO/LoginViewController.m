@@ -54,7 +54,7 @@
                                     withError:&error];
     if(!error){
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
-    } {
+    } else {
         NSLog(@"Unable to login: %@", error);
     }
 }
