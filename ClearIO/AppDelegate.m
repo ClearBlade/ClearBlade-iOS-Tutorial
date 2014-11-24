@@ -15,8 +15,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSError * error;
-    [ClearBlade initSettingsSyncWithSystemKey:YOUR_SYSTEM_KEY
-                             withSystemSecret:YOUR_SYSTEM_SECRET
+    [ClearBlade initSettingsSyncWithSystemKey:CHAT_SYSTEM_KEY
+                             withSystemSecret:CHAT_SYSTEM_SECRET
                                   withOptions:@{}
                                     withError:&error];
     if (error) {

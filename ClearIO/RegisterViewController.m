@@ -8,7 +8,6 @@
 
 #import "RegisterViewController.h"
 #import "GroupListViewController.h"
-#import "ClearIOConstants.h"
 
 @interface RegisterViewController ()
 @property UITextField *activeField;
