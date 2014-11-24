@@ -8,14 +8,10 @@
 
 #import "GroupListViewController.h"
 #import "ChatViewController.h"
-#import "ClearIOConstants.h"
 #import "GroupInfoViewController.h"
-#import "CBAPI.h"
 
 @interface GroupListViewController ()
-@property (strong, nonatomic) CBCollection *groupCol;
 @property NSIndexPath *selectedIndexPath;
-@property (strong, nonatomic) CBMessageClient *messageClient;
 @end
 
 @implementation GroupListViewController
@@ -39,43 +35,9 @@
     [self getGroups];
 }
 
--(CBMessageClient *)messageClient {
-    if (!_messageClient) {
-        _messageClient = [[CBMessageClient alloc] init];
-        _messageClient.delegate = self;
-    }
-    return _messageClient;
-}
-
 -(void) getGroups {
-//    [[ClearIO settings] ioGetGroupsWithSuccessCallback:^(NSArray *groups) {
-//
-//    } withErrorCallback:^(NSError *error) {
-//        NSLog(@"error getting public groups");
-//    }];
-    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: CHAT_GROUPS_COLLECTION ];
-    [groupsQuery setPageNum: [NSNumber numberWithInt:0]];
-    [groupsQuery setPageSize: [NSNumber numberWithInt:0]];
-    [groupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:successfulResponse.dataItems forKey:@"data"];
-        [self.groups addObject:dict];
-        [self.tableView reloadData];
-//        ioSuccessCallback(successfulResponse.dataItems);
-        //        [self parseGroupListResponse:successfulResponse.dataItems withSuccessCallback:ioSuccessCallback withErrorCallback:ioErrorCallback];
-    } withErrorCallback:^(NSError *error, id JSON) {
-        CBLogError(@"Error retrieving groups: <%@>", error);
-//        if(ioErrorCallback) {
-//            ioErrorCallback(error);
-//        }
-    }];
 }
 
--(CBCollection *)groupCol {
-    if(!_groupCol) {
-        _groupCol = [CBCollection collectionWithID:CHAT_GROUPS_COLLECTION];
-    }
-    return _groupCol;
-}
 -(NSMutableArray *)groups {
     if(!_groups) {
         _groups = [NSMutableArray array];
@@ -108,28 +70,19 @@
     }
     NSDictionary *dictionary = [self.groups objectAtIndex:indexPath.section];
 
-    NSArray *array = [dictionary objectForKey:@"data"];
-    CBItem *group = [array objectAtIndex:indexPath.row];
-
-    NSString *cellValue = [group.data  valueForKey:@"name"];
-
-    cell.textLabel.text = cellValue;
+//    NSArray *array = [dictionary objectForKey:@"data"];
+//    CBItem *group = [array objectAtIndex:indexPath.row];
+//
+//    NSString *cellValue = [group.data  valueForKey:@"name"];
+//
+//    cell.textLabel.text = cellValue;
     
     return cell;
 }
 
 - (IBAction)logoutClicked:(id)sender {
-    NSError * error;
-//    [[ClearIO settings] ioLogoutWithError:&error];
-    [[[ClearBlade settings] mainUser] logOutWithError:&error];
-    if(error){
-        CBLogError(@"Error logging out of ClearBlade Platform: <%@>", error);
-        return;
-    }else {
-//        [[[ClearIO settings] messageClient] disconnect];
-        [self.messageClient disconnect];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 
@@ -149,10 +102,10 @@
         NSDictionary *dictionary = [self.groups objectAtIndex:[self.selectedIndexPath indexAtPosition:0]];
 
         NSArray *array = [dictionary objectForKey:@"data"];
-        CBItem *group = [array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]];
-        NSMutableDictionary *grpInfo = group.data;
+//        CBItem *group = [array objectAtIndex:[self.selectedIndexPath indexAtPosition:1]];
+//        NSMutableDictionary *grpInfo = group.data;
 
-        self.groupInfo = [grpInfo copy];
+//        self.groupInfo = [grpInfo copy];
         if (![chatController isKindOfClass:[ChatViewController class]]){
             NSLog(@"Unexpected type of view controller");
             return;
