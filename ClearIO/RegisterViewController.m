@@ -9,13 +9,11 @@
 #import "RegisterViewController.h"
 #import "GroupListViewController.h"
 #import "ClearIOConstants.h"
-#import "CBAPI.h"
 
 @interface RegisterViewController ()
 @property UITextField *activeField;
 @property CGSize kbSize;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) CBCollection *userCol;
 @end
 
 @implementation RegisterViewController
@@ -59,13 +57,6 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
     
-}
-
--(CBCollection *)userCol {
-    if(!_userCol) {
-        _userCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
-    }
-    return _userCol;
 }
 
 - (void)didReceiveMemoryWarning
