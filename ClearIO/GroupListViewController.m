@@ -8,7 +8,6 @@
 
 #import "GroupListViewController.h"
 #import "ChatViewController.h"
-#import "ClearIOConstants.h"
 #import "GroupInfoViewController.h"
 
 @interface GroupListViewController ()
