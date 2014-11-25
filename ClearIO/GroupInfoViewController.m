@@ -7,6 +7,8 @@
 //
 
 #import "GroupInfoViewController.h"
+#import "CBAPI.h"
+#import "ClearIOConstants.h"
 #import "ChatViewController.h"
 
 @interface GroupInfoViewController ()
@@ -111,38 +113,19 @@
 
 - (void)createNewGroup {
 
-    NSMutableDictionary *newGroupInfo = [[NSMutableDictionary alloc] init];
-    newGroupInfo[@"name"] = self.groupName.text;
-    newGroupInfo[@"topic"] = @"defaultTopic";
-    newGroupInfo[@"collectionID"] = CHAT_GROUPS_COLLECTION;
-    [CBCode executeFunction:@"ioCreateGroup" withParams:@{@"group":newGroupInfo} withSuccessCallback:^(NSString *result) {
-
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[result dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-        NSDictionary *serverResponse = [json objectForKey: @"results"];
-        
-        if (![serverResponse[@"code"] isEqual:@200]) {
-            if([serverResponse[@"code"] isEqual:@409]) {
-                // open an alert that lets users know that the group already exists
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
-                                                                message:@"Group already exists" delegate:self cancelButtonTitle:@"Cancel"
-                                                      otherButtonTitles:@"OK", nil];
-                [alert show];
-            } else {
-                CBLogError(@"Error creating group: <%@>", serverResponse[@"message"]);
-            }
-        } else {
-            self.groupInfo = serverResponse[@"message"];
-            [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
-        }
-
-    } withErrorCallback:^(NSError *error) {
-        CBLogError(@"Error creating group: <%@>", error);
-    }];
     
 }
 
 - (void)updateGroup {
 
+    CBItem *group = [[[CBItem alloc] init] initWithData:self.groupInfo withCollectionID:CHAT_GROUPS_COLLECTION];
+    group.data[@"name"] = self.groupName.text;
+    
+    [group saveWithSuccessCallback:^(CBItem *item) {
+        [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
+    }withErrorCallback:^(CBItem *item, NSError *error, id JSON){
+        NSLog(@"Error updating group: <%@>", error);
+    }];
 
 }
 
