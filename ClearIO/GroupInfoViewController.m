@@ -7,9 +7,7 @@
 //
 
 #import "GroupInfoViewController.h"
-#import "ClearIOConstants.h"
 #import "ChatViewController.h"
-#import "CBAPI.h"
 
 @interface GroupInfoViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *usersInGroupTableView;
@@ -145,14 +143,6 @@
 
 - (void)updateGroup {
 
-    CBItem *group = [[[CBItem alloc] init] initWithData:self.groupInfo withCollectionID:CHAT_GROUPS_COLLECTION];
-    group.data[@"name"] = self.groupName.text;
-
-    [group saveWithSuccessCallback:^(CBItem *item) {
-        [self performSegueWithIdentifier:@"newGroupAddedSegue" sender:self];
-    }withErrorCallback:^(CBItem *item, NSError *error, id JSON){
-        NSLog(@"Error updating group: <%@>", error);
-    }];
 
 }
 

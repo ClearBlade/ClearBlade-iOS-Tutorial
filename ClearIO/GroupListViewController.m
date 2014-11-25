@@ -40,7 +40,7 @@
 }
 
 -(void) getGroups {
-    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: YOUR_GROUPS_COLLECTION ];
+    CBQuery *groupsQuery = [CBQuery queryWithCollectionID: CHAT_GROUPS_COLLECTION ];
     [groupsQuery setPageNum: [NSNumber numberWithInt:0]];
     [groupsQuery setPageSize: [NSNumber numberWithInt:0]];
     [groupsQuery fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
