@@ -9,12 +9,14 @@
 #import "ChatViewController.h"
 #import "GroupInfoViewController.h"
 #import "GroupListViewController.h"
+#import "CBAPI.h"
 
 @interface ChatViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatBox;
 @property (nonatomic) NSMutableArray *capturedImages;
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UINavigationItem *groupName;
+@property (strong, nonatomic) CBMessageClient * messageClient;
 @end
 
 @implementation ChatViewController
@@ -26,6 +28,32 @@
 @synthesize bottomBar = _bottomBar;
 @synthesize messages = _messages;
 @synthesize chatBox = _chatBox;
+
+-(CBMessageClient *)messageClient {
+    if (!_messageClient) {
+        _messageClient = [[CBMessageClient alloc] init];
+        _messageClient.delegate = self;
+    }
+    return _messageClient;
+}
+
+-(void)messageClientDidConnect:(CBMessageClient *)client {
+    [client subscribeToTopic:[self.groupInfo valueForKey:@"item_id"]];
+}
+
+-(void)messageClient:(CBMessageClient *)client didReceiveMessage:(CBMessage *)message {
+    NSDictionary *parsedMessage = [NSJSONSerialization JSONObjectWithData:message.payloadData options:0 error:nil];
+    
+    
+    if ([[parsedMessage valueForKey:@"type"] isEqualToString:@"text"]){
+        [self addMessage:[NSString stringWithFormat:@"%@: %@",[parsedMessage valueForKey:@"name"],[parsedMessage valueForKey:@"payload"]]];
+    } else if ([[parsedMessage valueForKey:@"type"] isEqualToString:@"img"]){
+        NSString *imageString = [parsedMessage valueForKey:@"payload"];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
+        UIImage *image = [UIImage imageWithData:imageData];
+        [self addImage:image fromUser:[parsedMessage valueForKey:@"name"]];
+    }
+}
 
 - (void)keyboardWillBeShown:(NSNotification*)notification {
     CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -65,6 +93,8 @@
     self.navigationItem.leftBarButtonItem = backButton;
     self.groupName.title = [self.groupInfo valueForKey:@"name"];
 
+    [self.messageClient connect];
+    
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeShown:)
@@ -197,7 +227,19 @@
 }
 
 - (IBAction)sendClicked {
-
+    NSError *error;
+    NSDictionary *tempUserInfo = [[[ClearBlade settings] mainUser] getCurrentUserInfoWithError:&error];
+    if(!error){
+        NSDictionary *messageObject = @{@"topic":[self.groupInfo valueForKey:@"item_id"],
+                                        @"name":[tempUserInfo valueForKey:@"firstname"],
+                                        @"type":@"text",
+                                        @"payload":self.messageField.text,
+                                        @"user_id":[tempUserInfo valueForKey:@"email"]};
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:messageObject options:0 error:nil];
+        NSString* messageString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        [self.messageClient publishMessage:messageString toTopic:[self.groupInfo valueForKey:@"item_id"]];
+        self.messageField.text = @"";
+    }
 }
 
 - (IBAction)imgClicked:(id)sender {
