@@ -69,40 +69,6 @@
     return _usersInGroup;
 }
 
-//- (void)getAllUsers {
-//    CBCollection *allUsersCol = [CBCollection collectionWithID:CHAT_USER_COLLECTION];
-//    [allUsersCol fetchWithSuccessCallback:^(CBQueryResponse *successfulResponse) {
-//        NSMutableArray *returnedGroups = successfulResponse.dataItems;
-//        if ([returnedGroups count] > 0){
-//            [self.allUsers addObjectsFromArray:successfulResponse.dataItems];
-//            [self.allUsersTableView reloadData];
-//            if (![[self.groupInfo valueForKey:@"is_public"] boolValue]){
-//               [self getUsersInGroup];
-//            }
-//        }
-//    } withErrorCallback:^(NSError *error, id JSON) {
-//        
-//    }];
-//}
-
-//- (void)getUsersInGroup {
-//    //pull users from self.groupInfo
-//    NSArray *userEmails = [self.groupInfo valueForKey:@"users"];
-//    NSMutableArray *usersInGroup = [[NSMutableArray alloc] init];
-//    //has to be a better way to do this.. but for now we need to populate self.usersInGroup with email/fname/lname using the array of emails in usersEmails
-//    //nested loop first loop through userEMails, then allUsers, and if emails match, push a NSDictionary with email/fname/lname to usersInGroup
-//    for (id email in userEmails){
-//        for(id user in self.allUsers){
-//            if ([email isEqualToString:[[user data] valueForKey:@"email"]]){
-//                [usersInGroup addObject:user];
-//            }
-//        }
-//    }
-//    
-//    [self.usersInGroup addObjectsFromArray:usersInGroup];
-//    [self.usersInGroupTableView reloadData];
-//}
-
 - (IBAction)doneClicked:(id)sender {
     if (self.isNewGroup) {
         [self createNewGroup];
