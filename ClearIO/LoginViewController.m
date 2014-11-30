@@ -45,8 +45,8 @@
 
 -(void) loginWithUser:(NSString *) userString withPassword:(NSString *) passwordString{
     NSError *error;
-    [ClearBlade initSettingsSyncWithSystemKey: YOUR_SYSTEM_KEY
-                             withSystemSecret: YOUR_SYSTEM_SECRET
+    [ClearBlade initSettingsSyncWithSystemKey: CHAT_SYSTEM_KEY
+                             withSystemSecret: CHAT_SYSTEM_SECRET
                                   withOptions:@{CBSettingsOptionEmail:userString,
                                                 CBSettingsOptionPassword:passwordString,
                                                 CBSettingsOptionLoggingLevel:@(CB_LOG_EXTRA),
